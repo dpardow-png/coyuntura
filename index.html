@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seguimiento de coyuntura — @pardow-png</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF1E5;--divider:#E8D5BD;--divider-strong:#C9B095;--text:#2A1B0F;--text-muted:#5C4A3A;--text-subtle:#8E7B68;--accent:#0F5499;--teal:#008B8B;--claret:#990F3D;--gold:#B8860B;--slate:#5C7A8C;--line:#2A1B0F}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);font-family:'Inter',-apple-system,sans-serif;color:var(--text)}
+.wrap{max-width:1020px;margin:0 auto;padding:34px 28px 60px}
+.topbar{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:12px;border-bottom:1.5px solid var(--text);margin-bottom:26px}
+.brand{font-family:'Spectral',serif;font-weight:600;font-size:20px;letter-spacing:-.005em}
+.brand a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(15,84,153,.3)}
+.brand a:hover{border-bottom-color:var(--accent)}
+.brand span{font-weight:300;color:var(--text)}
+.topbar-right{font-size:10.5px;text-transform:uppercase;letter-spacing:.18em;color:var(--text-muted);font-weight:500}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.22em;color:var(--accent);font-weight:600;margin-bottom:8px}
+h1{font-family:'Spectral',serif;font-size:40px;font-weight:500;letter-spacing:-.015em;line-height:1.05;margin:0 0 20px}
+.hero{display:flex;gap:38px;align-items:flex-start;flex-wrap:wrap}
+.big-net{font-family:'Spectral',serif;font-size:76px;font-weight:500;line-height:1;letter-spacing:-.02em;color:var(--claret)}
+.big-delta{font-size:12.5px;font-weight:600;margin-top:6px;letter-spacing:.03em}
+.big-label{font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:var(--text-subtle);margin-top:8px;max-width:190px;line-height:1.6}
+.closer{font-family:'Spectral',serif;font-style:italic;font-size:19px;color:var(--accent);line-height:1.45;border-left:3px solid var(--accent);padding:4px 0 4px 18px;margin:6px 0 0;flex:1 1 380px;max-width:600px}
+.section{margin-top:46px}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--divider-strong);padding-bottom:8px;margin-bottom:18px;gap:16px}
+h2{font-family:'Spectral',serif;font-size:24px;font-weight:500;margin:0;letter-spacing:-.01em}
+.section-note{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--text-subtle);text-align:right}
+.chart svg{width:100%;height:auto;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:10px}
+.li{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--text-muted);font-weight:500}
+.dot{width:9px;height:9px;border-radius:50%}
+.lin{width:22px;height:3px;background:var(--line)}
+.caption{font-size:10.5px;color:var(--text-subtle);line-height:1.55;margin-top:12px;font-style:italic}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.blk{margin-bottom:26px;max-width:78ch}.blk p{font-family:'Spectral',serif;font-size:16px;font-weight:300;line-height:1.6;margin:8px 0 0}
+.pill{display:inline-block;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;padding:3px 10px;border-radius:100px;margin-bottom:10px}
+.p-neg{background:rgba(153,15,61,.1);color:var(--claret)}
+.p-pos{background:rgba(0,139,139,.12);color:var(--teal)}
+.p-neu{background:rgba(92,122,140,.14);color:var(--slate)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{text-align:left;font-size:9.5px;text-transform:uppercase;letter-spacing:.13em;color:var(--text-muted);font-weight:600;padding:8px 8px 8px 0;border-bottom:1.5px solid var(--text)}
+tbody td{padding:9px 8px 9px 0;border-bottom:1px solid var(--divider);vertical-align:top}
+td.wk{font-weight:600;white-space:nowrap;color:var(--text-muted);font-size:12px}
+td.nt{font-family:'Spectral',serif;font-size:14.5px}
+td.num{font-variant-numeric:tabular-nums;font-weight:600;text-align:right}
+tr.skip td{color:var(--text-subtle);font-style:italic}
+.tag{display:inline-block;font-size:9.5px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;padding:2px 8px;border-radius:100px}
+.t-eco{background:rgba(15,84,153,.1);color:var(--accent)}
+.t-pol{background:rgba(184,134,11,.14);color:var(--gold)}
+.t-seg{background:rgba(153,15,61,.10);color:var(--claret)}
+.sg{font-weight:600}.s-pos{color:var(--teal)}.s-neg{color:var(--claret)}.s-neu{color:var(--text-subtle)}
+.scroll{overflow-x:auto}
+.notes{margin-top:52px;padding-top:12px;border-top:1.5px solid var(--text)}
+.notes h3{font-size:9px;text-transform:uppercase;letter-spacing:.18em;color:var(--text-muted);font-weight:600;margin:0 0 12px}
+.notes dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0;font-size:10px;line-height:1.55}
+.notes dt{font-weight:600;color:var(--text-muted);white-space:nowrap}
+.notes dd{margin:0;color:var(--text-subtle)}
+.foot{margin-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:9.5px;text-transform:uppercase;letter-spacing:.15em;color:var(--text-subtle)}
+.foot a{color:var(--text-subtle);text-decoration:none}
+@media(max-width:760px){h1{font-size:29px}.big-net{font-size:56px}.grid3{grid-template-columns:1fr;gap:24px}.wrap{padding:24px 18px 48px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar">
+  <div class="brand"><a href="https://dpardow-png.github.io">@pardow-png</a> <span>· Seguimiento de coyuntura</span></div>
+  <div class="topbar-right" id="upd"></div>
+</div>
+
+<div class="kicker">Opinión pública · Chile</div>
+<h1>Aprobación presidencial y agenda de la semana</h1>
+
+<div class="hero">
+  <div>
+    <div class="big-net" id="net"></div>
+    <div class="big-delta" id="delta"></div>
+    <div class="big-label">Aprobación neta · media móvil ponderada</div>
+  </div>
+  <div class="closer" id="sint"></div>
+</div>
+
+<div class="section">
+  <div class="section-head"><h2>Aprobación neta</h2><div class="section-note">Aprobación − desaprobación, puntos porcentuales</div></div>
+  <div class="chart" id="c1"></div>
+  <div class="legend" id="lg1"></div>
+  <div class="caption">La línea es una media móvil ponderada por tamaño muestral: en cada fecha se promedia la última medición de cada encuesta dentro de una ventana de 21 días. Los puntos son mediciones individuales.</div>
+</div>
+
+<div class="section">
+  <div class="section-head"><h2>Caracterización de la semana</h2><div class="section-note">Solo las categorías presentes en la noticia de la semana</div></div>
+  <div id="carac"></div>
+</div>
+
+<div class="section">
+  <div class="section-head"><h2>Tema de la quincena</h2><div class="section-note">Activa · principales problemas del país<br>participación de cada categoría en el total de menciones</div></div>
+  <div class="chart" id="c2"></div>
+  <div class="legend" id="lg2"></div>
+  <div class="caption">Respuesta guiada, tres menciones por persona. Las series suman 100, de modo que una categoría solo sube si otra cede. El nivel entre categorías no es comparable, porque depende de cuántas opciones de cada tema ofrece el listado; lo que sí es comparable es cómo se mueve cada serie respecto de sí misma. Economía agrupa inflación, desempleo, economía, sueldos, desigualdad y pobreza; Seguridad agrupa delincuencia, seguridad pública, narcotráfico, inmigración y terrorismo; Política agrupa corrupción, gestión del gobierno, estabilidad política y justicia.</div>
+</div>
+
+<div class="section">
+  <div class="section-head"><h2>Tema de la semana</h2><div class="section-note">CADEM · noticia más importante<br>clasificada por tema y signo para el gobierno</div></div>
+  <div class="scroll"><table><thead><tr>
+    <th>Semana</th><th>Noticia 1</th><th class="num">%</th><th>Tema</th><th>PM</th>
+    <th>Noticia 2</th><th class="num">%</th><th>Tema</th><th>PM</th>
+    <th>SEM</th>
+  </tr></thead><tbody id="tb"></tbody></table></div>
+</div>
+
+<div class="section">
+  <div class="section-head"><h2>Economía personal</h2><div class="section-note">Activa · situación económica personal<br>razón entre evaluación mala y buena</div></div>
+  <div class="chart" id="c4"></div>
+  <div class="caption">Razón entre quienes califican su situación económica personal como mala o muy mala y quienes la califican como buena o muy buena. Un valor de 2 significa que por cada persona que la evalúa bien hay dos que la evalúan mal. La línea de referencia en 1 marca el punto de equilibrio. Serie quincenal de Activa desde enero de 2023; la serie semanal equivalente de CADEM se incorpora cuando dispongamos del PDF.</div>
+</div>
+
+<div class="section">
+  <div class="section-head"><h2>Victimización</h2><div class="section-note">Activa · hogares víctimas de robo o asalto<br>razón entre hogares no victimizados y victimizados</div></div>
+  <div class="chart" id="c3"></div>
+  <div class="caption">Razón entre hogares que no han sido víctimas de robo o asalto en los últimos tres meses y los que sí. Un valor de 3 significa que por cada hogar victimizado hay tres que no lo fueron: cuanto más alto, menos victimización. Sube de forma sostenida desde 2023, en dirección contraria al peso de la delincuencia entre las preocupaciones del país.</div>
+</div>
+
+<div class="notes">
+  <h3>Notas metodológicas</h3>
+  <dl>
+    <dt>Aprobación neta</dt><dd>Aprobación menos desaprobación, en puntos porcentuales. La media móvil pondera por tamaño muestral la última medición de cada encuesta dentro de una ventana de 21 días.</dd>
+    <dt>Semana</dt><dd>Se rotula con la fecha de terreno de la segunda medición semanal de CADEM, que es la que CADEM asocia a cada noticia.</dd>
+    <dt>Signo (PM)</dt><dd>Efecto de la noticia sobre el gobierno: + favorable, − desfavorable, · neutro. Los hechos protagonizados por actores ajenos al gobierno se codifican como neutros.</dd>
+    <dt>Eco · Seg · Pol</dt><dd>Suma de porcentajes ponderados por signo dentro de cada categoría. SEM indica la categoría de mayor magnitud absoluta y, entre paréntesis, el saldo total de la semana.</dd>
+    <dt>Tags</dt><dd>Las historias recurrentes usan un tag fijo con la variante entre paréntesis: costo de la vida, avance agenda económica, guerra de Irán, cobro deudas CAE, irregularidades en CODELCO. El resto va como texto libre.</dd>
+    <dt>Encuestas</dt><dd>CADEM Plaza Pública (bisemanal, panel online, ~1.000 casos), Criteria Agenda (semanal, panel online, ~800 casos) y Activa Pulso Ciudadano (quincenal, panel online, ~1.000 casos).</dd>
+    <dt>4 de junio</dt><dd>CADEM no consultó la noticia de la semana; el terreno de esa semana estuvo dedicado a la primera Cuenta Pública.</dd>
+  </dl>
+</div>
+
+<div class="foot">
+  <div>Diego Pardow · <a href="https://dpardow-png.github.io">@pardow-png</a></div>
+  <div>Fuentes: CADEM · Criteria · Activa</div>
+</div>
+</div>
+
+<!-- ══════ DATOS · lo único que cambia cada domingo ══════ -->
+<script>
+window.DATA = {
+  "updated": "2026-07-13",
+  "pollsters": {
+    "CADEM": {
+      "color": "#0F5499"
+    },
+    "Criteria": {
+      "color": "#008B8B"
+    },
+    "Activa": {
+      "color": "#5C7A8C"
+    }
+  },
+  "events": [
+    {
+      "date": "2026-03-20",
+      "label": "Alza de combustibles"
+    }
+  ],
+  "polls": [
+    {
+      "pollster": "CADEM",
+      "date": "2026-03-13",
+      "net": 23,
+      "n": 1000
+    },
+    {
+      "pollster": "Activa",
+      "date": "2026-03-13",
+      "net": 21.2,
+      "n": 1024
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-03-15",
+      "net": 16,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-03-17",
+      "net": 21,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-03-20",
+      "net": 9,
+      "n": 1000
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-03-22",
+      "net": 13,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-03-24",
+      "net": -2,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-03-26",
+      "net": -8,
+      "n": 1000
+    },
+    {
+      "pollster": "Activa",
+      "date": "2026-03-27",
+      "net": -14.0,
+      "n": 1012
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-03-29",
+      "net": -4,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-04-01",
+      "net": -8,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-04-03",
+      "net": -11,
+      "n": 1000
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-04-05",
+      "net": -4,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-04-08",
+      "net": -13,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-04-10",
+      "net": -11,
+      "n": 1000
+    },
+    {
+      "pollster": "Activa",
+      "date": "2026-04-10",
+      "net": -20.0,
+      "n": 1141
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-04-12",
+      "net": -13,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-04-16",
+      "net": -13,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-04-17",
+      "net": -8,
+      "n": 1000
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-04-19",
+      "net": -12,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-04-23",
+      "net": -8,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-04-24",
+      "net": -12,
+      "n": 1000
+    },
+    {
+      "pollster": "Activa",
+      "date": "2026-04-24",
+      "net": -26.5,
+      "n": 1009
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-04-26",
+      "net": -11,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-04-28",
+      "net": -17,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-05-01",
+      "net": -18,
+      "n": 1000
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-05-03",
+      "net": -13,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-05-06",
+      "net": -18,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-05-08",
+      "net": -11,
+      "n": 1000
+    },
+    {
+      "pollster": "Activa",
+      "date": "2026-05-08",
+      "net": -23.2,
+      "n": 1034
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-05-10",
+      "net": -15,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-05-13",
+      "net": -15,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-05-15",
+      "net": -22,
+      "n": 1000
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-05-17",
+      "net": -15,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-05-20",
+      "net": -16,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-05-22",
+      "net": -14,
+      "n": 1000
+    },
+    {
+      "pollster": "Activa",
+      "date": "2026-05-22",
+      "net": -22.3,
+      "n": 1082
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-05-24",
+      "net": -12,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-05-27",
+      "net": -17,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-05-29",
+      "net": -20,
+      "n": 1000
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-05-31",
+      "net": -17,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-06-02",
+      "net": -14,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-06-04",
+      "net": -7,
+      "n": 1000
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-06-07",
+      "net": -7,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-06-10",
+      "net": -12,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-06-12",
+      "net": -14,
+      "n": 1000
+    },
+    {
+      "pollster": "Activa",
+      "date": "2026-06-12",
+      "net": -26.2,
+      "n": 1036
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-06-14",
+      "net": -13,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-06-18",
+      "net": -8,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-06-19",
+      "net": -9,
+      "n": 1000
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-06-21",
+      "net": -12,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-06-24",
+      "net": -14,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-06-26",
+      "net": -12,
+      "n": 1000
+    },
+    {
+      "pollster": "Activa",
+      "date": "2026-06-26",
+      "net": -26.8,
+      "n": 1011
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-06-28",
+      "net": -12,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-07-01",
+      "net": -20,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-07-03",
+      "net": -23,
+      "n": 1000
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-07-05",
+      "net": -18,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-07-08",
+      "net": -21,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-07-10",
+      "net": -20,
+      "n": 1000
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-07-12",
+      "net": -23,
+      "n": 801
+    }
+  ],
+  "news": [
+    {
+      "week": "2026-07-10",
+      "items": [
+        {
+          "text": "Guerra de Irán (escalamiento)",
+          "pct": 22,
+          "cat": "Eco",
+          "sign": -1
+        },
+        {
+          "text": "Avance agenda económica (Senado)",
+          "pct": 20,
+          "cat": "Eco",
+          "sign": 1
+        }
+      ]
+    },
+    {
+      "week": "2026-07-03",
+      "items": [
+        {
+          "text": "Terremotos en Venezuela",
+          "pct": 40,
+          "cat": "Pol",
+          "sign": 0
+        },
+        {
+          "text": "Desempleo e Imacec negativos",
+          "pct": 19,
+          "cat": "Eco",
+          "sign": -1
+        }
+      ]
+    },
+    {
+      "week": "2026-06-26",
+      "items": [
+        {
+          "text": "Asesinato de menor en encerrona",
+          "pct": 51,
+          "cat": "Seg",
+          "sign": -1
+        },
+        {
+          "text": "Terremotos en Venezuela",
+          "pct": 17,
+          "cat": "Pol",
+          "sign": 0
+        }
+      ]
+    },
+    {
+      "week": "2026-06-19",
+      "items": [
+        {
+          "text": "Caso de niños haitianos",
+          "pct": 41,
+          "cat": "Pol",
+          "sign": -1
+        },
+        {
+          "text": "Cobro deudas CAE",
+          "pct": 20,
+          "cat": "Eco",
+          "sign": -1
+        }
+      ]
+    },
+    {
+      "week": "2026-06-12",
+      "items": [
+        {
+          "text": "Cobro deudas CAE",
+          "pct": 54,
+          "cat": "Eco",
+          "sign": -1
+        },
+        {
+          "text": "Debate secreto bancario",
+          "pct": 15,
+          "cat": "Pol",
+          "sign": 0
+        }
+      ]
+    },
+    {
+      "week": "2026-06-04",
+      "items": []
+    },
+    {
+      "week": "2026-05-29",
+      "items": [
+        {
+          "text": "Irregularidades en CODELCO",
+          "pct": 29,
+          "cat": "Eco",
+          "sign": -1
+        },
+        {
+          "text": "Avance agenda económica (Senado)",
+          "pct": 22,
+          "cat": "Eco",
+          "sign": 1
+        }
+      ]
+    },
+    {
+      "week": "2026-05-22",
+      "items": [
+        {
+          "text": "Cambio de gabinete",
+          "pct": 34,
+          "cat": "Pol",
+          "sign": 1
+        },
+        {
+          "text": "Avance agenda económica",
+          "pct": 32,
+          "cat": "Eco",
+          "sign": 1
+        }
+      ]
+    },
+    {
+      "week": "2026-05-15",
+      "items": [
+        {
+          "text": "Avance agenda económica",
+          "pct": 35,
+          "cat": "Eco",
+          "sign": 1
+        },
+        {
+          "text": "Visita de Trump a China",
+          "pct": 19,
+          "cat": "Pol",
+          "sign": 0
+        }
+      ]
+    },
+    {
+      "week": "2026-05-08",
+      "items": [
+        {
+          "text": "Avance agenda económica",
+          "pct": 31,
+          "cat": "Eco",
+          "sign": 1
+        },
+        {
+          "text": "Investigación senadora Flores",
+          "pct": 18,
+          "cat": "Pol",
+          "sign": 0
+        }
+      ]
+    },
+    {
+      "week": "2026-05-01",
+      "items": [
+        {
+          "text": "Recorte presupuesto",
+          "pct": 40,
+          "cat": "Eco",
+          "sign": -1
+        },
+        {
+          "text": "Avance agenda económica",
+          "pct": 18,
+          "cat": "Eco",
+          "sign": 1
+        }
+      ]
+    },
+    {
+      "week": "2026-04-24",
+      "items": [
+        {
+          "text": "Avance agenda económica",
+          "pct": 34,
+          "cat": "Eco",
+          "sign": 1
+        },
+        {
+          "text": "Costo de la vida (UF sobre 40 mil)",
+          "pct": 21,
+          "cat": "Eco",
+          "sign": -1
+        }
+      ]
+    },
+    {
+      "week": "2026-04-17",
+      "items": [
+        {
+          "text": "Guerra de Irán (tregua)",
+          "pct": 33,
+          "cat": "Eco",
+          "sign": 1
+        },
+        {
+          "text": "Avance agenda económica",
+          "pct": 27,
+          "cat": "Eco",
+          "sign": 1
+        }
+      ]
+    },
+    {
+      "week": "2026-04-10",
+      "items": [
+        {
+          "text": "Agresión a ministra",
+          "pct": 27,
+          "cat": "Pol",
+          "sign": -1
+        },
+        {
+          "text": "Investigación senadora Flores",
+          "pct": 20,
+          "cat": "Pol",
+          "sign": 0
+        }
+      ]
+    },
+    {
+      "week": "2026-04-03",
+      "items": [
+        {
+          "text": "Asesinato inspectora Calama",
+          "pct": 52,
+          "cat": "Seg",
+          "sign": -1
+        },
+        {
+          "text": "Costo de la vida (medidas paliativas)",
+          "pct": 10,
+          "cat": "Eco",
+          "sign": 1
+        }
+      ]
+    },
+    {
+      "week": "2026-03-26",
+      "items": [
+        {
+          "text": "Costo de la vida (alza combustibles)",
+          "pct": 75,
+          "cat": "Eco",
+          "sign": -1
+        },
+        {
+          "text": "Retiro apoyo ONU Bachelet",
+          "pct": 8,
+          "cat": "Pol",
+          "sign": -1
+        }
+      ]
+    },
+    {
+      "week": "2026-03-20",
+      "items": [
+        {
+          "text": "Costo de la vida (alza combustibles)",
+          "pct": 30,
+          "cat": "Eco",
+          "sign": -1
+        },
+        {
+          "text": "Plan Escudo Fronterizo",
+          "pct": 21,
+          "cat": "Seg",
+          "sign": 1
+        }
+      ]
+    }
+  ],
+  "agenda": [
+    {
+      "wave": "Dic 23",
+      "eco": 35.0,
+      "seg": 48.2,
+      "pol": 16.8
+    },
+    {
+      "wave": "Ene 24",
+      "eco": 28.7,
+      "seg": 53.1,
+      "pol": 18.2
+    },
+    {
+      "wave": "Feb 24",
+      "eco": 28.8,
+      "seg": 52.4,
+      "pol": 18.8
+    },
+    {
+      "wave": "Mar 24",
+      "eco": 30.6,
+      "seg": 50.5,
+      "pol": 18.9
+    },
+    {
+      "wave": "Abr 24",
+      "eco": 32.2,
+      "seg": 51.3,
+      "pol": 16.4
+    },
+    {
+      "wave": "May 24",
+      "eco": 32.7,
+      "seg": 48.9,
+      "pol": 18.4
+    },
+    {
+      "wave": "Jun 24",
+      "eco": 35.9,
+      "seg": 46.9,
+      "pol": 17.1
+    },
+    {
+      "wave": "Jul 24",
+      "eco": 29.9,
+      "seg": 50.5,
+      "pol": 19.6
+    },
+    {
+      "wave": "Ago 24",
+      "eco": 31.7,
+      "seg": 47.2,
+      "pol": 21.1
+    },
+    {
+      "wave": "Sep 24",
+      "eco": 32.8,
+      "seg": 46.2,
+      "pol": 21.0
+    },
+    {
+      "wave": "Oct 24",
+      "eco": 28.2,
+      "seg": 46.9,
+      "pol": 24.9
+    },
+    {
+      "wave": "Nov 24",
+      "eco": 35.4,
+      "seg": 43.3,
+      "pol": 21.2
+    },
+    {
+      "wave": "Dic 24",
+      "eco": 32.0,
+      "seg": 48.8,
+      "pol": 19.2
+    },
+    {
+      "wave": "Ene 25",
+      "eco": 33.6,
+      "seg": 51.8,
+      "pol": 14.5
+    },
+    {
+      "wave": "Feb 25",
+      "eco": 27.9,
+      "seg": 50.2,
+      "pol": 21.9
+    },
+    {
+      "wave": "Mar 25",
+      "eco": 28.0,
+      "seg": 52.6,
+      "pol": 19.4
+    },
+    {
+      "wave": "Abr 25",
+      "eco": 31.5,
+      "seg": 50.4,
+      "pol": 18.0
+    },
+    {
+      "wave": "May 25",
+      "eco": 34.2,
+      "seg": 44.6,
+      "pol": 21.2
+    },
+    {
+      "wave": "Jun 25",
+      "eco": 31.4,
+      "seg": 50.1,
+      "pol": 18.5
+    },
+    {
+      "wave": "Jul 25",
+      "eco": 34.2,
+      "seg": 47.0,
+      "pol": 18.8
+    },
+    {
+      "wave": "Ago 25-1",
+      "eco": 31.9,
+      "seg": 48.7,
+      "pol": 19.4
+    },
+    {
+      "wave": "Ago 25-2",
+      "eco": 34.5,
+      "seg": 47.0,
+      "pol": 18.5
+    },
+    {
+      "wave": "Sep 25",
+      "eco": 32.3,
+      "seg": 49.6,
+      "pol": 18.1
+    },
+    {
+      "wave": "Oct 25-1",
+      "eco": 32.7,
+      "seg": 49.5,
+      "pol": 17.8
+    },
+    {
+      "wave": "Nov 25",
+      "eco": 29.4,
+      "seg": 50.1,
+      "pol": 20.4
+    },
+    {
+      "wave": "Dic 25",
+      "eco": 29.0,
+      "seg": 51.5,
+      "pol": 19.5
+    },
+    {
+      "wave": "Ene 26",
+      "eco": 29.7,
+      "seg": 48.0,
+      "pol": 22.3
+    },
+    {
+      "wave": "Feb 26",
+      "eco": 31.2,
+      "seg": 47.0,
+      "pol": 21.7
+    },
+    {
+      "wave": "Mar 26-1",
+      "eco": 32.2,
+      "seg": 50.1,
+      "pol": 17.7
+    },
+    {
+      "wave": "Mar 26-2",
+      "eco": 45.3,
+      "seg": 36.8,
+      "pol": 17.9
+    },
+    {
+      "wave": "Abr 26-1",
+      "eco": 41.9,
+      "seg": 39.9,
+      "pol": 18.2
+    },
+    {
+      "wave": "Abr 26-2",
+      "eco": 44.5,
+      "seg": 39.1,
+      "pol": 16.4
+    },
+    {
+      "wave": "May 26-1",
+      "eco": 42.0,
+      "seg": 38.9,
+      "pol": 19.1
+    },
+    {
+      "wave": "May 26-2",
+      "eco": 40.3,
+      "seg": 41.4,
+      "pol": 18.3
+    },
+    {
+      "wave": "Jun 26-1",
+      "eco": 41.6,
+      "seg": 38.6,
+      "pol": 19.8
+    },
+    {
+      "wave": "Jun 26-2",
+      "eco": 39.4,
+      "seg": 41.9,
+      "pol": 18.7
+    }
+  ],
+  "agenda_event": {
+    "wave": "Mar 26-2",
+    "label": "Alza de combustibles"
+  },
+  "caracterizacion": {
+    "Eco": "El principal tema de la semana fue el escalamiento de la guerra en Irán (22%), que pesa contra el avance de la mega reforma en el Senado (20%), para una agenda económica con saldo levemente negativo (−2). La economía sigue pesando cerca de un 40% en las preocupaciones de la quincena, empatada con seguridad y muy por sobre el 30% que promediaba antes del alza de combustibles. En términos de percepción doméstica, quienes califican su situación económica personal como mala siguen dominando más de 2 a 1 sobre quienes la consideran buena (36,7% contra 15,0% en Activa; 56% de evaluación negativa en CADEM, quince semanas consecutivas por sobre la positiva).",
+    "Seg": "",
+    "Pol": ""
+  },
+  "domestica": [
+    {
+      "wave": "Ene 23",
+      "buena": 10.8,
+      "mala": 49.5,
+      "neto": -38.7,
+      "ratio": 4.58
+    },
+    {
+      "wave": "Feb 23",
+      "buena": 16.6,
+      "mala": 45.4,
+      "neto": -28.8,
+      "ratio": 2.73
+    },
+    {
+      "wave": "Mar 23",
+      "buena": 13.1,
+      "mala": 44.7,
+      "neto": -31.6,
+      "ratio": 3.41
+    },
+    {
+      "wave": "Abr 23-1",
+      "buena": 16.0,
+      "mala": 41.0,
+      "neto": -25.0,
+      "ratio": 2.56
+    },
+    {
+      "wave": "Abr 23-2",
+      "buena": 15.3,
+      "mala": 44.3,
+      "neto": -29.0,
+      "ratio": 2.9
+    },
+    {
+      "wave": "May 23",
+      "buena": 13.7,
+      "mala": 40.7,
+      "neto": -27.0,
+      "ratio": 2.97
+    },
+    {
+      "wave": "Jun 23",
+      "buena": 13.3,
+      "mala": 43.6,
+      "neto": -30.3,
+      "ratio": 3.28
+    },
+    {
+      "wave": "Jul 23",
+      "buena": 11.8,
+      "mala": 46.1,
+      "neto": -34.3,
+      "ratio": 3.91
+    },
+    {
+      "wave": "Ago 23",
+      "buena": 13.8,
+      "mala": 48.0,
+      "neto": -34.2,
+      "ratio": 3.48
+    },
+    {
+      "wave": "Sep 23",
+      "buena": 15.1,
+      "mala": 49.1,
+      "neto": -34.0,
+      "ratio": 3.25
+    },
+    {
+      "wave": "Oct 23",
+      "buena": 16.2,
+      "mala": 41.9,
+      "neto": -25.7,
+      "ratio": 2.59
+    },
+    {
+      "wave": "Nov 23",
+      "buena": 14.4,
+      "mala": 48.0,
+      "neto": -33.6,
+      "ratio": 3.33
+    },
+    {
+      "wave": "Dic 23",
+      "buena": 13.7,
+      "mala": 44.5,
+      "neto": -30.8,
+      "ratio": 3.25
+    },
+    {
+      "wave": "Ene 24",
+      "buena": 12.7,
+      "mala": 44.4,
+      "neto": -31.7,
+      "ratio": 3.5
+    },
+    {
+      "wave": "Feb 24",
+      "buena": 13.9,
+      "mala": 44.8,
+      "neto": -30.9,
+      "ratio": 3.22
+    },
+    {
+      "wave": "Mar 24",
+      "buena": 13.6,
+      "mala": 42.4,
+      "neto": -28.8,
+      "ratio": 3.12
+    },
+    {
+      "wave": "Abr 24",
+      "buena": 15.2,
+      "mala": 46.2,
+      "neto": -31.0,
+      "ratio": 3.04
+    },
+    {
+      "wave": "May 24",
+      "buena": 20.6,
+      "mala": 39.9,
+      "neto": -19.3,
+      "ratio": 1.94
+    },
+    {
+      "wave": "Jun 24",
+      "buena": 16.4,
+      "mala": 43.7,
+      "neto": -27.3,
+      "ratio": 2.66
+    },
+    {
+      "wave": "Jul 24",
+      "buena": 15.2,
+      "mala": 49.0,
+      "neto": -33.8,
+      "ratio": 3.22
+    },
+    {
+      "wave": "Ago 24",
+      "buena": 15.0,
+      "mala": 44.0,
+      "neto": -29.0,
+      "ratio": 2.93
+    },
+    {
+      "wave": "Sep 24",
+      "buena": 19.5,
+      "mala": 45.2,
+      "neto": -25.7,
+      "ratio": 2.32
+    },
+    {
+      "wave": "Oct 24",
+      "buena": 16.2,
+      "mala": 41.7,
+      "neto": -25.5,
+      "ratio": 2.57
+    },
+    {
+      "wave": "Nov 24",
+      "buena": 13.8,
+      "mala": 44.8,
+      "neto": -31.0,
+      "ratio": 3.25
+    },
+    {
+      "wave": "Dic 24",
+      "buena": 14.0,
+      "mala": 43.5,
+      "neto": -29.5,
+      "ratio": 3.11
+    },
+    {
+      "wave": "Ene 25",
+      "buena": 15.1,
+      "mala": 42.0,
+      "neto": -26.9,
+      "ratio": 2.78
+    },
+    {
+      "wave": "Feb 25",
+      "buena": 16.8,
+      "mala": 40.1,
+      "neto": -23.3,
+      "ratio": 2.39
+    },
+    {
+      "wave": "Mar 25",
+      "buena": 14.1,
+      "mala": 41.9,
+      "neto": -27.8,
+      "ratio": 2.97
+    },
+    {
+      "wave": "Abr 25",
+      "buena": 20.0,
+      "mala": 41.2,
+      "neto": -21.2,
+      "ratio": 2.06
+    },
+    {
+      "wave": "May 25",
+      "buena": 14.8,
+      "mala": 42.1,
+      "neto": -27.3,
+      "ratio": 2.84
+    },
+    {
+      "wave": "Jun 25",
+      "buena": 16.8,
+      "mala": 37.0,
+      "neto": -20.2,
+      "ratio": 2.2
+    },
+    {
+      "wave": "Jul 25",
+      "buena": 15.6,
+      "mala": 44.4,
+      "neto": -28.8,
+      "ratio": 2.85
+    },
+    {
+      "wave": "Ago 25-1",
+      "buena": 14.9,
+      "mala": 47.0,
+      "neto": -32.1,
+      "ratio": 3.15
+    },
+    {
+      "wave": "Ago 25-2",
+      "buena": 19.0,
+      "mala": 43.9,
+      "neto": -24.9,
+      "ratio": 2.31
+    },
+    {
+      "wave": "Sep 25",
+      "buena": 17.2,
+      "mala": 40.3,
+      "neto": -23.1,
+      "ratio": 2.34
+    },
+    {
+      "wave": "Oct 25-1",
+      "buena": 17.6,
+      "mala": 40.6,
+      "neto": -23.0,
+      "ratio": 2.31
+    },
+    {
+      "wave": "Nov 25",
+      "buena": 21.1,
+      "mala": 33.5,
+      "neto": -12.4,
+      "ratio": 1.59
+    },
+    {
+      "wave": "Dic 25",
+      "buena": 22.7,
+      "mala": 28.7,
+      "neto": -6.0,
+      "ratio": 1.26
+    },
+    {
+      "wave": "Ene 26",
+      "buena": 23.9,
+      "mala": 30.7,
+      "neto": -6.8,
+      "ratio": 1.28
+    },
+    {
+      "wave": "Feb 26",
+      "buena": 21.2,
+      "mala": 29.6,
+      "neto": -8.4,
+      "ratio": 1.4
+    },
+    {
+      "wave": "Mar 26-1",
+      "buena": 21.1,
+      "mala": 30.6,
+      "neto": -9.5,
+      "ratio": 1.45
+    },
+    {
+      "wave": "Mar 26-2",
+      "buena": 15.7,
+      "mala": 38.7,
+      "neto": -23.0,
+      "ratio": 2.46
+    },
+    {
+      "wave": "Abr 26-1",
+      "buena": 14.8,
+      "mala": 37.0,
+      "neto": -22.2,
+      "ratio": 2.5
+    },
+    {
+      "wave": "Abr 26-2",
+      "buena": 13.7,
+      "mala": 40.7,
+      "neto": -27.0,
+      "ratio": 2.97
+    },
+    {
+      "wave": "May 26-1",
+      "buena": 15.7,
+      "mala": 36.5,
+      "neto": -20.8,
+      "ratio": 2.32
+    },
+    {
+      "wave": "May 26-2",
+      "buena": 17.7,
+      "mala": 36.0,
+      "neto": -18.3,
+      "ratio": 2.03
+    },
+    {
+      "wave": "Jun 26-1",
+      "buena": 16.5,
+      "mala": 40.6,
+      "neto": -24.1,
+      "ratio": 2.46
+    },
+    {
+      "wave": "Jun 26-2",
+      "buena": 15.0,
+      "mala": 36.7,
+      "neto": -21.7,
+      "ratio": 2.45
+    }
+  ],
+  "victimizacion": [
+    {
+      "wave": "Ene 23",
+      "si": 42.4,
+      "ratio": 1.36
+    },
+    {
+      "wave": "Feb 23",
+      "si": 37.0,
+      "ratio": 1.7
+    },
+    {
+      "wave": "Mar 23",
+      "si": 42.6,
+      "ratio": 1.35
+    },
+    {
+      "wave": "Abr 23-1",
+      "si": 36.8,
+      "ratio": 1.72
+    },
+    {
+      "wave": "Abr 23-2",
+      "si": 39.6,
+      "ratio": 1.53
+    },
+    {
+      "wave": "May 23",
+      "si": 35.5,
+      "ratio": 1.82
+    },
+    {
+      "wave": "Jun 23",
+      "si": 36.7,
+      "ratio": 1.72
+    },
+    {
+      "wave": "Jul 23",
+      "si": 41.5,
+      "ratio": 1.41
+    },
+    {
+      "wave": "Ago 23",
+      "si": 43.1,
+      "ratio": 1.32
+    },
+    {
+      "wave": "Sep 23",
+      "si": 43.6,
+      "ratio": 1.29
+    },
+    {
+      "wave": "Oct 23",
+      "si": 42.3,
+      "ratio": 1.36
+    },
+    {
+      "wave": "Nov 23",
+      "si": 42.6,
+      "ratio": 1.35
+    },
+    {
+      "wave": "Dic 23",
+      "si": 44.1,
+      "ratio": 1.27
+    },
+    {
+      "wave": "Ene 24",
+      "si": 42.9,
+      "ratio": 1.33
+    },
+    {
+      "wave": "Feb 24",
+      "si": 41.6,
+      "ratio": 1.4
+    },
+    {
+      "wave": "Mar 24",
+      "si": 46.1,
+      "ratio": 1.17
+    },
+    {
+      "wave": "Abr 24",
+      "si": 38.5,
+      "ratio": 1.6
+    },
+    {
+      "wave": "May 24",
+      "si": 46.1,
+      "ratio": 1.17
+    },
+    {
+      "wave": "Jun 24",
+      "si": 41.3,
+      "ratio": 1.42
+    },
+    {
+      "wave": "Jul 24",
+      "si": 42.1,
+      "ratio": 1.38
+    },
+    {
+      "wave": "Ago 24",
+      "si": 43.8,
+      "ratio": 1.28
+    },
+    {
+      "wave": "Sep 24",
+      "si": 43.9,
+      "ratio": 1.28
+    },
+    {
+      "wave": "Oct 24",
+      "si": 43.6,
+      "ratio": 1.29
+    },
+    {
+      "wave": "Nov 24",
+      "si": 39.9,
+      "ratio": 1.51
+    },
+    {
+      "wave": "Dic 24",
+      "si": 36.4,
+      "ratio": 1.75
+    },
+    {
+      "wave": "Ene 25",
+      "si": 37.5,
+      "ratio": 1.67
+    },
+    {
+      "wave": "Feb 25",
+      "si": 39.8,
+      "ratio": 1.51
+    },
+    {
+      "wave": "Mar 25",
+      "si": 39.2,
+      "ratio": 1.55
+    },
+    {
+      "wave": "Abr 25",
+      "si": 33.5,
+      "ratio": 1.99
+    },
+    {
+      "wave": "May 25",
+      "si": 37.9,
+      "ratio": 1.64
+    },
+    {
+      "wave": "Jun 25",
+      "si": 34.2,
+      "ratio": 1.92
+    },
+    {
+      "wave": "Jul 25",
+      "si": 35.8,
+      "ratio": 1.79
+    },
+    {
+      "wave": "Ago 25-1",
+      "si": 36.8,
+      "ratio": 1.72
+    },
+    {
+      "wave": "Ago 25-2",
+      "si": 33.6,
+      "ratio": 1.98
+    },
+    {
+      "wave": "Sep 25",
+      "si": 41.2,
+      "ratio": 1.43
+    },
+    {
+      "wave": "Oct 25-1",
+      "si": 36.6,
+      "ratio": 1.73
+    },
+    {
+      "wave": "Nov 25",
+      "si": 33.1,
+      "ratio": 2.02
+    },
+    {
+      "wave": "Dic 25",
+      "si": 32.8,
+      "ratio": 2.05
+    },
+    {
+      "wave": "Ene 26",
+      "si": 31.8,
+      "ratio": 2.14
+    },
+    {
+      "wave": "Feb 26",
+      "si": 32.1,
+      "ratio": 2.12
+    },
+    {
+      "wave": "Mar 26-1",
+      "si": 33.6,
+      "ratio": 1.98
+    },
+    {
+      "wave": "Mar 26-2",
+      "si": 27.9,
+      "ratio": 2.58
+    },
+    {
+      "wave": "Abr 26-1",
+      "si": 29.4,
+      "ratio": 2.4
+    },
+    {
+      "wave": "Abr 26-2",
+      "si": 27.8,
+      "ratio": 2.6
+    },
+    {
+      "wave": "May 26-1",
+      "si": 28.6,
+      "ratio": 2.5
+    },
+    {
+      "wave": "May 26-2",
+      "si": 32.3,
+      "ratio": 2.1
+    },
+    {
+      "wave": "Jun 26-1",
+      "si": 29.2,
+      "ratio": 2.42
+    },
+    {
+      "wave": "Jun 26-2",
+      "si": 28.7,
+      "ratio": 2.48
+    }
+  ],
+  "cadem_ancla": {
+    "semana": "2026-07-10",
+    "buena": 42,
+    "mala": 56,
+    "ratio": 1.33
+  }
+};
+</script>
+<!-- ══════ FIN DATOS ══════ -->
+<script>
+(function(){
+const D=window.DATA,DN=1000,W=21;
+const M=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+const P=s=>new Date(s+"T12:00:00"), FD=d=>d.getDate()+" "+M[d.getMonth()];
+const FN=v=>(v>0?"+":"−")+Math.abs(Math.round(v));
+const polls=D.polls.map(p=>({...p,d:P(p.date)})).sort((a,b)=>a.d-b.d);
+const dts=[...new Set(polls.map(p=>p.date))].map(P).sort((a,b)=>a-b);
+function ma(t){const L={};for(const p of polls){const g=(t-p.d)/864e5;if(g<0||g>W)continue;if(!L[p.pollster]||p.d>L[p.pollster].d)L[p.pollster]=p;}
+const r=Object.values(L);if(!r.length)return null;let sw=0,s=0;for(const x of r){const w=x.n||DN;sw+=w;s+=w*x.net;}return s/sw;}
+const MA=dts.map(d=>({d,v:ma(d)})).filter(x=>x.v!==null);
+const cur=MA[MA.length-1],prv=MA[MA.length-2];
+document.getElementById("net").textContent=FN(cur.v);
+const dv=cur.v-prv.v,de=document.getElementById("delta");
+de.textContent="Δ "+(dv>0?"+":"−")+Math.abs(dv).toFixed(1)+" pp vs. medición anterior";
+de.style.color=dv<0?"var(--claret)":dv>0?"var(--teal)":"var(--text-subtle)";
+const U=P(D.updated);document.getElementById("upd").textContent="Actualizado "+FD(U)+" "+U.getFullYear();
+
+const wk=D.news[0];
+const cat={Eco:0,Seg:0,Pol:0};for(const i of wk.items)cat[i.cat]+=i.pct*i.sign;
+const tot=Object.values(cat).reduce((a,b)=>a+b,0);
+const dom=Object.keys(cat).reduce((a,b)=>Math.abs(cat[b])>Math.abs(cat[a])?b:a);
+const dts2={Eco:"económica",Seg:"de seguridad",Pol:"política"}[dom];
+let f="La aprobación neta "+(dv<=-1?"empeora desde "+FN(prv.v)+" a "+FN(cur.v):dv>=1?"mejora desde "+FN(prv.v)+" a "+FN(cur.v):"se mantiene en torno a "+FN(cur.v));
+const lastD=dts[dts.length-1],dl=[];
+for(const n of Object.keys(D.pollsters)){const s=polls.filter(p=>p.pollster===n);if(s.length<2)continue;const l=s[s.length-1];if((lastD-l.d)/864e5>7)continue;dl.push(l.net-s[s.length-2].net);}
+if(dl.length>=2)f+=dl.every(x=>x<0)?", con deterioro consistente entre las encuestas":dl.every(x=>x>0)?", con mejora consistente entre las encuestas":", con señales mixtas entre las encuestas";
+f+=", en una semana dominada por agenda "+dts2+" de saldo "+(tot<0?"negativo":tot>0?"positivo":"neutro")+".";
+document.getElementById("sint").textContent=f;
+
+const CN={Eco:["Economía","var(--accent)"],Seg:["Seguridad","var(--claret)"],Pol:["Política","var(--gold)"]};
+let ch="";
+for(const k of ["Eco","Seg","Pol"]){
+if(!wk.items.some(i=>i.cat===k))continue;
+const v=cat[k],[lbl,col]=CN[k];
+ch+='<div class="blk"><div class="kicker" style="color:'+col+'">'+lbl+'</div>';
+ch+='<span class="pill '+(v<0?"p-neg":v>0?"p-pos":"p-neu")+'">Saldo '+(v>0?"+":v<0?"−":"")+Math.abs(v)+'</span>';
+ch+='<p>'+(D.caracterizacion[k]||"")+'</p></div>';}
+document.getElementById("carac").innerHTML=ch;
+
+(function(){
+const Wd=1020,H=350,m={t:16,r:16,b:36,l:44},iw=Wd-m.l-m.r,ih=H-m.t-m.b;
+const t0=+dts[0]-864e5*4,t1=+dts[dts.length-1]+864e5*4;
+const vs=polls.map(p=>p.net).concat(MA.map(p=>p.v));
+let y0=Math.floor((Math.min(...vs)-4)/5)*5,y1=Math.ceil((Math.max(...vs)+4)/5)*5;if(y1<0)y1=0;
+const X=t=>m.l+(t-t0)/(t1-t0)*iw,Y=v=>m.t+(y1-v)/(y1-y0)*ih;
+let s='<svg viewBox="0 0 '+Wd+' '+H+'" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">';
+for(let g=y0;g<=y1;g+=5){const z=g===0;
+s+='<line x1="'+m.l+'" x2="'+(Wd-m.r)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="'+(z?"#2A1B0F":"#E8D5BD")+'" stroke-width="'+(z?1.4:1)+'"/>';
+s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+(g>0?"+"+g:g)+'</text>';}
+for(const e of D.events||[]){const x=X(+P(e.date));
+s+='<line x1="'+x+'" x2="'+x+'" y1="'+m.t+'" y2="'+(m.t+ih)+'" stroke="#8E7B68" stroke-width="1" stroke-dasharray="3 3"/>';
+s+='<text x="'+(x+6)+'" y="'+(m.t+12)+'" font-size="10.5" fill="#8E7B68">'+e.label+'</text>';}
+const fst=new Date(t0),lst=new Date(t1);
+for(let d=new Date(fst.getFullYear(),fst.getMonth()+1,1);d<=lst;d.setMonth(d.getMonth()+1))
+s+='<text x="'+X(+d)+'" y="'+(H-12)+'" text-anchor="middle" font-size="11" fill="#5C4A3A">'+M[d.getMonth()]+'</text>';
+for(const p of polls){const c=(D.pollsters[p.pollster]||{}).color||"#5C4A3A";
+s+='<circle cx="'+X(+p.d)+'" cy="'+Y(p.net)+'" r="4.5" fill="'+c+'" fill-opacity="0.8"><title>'+p.pollster+" · "+p.date+" · "+FN(p.net)+'</title></circle>';}
+s+='<path d="M'+MA.map(p=>X(+p.d)+" "+Y(p.v)).join(" L")+'" fill="none" stroke="#2A1B0F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>';
+s+='<circle cx="'+X(+cur.d)+'" cy="'+Y(cur.v)+'" r="5.5" fill="#2A1B0F"/>';
+s+='<text x="'+(X(+cur.d)-10)+'" y="'+(Y(cur.v)-11)+'" text-anchor="end" font-size="13" font-weight="600" fill="#2A1B0F">'+FN(cur.v)+'</text></svg>';
+document.getElementById("c1").innerHTML=s;
+let h='<div class="li"><span class="lin"></span>Media móvil ponderada</div>';
+for(const[n,c]of Object.entries(D.pollsters))h+='<div class="li"><span class="dot" style="background:'+c.color+'"></span>'+n+'</div>';
+document.getElementById("lg1").innerHTML=h;})();
+
+(function(){
+const A=D.agenda||[];
+if(A.length<2){document.getElementById("c2").innerHTML="";return;}
+const Wd=1020,H=330,m={t:16,r:52,b:40,l:40},iw=Wd-m.l-m.r,ih=H-m.t-m.b;
+const n=A.length;
+const X=i=>m.l+(n<2?0:i/(n-1)*iw);
+let y0=100,y1=0;
+for(const a of A){y0=Math.min(y0,a.eco,a.seg,a.pol);y1=Math.max(y1,a.eco,a.seg,a.pol);}
+y0=Math.max(0,Math.floor((y0-4)/10)*10);y1=Math.ceil((y1+4)/10)*10;
+const Y=v=>m.t+(y1-v)/(y1-y0)*ih;
+const S=[["eco","Economía","#0F5499"],["seg","Seguridad","#990F3D"],["pol","Política","#B8860B"]];
+let s='<svg viewBox="0 0 '+Wd+' '+H+'" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">';
+for(let g=y0;g<=y1;g+=10){
+s+='<line x1="'+m.l+'" x2="'+(Wd-m.r)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="#E8D5BD" stroke-width="1"/>';
+s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+g+'%</text>';}
+for(let i=0;i<n;i++){const w=A[i].wave;
+if(/^(Ene|Jul)/.test(w)||i===n-1)
+s+='<text x="'+X(i)+'" y="'+(H-14)+'" text-anchor="middle" font-size="10" fill="#5C4A3A">'+w+'</text>';}
+const ev=D.agenda_event;
+if(ev){const ei=A.findIndex(a=>a.wave===ev.wave);
+if(ei>=0){const x=X(ei);
+s+='<line x1="'+x+'" x2="'+x+'" y1="'+m.t+'" y2="'+(m.t+ih)+'" stroke="#8E7B68" stroke-width="1" stroke-dasharray="3 3"/>';
+s+='<text x="'+(x-6)+'" y="'+(m.t+12)+'" text-anchor="end" font-size="10.5" fill="#8E7B68">'+ev.label+'</text>';}}
+for(const[k,lbl,c]of S){
+s+='<path d="M'+A.map((a,i)=>X(i)+" "+Y(a[k])).join(" L")+'" fill="none" stroke="'+c+'" stroke-width="2.2" stroke-linejoin="round"/>';
+const last=A[n-1];
+s+='<circle cx="'+X(n-1)+'" cy="'+Y(last[k])+'" r="4.5" fill="'+c+'"/>';
+s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(last[k])+4)+'" font-size="12" font-weight="600" fill="'+c+'">'+Math.round(last[k])+'</text>';}
+s+='</svg>';
+document.getElementById("c2").innerHTML=s;
+let h2="";
+for(const[k,lbl,c]of S)h2+='<div class="li"><span class="dot" style="background:'+c+'"></span>'+lbl+' '+A[n-1][k]+'%</div>';
+document.getElementById("lg2").innerHTML=h2;
+})();
+(function(){
+const V=D.domestica||[];if(V.length<2)return;
+const Wd=1020,H=280,m={t:16,r:52,b:36,l:44},iw=Wd-m.l-m.r,ih=H-m.t-m.b,n=V.length;
+const X=i=>m.l+i/(n-1)*iw;
+const vs=V.map(v=>v.ratio);
+let y0=Math.floor((Math.min(...vs,1)-0.3)*2)/2,y1=Math.ceil((Math.max(...vs,1)+0.3)*2)/2;
+if(y0<0)y0=0;
+const Y=v=>m.t+(y1-v)/(y1-y0)*ih;
+let s='<svg viewBox="0 0 '+Wd+' '+H+'" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">';
+for(let g=y0;g<=y1+.001;g+=0.5){const z=Math.abs(g-1)<.001;
+s+='<line x1="'+m.l+'" x2="'+(Wd-m.r)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="'+(z?"#2A1B0F":"#E8D5BD")+'" stroke-width="'+(z?1.4:1)+'"/>';
+s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+g.toFixed(1)+'×</text>';}
+const ei=V.findIndex(v=>v.wave==="Mar 26-2");
+if(ei>=0){const x=X(ei);
+s+='<line x1="'+x+'" x2="'+x+'" y1="'+m.t+'" y2="'+(m.t+ih)+'" stroke="#8E7B68" stroke-width="1" stroke-dasharray="3 3"/>';
+s+='<text x="'+(x-6)+'" y="'+(m.t+12)+'" text-anchor="end" font-size="10.5" fill="#8E7B68">Alza de combustibles</text>';}
+for(let i=0;i<n;i++){const w=V[i].wave;
+if(/^Ene/.test(w)||i===n-1)s+='<text x="'+X(i)+'" y="'+(H-12)+'" text-anchor="middle" font-size="10" fill="#5C4A3A">'+w+'</text>';}
+s+='<path d="M'+V.map((v,i)=>X(i)+" "+Y(v.ratio)).join(" L")+'" fill="none" stroke="#0F5499" stroke-width="2.2" stroke-linejoin="round"/>';
+const L=V[n-1];
+s+='<circle cx="'+X(n-1)+'" cy="'+Y(L.ratio)+'" r="4.5" fill="#0F5499"/>';
+s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(L.ratio)+4)+'" font-size="12" font-weight="600" fill="#0F5499">'+L.ratio.toFixed(2)+'×</text></svg>';
+document.getElementById("c4").innerHTML=s;
+})();
+
+(function(){
+const V=D.victimizacion||[];if(V.length<2)return;
+const Wd=1020,H=280,m={t:16,r:52,b:36,l:44},iw=Wd-m.l-m.r,ih=H-m.t-m.b,n=V.length;
+const X=i=>m.l+i/(n-1)*iw;
+const vs=V.map(v=>v.ratio);
+let y0=Math.floor((Math.min(...vs)-0.3)*2)/2,y1=Math.ceil((Math.max(...vs)+0.3)*2)/2;
+const Y=v=>m.t+(y1-v)/(y1-y0)*ih;
+let s='<svg viewBox="0 0 '+Wd+' '+H+'" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">';
+for(let g=y0;g<=y1+.001;g+=0.5){
+s+='<line x1="'+m.l+'" x2="'+(Wd-m.r)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="#E8D5BD" stroke-width="1"/>';
+s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+g.toFixed(1)+'×</text>';}
+const ei=V.findIndex(v=>v.wave==="Mar 26-2");
+if(ei>=0){const x=X(ei);
+s+='<line x1="'+x+'" x2="'+x+'" y1="'+m.t+'" y2="'+(m.t+ih)+'" stroke="#8E7B68" stroke-width="1" stroke-dasharray="3 3"/>';
+s+='<text x="'+(x-6)+'" y="'+(m.t+12)+'" text-anchor="end" font-size="10.5" fill="#8E7B68">Alza de combustibles</text>';}
+for(let i=0;i<n;i++){const w=V[i].wave;
+if(/^Ene/.test(w)||i===n-1)s+='<text x="'+X(i)+'" y="'+(H-12)+'" text-anchor="middle" font-size="10" fill="#5C4A3A">'+w+'</text>';}
+s+='<path d="M'+V.map((v,i)=>X(i)+" "+Y(v.ratio)).join(" L")+'" fill="none" stroke="#990F3D" stroke-width="2.2" stroke-linejoin="round"/>';
+const L=V[n-1];
+s+='<circle cx="'+X(n-1)+'" cy="'+Y(L.ratio)+'" r="4.5" fill="#990F3D"/>';
+s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(L.ratio)+4)+'" font-size="12" font-weight="600" fill="#990F3D">'+L.ratio.toFixed(2)+'×</text></svg>';
+document.getElementById("c3").innerHTML=s;
+})();
+
+const TC={Eco:"t-eco",Pol:"t-pol",Seg:"t-seg"};
+const SG=s=>s>0?'<span class="sg s-pos">+</span>':s<0?'<span class="sg s-neg">−</span>':'<span class="sg s-neu">·</span>';
+const byW=[...D.news].sort((a,b)=>P(b.week)-P(a.week));
+let rows="";
+for(let i=0;i<byW.length;i++){const w=byW[i];
+if(!w.items.length){rows+='<tr class="skip"><td class="wk">'+FD(P(w.week))+'</td><td class="nt" colspan="8">No consultada — semana de la Cuenta Pública</td><td>—</td></tr>';continue;}
+const c={Eco:0,Seg:0,Pol:0};for(const it of w.items)c[it.cat]+=it.pct*it.sign;
+const t=c.Eco+c.Seg+c.Pol,dm=Object.keys(c).reduce((a,b)=>Math.abs(c[b])>Math.abs(c[a])?b:a);
+rows+='<tr><td class="wk">'+FD(P(w.week))+'</td>';
+for(let k=0;k<2;k++){const it=w.items[k];
+rows+=it?'<td class="nt">'+it.text+'</td><td class="num">'+it.pct+'</td><td><span class="tag '+TC[it.cat]+'">'+it.cat+'</span></td><td>'+SG(it.sign)+'</td>':'<td></td><td></td><td></td><td></td>';}
+rows+='<td class="wk">'+dm+' ('+(t>0?"+":t<0?"−":"")+Math.abs(t)+')</td></tr>';}
+document.getElementById("tb").innerHTML=rows;
+})();
+</script>
+</body>
+</html>
