@@ -71,8 +71,8 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
 </div>
 
 <div style="padding:18px 0 16px;border-bottom:1.5px solid var(--text);margin-bottom:26px">
-  <p style="font-family:'Spectral',serif;font-style:italic;font-size:16.5px;line-height:1.55;margin:0 0 10px;max-width:680px">Esta quincena escribo en El País la columna <em>Entre la marea y la deriva</em>. Se trata de la marea conservadora que atraviesa Sudamérica y sus diferencias con el triunfo de Trump. De los siete gobiernos de derecha en la región, seis fueron elegidos recién en segunda vuelta, con primeras vueltas fragmentadas donde promediaron apenas un tercio de los votos, y seis carecen de mayorías legislativas. Casi todos, además, llegaron como liderazgos desafiantes que desplazaron a los incumbentes — el mismo patrón de recambio que empujó la marea rosada de 2023. Más que un giro ideológico definitivo, lo que sugieren estas victorias estrechas y congresos fragmentados es un electorado que castiga a quien gobierna y sigue navegando a la deriva.</p>
-  <a href="https://elpais.com/chile/2026-07-02/entre-la-marea-y-la-deriva.html" style="font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(15,84,153,.3)">Leer la columna en El País &rarr;</a>
+  <p style="font-family:'Spectral',serif;font-style:italic;font-size:16.5px;line-height:1.55;margin:0 0 10px;max-width:680px">Esta quincena escribo en El País la columna <em>«La soledad del poder»</em>, sobre las reformas tributarias y el valor político del consenso. Las de Bachelet, Piñera y Boric se aprobaron con acuerdos transversales —diferencias de veinte o treinta votos en el Senado, algunas incluso por unanimidad. Aunque casi todas recaudaron menos de lo prometido, las críticas posteriores se mantuvieron acotadas al plano técnico. La megarreforma de Kast rompe ese patrón: se despachó en el Senado por una diferencia de un puñado de votos, con cuestionamientos a las expectativas de recaudación provenientes del propio Consejo Fiscal Autónomo. Si las estimaciones del gobierno efectivamente resultan demasiado optimistas, el ajuste recaería sobre los años electorales de 2028 y 2029, sin el respaldo político que les habría otorgado aprobar la reforma por consenso y compartir el poder.</p>
+  <a href="https://elpais.com/chile/2026-07-23/la-soledad-del-poder.html" style="font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(15,84,153,.3)">Leer la columna en El País &rarr;</a>
 </div>
 <div class="kicker">Chile</div>
 <h1>Aprobación presidencial y agenda de la semana</h1>
@@ -133,7 +133,7 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
     <dt>Semana</dt><dd>Se rotula con la fecha de terreno de la segunda medición semanal de CADEM, que es la que CADEM asocia a cada noticia.</dd>
     <dt>Signo (PM)</dt><dd>Efecto de la noticia sobre el gobierno: + favorable, − desfavorable, · neutro. Los hechos protagonizados por actores ajenos al gobierno se codifican como neutros.</dd>
     <dt>Eco · Seg · Pol</dt><dd>Suma de porcentajes ponderados por signo dentro de cada categoría. SEM indica la categoría de mayor magnitud absoluta y, entre paréntesis, el saldo total de la semana.</dd>
-    <dt>Tags</dt><dd>Las historias recurrentes usan un tag fijo con la variante entre paréntesis: costo de la vida, avance agenda económica, guerra de Irán, cobro deudas CAE, irregularidades en CODELCO. El resto va como texto libre.</dd>
+    <dt>Tags</dt><dd>Las historias recurrentes usan un tag fijo con la variante entre paréntesis: costo de la vida, avance agenda económica, guerra de Irán, cobro deudas CAE, irregularidades en CODELCO, mega temporal. El resto va como texto libre.</dd>
     <dt>Encuestas</dt><dd>CADEM Plaza Pública (bisemanal, panel online, ~1.000 casos), Criteria Agenda (semanal, panel online, ~800 casos) y Activa Pulso Ciudadano (quincenal, panel online, ~1.000 casos).</dd>
     <dt>4 de junio</dt><dd>CADEM no consultó la noticia de la semana; el terreno de esa semana estuvo dedicado a la primera Cuenta Pública.</dd>
   </dl>
@@ -148,7 +148,7 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
 <!-- ══════ DATOS · lo único que cambia cada domingo ══════ -->
 <script>
 window.DATA = {
-  "updated": "2026-07-13",
+  "updated": "2026-07-19",
   "pollsters": {
     "CADEM": {
       "color": "#0F5499"
@@ -532,9 +532,50 @@ window.DATA = {
       "date": "2026-07-12",
       "net": -23,
       "n": 801
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-07-14",
+      "net": -23,
+      "n": 1003
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-07-17",
+      "net": -17,
+      "n": 1002
+    },
+    {
+      "pollster": "Activa",
+      "date": "2026-07-17",
+      "net": -27.7,
+      "n": 1009
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-07-19",
+      "net": -15,
+      "n": 802
     }
   ],
   "news": [
+    {
+      "week": "2026-07-17",
+      "items": [
+        {
+          "text": "Mega temporal y emergencia por sistema frontal",
+          "pct": 58,
+          "cat": "Pol",
+          "sign": 0
+        },
+        {
+          "text": "Se aprueba Mega reforma en el Senado",
+          "pct": 27,
+          "cat": "Eco",
+          "sign": 1
+        }
+      ]
+    },
     {
       "week": "2026-07-10",
       "items": [
@@ -1028,6 +1069,12 @@ window.DATA = {
       "eco": 39.4,
       "seg": 41.9,
       "pol": 18.7
+    },
+    {
+      "wave": "Jul 26-1",
+      "eco": 43.2,
+      "seg": 38.5,
+      "pol": 18.3
     }
   ],
   "agenda_event": {
@@ -1035,9 +1082,9 @@ window.DATA = {
     "label": "Alza de combustibles"
   },
   "caracterizacion": {
-    "Eco": "El principal tema de la semana fue el escalamiento de la guerra en Irán (22%), que pesa contra el avance de la mega reforma en el Senado (20%), para una agenda económica con saldo levemente negativo (−2). La economía sigue pesando cerca de un 40% en las preocupaciones de la quincena, empatada con seguridad y muy por sobre el 30% que promediaba antes del alza de combustibles. En términos de percepción doméstica, quienes califican su situación económica personal como mala siguen dominando más de 2 a 1 sobre quienes la consideran buena (36,7% contra 15,0% en Activa; 56% de evaluación negativa en CADEM, quince semanas consecutivas por sobre la positiva).",
+    "Eco": "La noticia económica de la semana fue la aprobación de la Mega reforma en el Senado (27%), con saldo favorable para el gobierno (+27) tras meses de tramitación al límite del quórum. La economía vuelve a ser la principal preocupación de la quincena en Activa, subiendo a 43,2% y superando a seguridad, empujada por el salto del desempleo (32,7%, en alza) y la inflación (25,4%) en el ranking de problemas del país. En términos de percepción doméstica, la brecha entre quienes califican su situación económica personal como mala y buena se amplía a 2,63 a 1 en Activa (40,3% contra 15,3%), y la aprobación presidencial de Activa cae a su mínimo histórico (28,9%).",
     "Seg": "",
-    "Pol": ""
+    "Pol": "El hecho más mencionado de la semana fue el mega temporal y la emergencia por el sistema frontal que afectó a todo Chile (58%), pero se codifica como neutro para el gobierno: no es una decisión política del oficialismo sino un fenómeno natural, y la evaluación ciudadana de la respuesta gubernamental fue mayoritariamente positiva (52% cree que el gobierno tomó decisiones oportunas y adecuadas, y Carabineros, municipios y Fuerzas Armadas lideran la aprobación de los actores involucrados). La aprobación presidencial de CADEM sube 3 puntos en la semana pese al temporal."
   },
   "domestica": [
     {
@@ -1375,6 +1422,13 @@ window.DATA = {
       "mala": 36.7,
       "neto": -21.7,
       "ratio": 2.45
+    },
+    {
+      "wave": "Jul 26-1",
+      "buena": 15.3,
+      "mala": 40.3,
+      "neto": -25.0,
+      "ratio": 2.63
     }
   ],
   "victimizacion": [
@@ -1617,6 +1671,11 @@ window.DATA = {
       "wave": "Jun 26-2",
       "si": 28.7,
       "ratio": 2.48
+    },
+    {
+      "wave": "Jul 26-1",
+      "si": 30,
+      "ratio": 2.33
     }
   ],
   "cadem_ancla": {
