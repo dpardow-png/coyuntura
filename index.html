@@ -148,7 +148,8 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
 <!-- ══════ DATOS · lo único que cambia cada domingo ══════ -->
 <script>
 window.DATA = {
-  "updated": "2026-07-19",
+  "updated": "2026-07-26",
+  "sint_override": "La aprobación neta se mantiene en torno a −23, con deterioro consistente entre las encuestas, en una semana dominada por la respuesta a la emergencia climática.",
   "pollsters": {
     "CADEM": {
       "color": "#0F5499"
@@ -556,20 +557,55 @@ window.DATA = {
       "date": "2026-07-19",
       "net": -15,
       "n": 802
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-07-21",
+      "net": -19,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-07-24",
+      "net": -22,
+      "n": 1004
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-07-26",
+      "net": -18,
+      "n": 802
     }
   ],
   "news": [
     {
+      "week": "2026-07-24",
+      "items": [
+        {
+          "text": "Emergencia por sistema frontal",
+          "pct": 61,
+          "cat": "Pol",
+          "sign": 0
+        },
+        {
+          "text": "Avance agenda económica (Senado)",
+          "pct": 18,
+          "cat": "Eco",
+          "sign": 1
+        }
+      ]
+    },
+    {
       "week": "2026-07-17",
       "items": [
         {
-          "text": "Mega temporal y emergencia por sistema frontal",
+          "text": "Emergencia por sistema frontal",
           "pct": 58,
           "cat": "Pol",
           "sign": 0
         },
         {
-          "text": "Se aprueba Mega reforma en el Senado",
+          "text": "Avance agenda económica (Senado)",
           "pct": 27,
           "cat": "Eco",
           "sign": 1
@@ -1082,9 +1118,9 @@ window.DATA = {
     "label": "Alza de combustibles"
   },
   "caracterizacion": {
-    "Eco": "La noticia económica de la semana fue la aprobación de la Mega reforma en el Senado (27%), con saldo favorable para el gobierno (+27) tras meses de tramitación al límite del quórum. La economía vuelve a ser la principal preocupación de la quincena en Activa, subiendo a 43,2% y superando a seguridad, empujada por el salto del desempleo (32,7%, en alza) y la inflación (25,4%) en el ranking de problemas del país. En términos de percepción doméstica, la brecha entre quienes califican su situación económica personal como mala y buena se amplía a 2,63 a 1 en Activa (40,3% contra 15,3%), y la aprobación presidencial de Activa cae a su mínimo histórico (28,9%).",
+    "Eco": "La noticia con componente económico de la semana fue la tramitación de la Mega reforma, ahora en la Cámara, que cae a 18% de menciones (desde 27% la semana anterior, cuando se destacaba su aprobación en el Senado) — un reflujo esperable tras el hito legislativo, que codificamos como saldo favorable para el gobierno en la medida en que la reforma sigue avanzando. En Criteria, la percepción sobre la ley de reconstrucción se deteriora por segunda semana consecutiva: un 37% (+1pt) considera que sus efectos serán negativos para el país, superando por primera vez a quienes los ven positivos (36%, +1pt), y un 49% (+3pts) cree que favorece principalmente a los sectores de mayores ingresos.",
     "Seg": "",
-    "Pol": "El hecho más mencionado de la semana fue el mega temporal y la emergencia por el sistema frontal que afectó a todo Chile (58%), pero se codifica como neutro para el gobierno: no es una decisión política del oficialismo sino un fenómeno natural, y la evaluación ciudadana de la respuesta gubernamental fue mayoritariamente positiva (52% cree que el gobierno tomó decisiones oportunas y adecuadas, y Carabineros, municipios y Fuerzas Armadas lideran la aprobación de los actores involucrados). La aprobación presidencial de CADEM sube 3 puntos en la semana pese al temporal."
+    "Pol": "El hecho dominante de la semana volvió a ser el mega temporal y la emergencia por el sistema frontal (61%, +3pts respecto de la semana anterior), codificado como neutro para el gobierno por tratarse de un fenómeno natural. Pero a diferencia de la semana pasada, la evaluación de la respuesta gubernamental se deteriora con el correr de los días: la aprobación a la gestión del gobierno frente a la emergencia cae de 52% (17 jul) a 42% (21 jul) y 37% (24 jul), y la aprobación a las empresas de luz se desploma de 44% a 18% en el mismo período, tras los cortes de suministro. La aprobación presidencial retrocede en ambas encuestadoras: CADEM marca 37% de aprobación (−2pts) y 59% de desaprobación (+1pt) en su medición del 24 de julio, tras un dato intermedio el 21 de julio (39% / 58%); Criteria marca 36% (−1pt) y 54% (+2pts), revirtiendo la leve mejora de la semana previa. Las expectativas también se ensombrecen: 58% dice ver el segundo semestre con pesimismo, el nivel más alto desde que existe la serie en 2015."
   },
   "domestica": [
     {
@@ -1715,7 +1751,7 @@ const lastD=dts[dts.length-1],dl=[];
 for(const n of Object.keys(D.pollsters)){const s=polls.filter(p=>p.pollster===n);if(s.length<2)continue;const l=s[s.length-1];if((lastD-l.d)/864e5>7)continue;dl.push(l.net-s[s.length-2].net);}
 if(dl.length>=2)f+=dl.every(x=>x<0)?", con deterioro consistente entre las encuestas":dl.every(x=>x>0)?", con mejora consistente entre las encuestas":", con señales mixtas entre las encuestas";
 f+=", en una semana dominada por agenda "+dts2+" de saldo "+(tot<0?"negativo":tot>0?"positivo":"neutro")+".";
-document.getElementById("sint").textContent=f;
+document.getElementById("sint").textContent=D.sint_override||f;
 
 const CN={Eco:["Economía","var(--accent)"],Seg:["Seguridad","var(--claret)"],Pol:["Política","var(--gold)"]};
 let ch="";
