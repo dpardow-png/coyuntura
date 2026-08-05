@@ -71,7 +71,7 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
 </div>
 
 <div style="padding:18px 0 16px;border-bottom:1.5px solid var(--text);margin-bottom:26px">
-  <p style="font-family:'Spectral',serif;font-style:italic;font-size:16.5px;line-height:1.55;margin:0 0 10px;max-width:680px">Esta quincena escribo en El País la columna <em>«La soledad del poder»</em>, sobre las reformas tributarias y el valor político del consenso. Las de Bachelet, Piñera y Boric se aprobaron con acuerdos transversales —diferencias de veinte o treinta votos en el Senado, algunas incluso por unanimidad. Aunque casi todas recaudaron menos de lo prometido, las críticas posteriores se mantuvieron acotadas al plano técnico. La megarreforma de Kast rompe ese patrón: se despachó en el Senado por una diferencia de un puñado de votos, con cuestionamientos a las expectativas de recaudación provenientes del propio Consejo Fiscal Autónomo. Si las estimaciones del gobierno efectivamente resultan demasiado optimistas, el ajuste recaería sobre los años electorales de 2028 y 2029, sin el respaldo político que les habría otorgado aprobar la reforma por consenso y compartir el poder.</p>
+  <p style="font-family:'Spectral',serif;font-style:italic;font-size:16.5px;line-height:1.55;margin:0 0 10px;max-width:680px">Esta quincena escribo en El País la columna <em>«La encrucijada republicana»</em>. Se trata del desgaste que empieza a sufrir el partido del Presidente: desde la primera elección de Bachelet, ninguna coalición de gobierno ha logrado reelegir a uno de sus militantes, y en cada ciclo pierde entre un cuarto y un tercio de sus escaños en la parlamentaria siguiente. A ese patrón se suma una fragmentación de la derecha que hoy exige el doble de partidos —seis en el gabinete de Kast, contra tres en el de Piñera— para sostener prácticamente la misma cantidad de escaños. Y mientras Republicanos carga con el costo de gobernar, PDG y PNL —decisivos en el principal éxito legislativo del gobierno— permanecen cómodamente fuera del Ejecutivo, disputándole un espacio electoral compartido con el mismo estilo digital y controvertido que caracterizó su propio ascenso.</p>
   <a href="https://elpais.com/chile/2026-07-23/la-soledad-del-poder.html" style="font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(15,84,153,.3)">Leer la columna en El País &rarr;</a>
 </div>
 <div class="kicker">Chile</div>
@@ -148,8 +148,8 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
 <!-- ══════ DATOS · lo único que cambia cada domingo ══════ -->
 <script>
 window.DATA = {
-  "updated": "2026-07-26",
-  "sint_override": "La aprobación neta se mantiene en torno a −23, con deterioro consistente entre las encuestas, en una semana dominada por la respuesta a la emergencia climática.",
+  "updated": "2026-08-04",
+  "sint_override": "La aprobación neta sigue deteriorándose, con Activa marcando el mínimo de toda la serie Kast (−33,3), en una quincena dominada por el debate sobre la privatización de Codelco tras el reflujo de la emergencia climática.",
   "pollsters": {
     "CADEM": {
       "color": "#0F5499"
@@ -575,9 +575,50 @@ window.DATA = {
       "date": "2026-07-26",
       "net": -18,
       "n": 802
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-07-31",
+      "net": -24,
+      "n": 1003
+    },
+    {
+      "pollster": "Activa",
+      "date": "2026-07-31",
+      "net": -33.3,
+      "n": 1046
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-08-02",
+      "net": -21,
+      "n": 825
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-08-04",
+      "net": -18,
+      "n": 1007
     }
   ],
   "news": [
+    {
+      "week": "2026-07-31",
+      "items": [
+        {
+          "text": "Emergencia por sistema frontal",
+          "pct": 44,
+          "cat": "Pol",
+          "sign": 0
+        },
+        {
+          "text": "Debate por privatización de Codelco",
+          "pct": 16,
+          "cat": "Pol",
+          "sign": -1
+        }
+      ]
+    },
     {
       "week": "2026-07-24",
       "items": [
@@ -1111,6 +1152,12 @@ window.DATA = {
       "eco": 43.2,
       "seg": 38.5,
       "pol": 18.3
+    },
+    {
+      "wave": "Jul 26-2",
+      "eco": 44.7,
+      "seg": 34.2,
+      "pol": 21.1
     }
   ],
   "agenda_event": {
@@ -1118,9 +1165,9 @@ window.DATA = {
     "label": "Alza de combustibles"
   },
   "caracterizacion": {
-    "Eco": "La noticia con componente económico de la semana fue la tramitación de la Mega reforma, ahora en la Cámara, que cae a 18% de menciones (desde 27% la semana anterior, cuando se destacaba su aprobación en el Senado) — un reflujo esperable tras el hito legislativo, que codificamos como saldo favorable para el gobierno en la medida en que la reforma sigue avanzando. En Criteria, la percepción sobre la ley de reconstrucción se deteriora por segunda semana consecutiva: un 37% (+1pt) considera que sus efectos serán negativos para el país, superando por primera vez a quienes los ven positivos (36%, +1pt), y un 49% (+3pts) cree que favorece principalmente a los sectores de mayores ingresos.",
+    "Eco": "En Criteria, la percepción negativa sobre la ley de reconstrucción se profundiza: un 50% (+1pt) considera que favorece principalmente a las grandes empresas y a los sectores de mayores ingresos, y el juicio sobre su impacto general se deteriora con fuerza — un 38% (+1pt) lo cree negativo para el país, ampliando la distancia sobre quienes lo ven positivo, que cae a 33% (−3pts), la brecha más amplia desde que se hace la pregunta. En Activa, el desempleo se consolida como la segunda preocupación del país (31,8%, tras la delincuencia), superando a la inflación (27,2%).",
     "Seg": "",
-    "Pol": "El hecho dominante de la semana volvió a ser el mega temporal y la emergencia por el sistema frontal (61%, +3pts respecto de la semana anterior), codificado como neutro para el gobierno por tratarse de un fenómeno natural. Pero a diferencia de la semana pasada, la evaluación de la respuesta gubernamental se deteriora con el correr de los días: la aprobación a la gestión del gobierno frente a la emergencia cae de 52% (17 jul) a 42% (21 jul) y 37% (24 jul), y la aprobación a las empresas de luz se desploma de 44% a 18% en el mismo período, tras los cortes de suministro. La aprobación presidencial retrocede en ambas encuestadoras: CADEM marca 37% de aprobación (−2pts) y 59% de desaprobación (+1pt) en su medición del 24 de julio, tras un dato intermedio el 21 de julio (39% / 58%); Criteria marca 36% (−1pt) y 54% (+2pts), revirtiendo la leve mejora de la semana previa. Las expectativas también se ensombrecen: 58% dice ver el segundo semestre con pesimismo, el nivel más alto desde que existe la serie en 2015."
+    "Pol": "La noticia dominante de la semana volvió a ser la emergencia por el sistema frontal (44%), en retroceso frente a las dos semanas anteriores (61% y 58%) y codificada como neutra para el gobierno por tratarse de un fenómeno natural. Ganó terreno, en cambio, el debate por la privatización de Codelco (16%), que codificamos con saldo negativo por el desgaste que generó al interior de la coalición de gobierno. La aprobación presidencial se mueve en direcciones distintas según la encuestadora: CADEM cae a 36% de aprobación y 60% de desaprobación en su medición del 31 de julio, el punto más bajo del ciclo, para luego repuntar a 38%/56% el 4 de agosto; Criteria marca 34% (−2pts) de aprobación y 55% (+1pt) de desaprobación; Activa, en su medición quincenal, registra el neto más bajo de toda la serie Kast (−33,3, un retroceso de 5,6 puntos respecto de la quincena anterior)."
   },
   "domestica": [
     {
@@ -1465,6 +1512,13 @@ window.DATA = {
       "mala": 40.3,
       "neto": -25.0,
       "ratio": 2.63
+    },
+    {
+      "wave": "Jul 26-2",
+      "buena": 13.8,
+      "mala": 40.6,
+      "neto": -26.8,
+      "ratio": 2.94
     }
   ],
   "victimizacion": [
@@ -1712,6 +1766,11 @@ window.DATA = {
       "wave": "Jul 26-1",
       "si": 30,
       "ratio": 2.33
+    },
+    {
+      "wave": "Jul 26-2",
+      "si": 28.8,
+      "ratio": 2.47
     }
   ],
   "cadem_ancla": {
