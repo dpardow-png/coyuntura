@@ -69,14 +69,12 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
   <div class="brand"><a href="https://dpardow-png.github.io">@pardow-png</a> <span>· Seguimiento de coyuntura</span></div>
   <div class="topbar-right" id="upd"></div>
 </div>
-
 <div style="padding:18px 0 16px;border-bottom:1.5px solid var(--text);margin-bottom:26px">
   <p style="font-family:'Spectral',serif;font-style:italic;font-size:16.5px;line-height:1.55;margin:0 0 10px;max-width:680px">Esta quincena escribo en El País la columna <em>«Soñar con el futuro, vivir en el presente»</em>. Se trata de la capacidad del progresismo para construir un puente narrativo entre presente y futuro: encarnar la esperanza en mejoras materiales concretas. Es lo que hizo el Congreso Nacional Africano en 1994 al traducir el fin del apartheid en viviendas, electricidad y agua potable. Esa misma lógica explica las victorias recientes de la nueva izquierda norteamericana —Mamdani en Nueva York, El-Sayed en Michigan— y también su capacidad para capitalizar el derrumbe de Trump entre los jóvenes, instalando el aumento del costo de la vida como la preocupación dominante. En Chile, el mejor ensayo reciente fue la oposición de los alcaldes progresistas a las compensaciones de la reforma a las contribuciones: una crítica creíble, fácil de traducir en ejemplos cotidianos —el pre-kínder de Renca, las piscinas temperadas de Las Condes— y que permite volver a distinguir a la izquierda.</p>
   <a href="PENDIENTE-URL" style="font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(15,84,153,.3)">Leer la columna en El País &rarr;</a>
 </div>
 <div class="kicker">Chile</div>
 <h1>Aprobación presidencial y agenda de la semana</h1>
-
 <div class="hero">
   <div>
     <div class="big-net" id="net"></div>
@@ -85,26 +83,22 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
   </div>
   <div class="closer" id="sint"></div>
 </div>
-
 <div class="section">
   <div class="section-head"><h2>Aprobación neta</h2><div class="section-note">Aprobación − desaprobación, puntos porcentuales</div></div>
   <div class="chart" id="c1"></div>
   <div class="legend" id="lg1"></div>
-  <div class="caption">La línea es una media móvil ponderada por tamaño muestral: en cada fecha se promedia la última medición de cada encuesta dentro de una ventana de 21 días. Los puntos son mediciones individuales.</div>
+  <div class="caption">La línea es una media móvil ponderada por tamaño muestral: en cada fecha se promedia la última medición de cada encuesta dentro de una ventana de <span id="w1"></span> días. Los puntos son mediciones individuales.</div>
 </div>
-
 <div class="section">
   <div class="section-head"><h2>Caracterización de la semana</h2><div class="section-note">Solo las categorías presentes en la noticia de la semana</div></div>
   <div id="carac"></div>
 </div>
-
 <div class="section">
-  <div class="section-head"><h2>Tema de la quincena</h2><div class="section-note">Activa · principales problemas del país<br>participación de cada categoría en el total de menciones</div></div>
+  <div class="section-head"><h2>Temas agregados</h2><div class="section-note">Activa · principales problemas del país<br>participación de cada categoría en el total de menciones</div></div>
   <div class="chart" id="c2"></div>
   <div class="legend" id="lg2"></div>
   <div class="caption">Respuesta guiada, tres menciones por persona. Las series suman 100, de modo que una categoría solo sube si otra cede. El nivel entre categorías no es comparable, porque depende de cuántas opciones de cada tema ofrece el listado; lo que sí es comparable es cómo se mueve cada serie respecto de sí misma. Economía agrupa inflación, desempleo, economía, sueldos, desigualdad y pobreza; Seguridad agrupa delincuencia, seguridad pública, narcotráfico, inmigración y terrorismo; Política agrupa corrupción, gestión del gobierno, estabilidad política y justicia.</div>
 </div>
-
 <div class="section">
   <div class="section-head"><h2>Tema de la semana</h2><div class="section-note">CADEM · noticia más importante<br>clasificada por tema y signo para el gobierno</div></div>
   <div class="scroll"><table><thead><tr>
@@ -113,23 +107,20 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
     <th>SEM</th>
   </tr></thead><tbody id="tb"></tbody></table></div>
 </div>
-
 <div class="section">
   <div class="section-head"><h2>Economía personal</h2><div class="section-note">Activa · situación económica personal<br>razón entre evaluación mala y buena</div></div>
   <div class="chart" id="c4"></div>
   <div class="caption">Razón entre quienes califican su situación económica personal como mala + muy mala y quienes la califican como buena + muy buena. Un 2 significa que por cada persona que la evalúa bien hay dos que la evalúan mal. Cuanto más alto, peor percepción de la economía. La línea de referencia en 1 marca el punto de equilibrio. Serie quincenal de Activa desde enero de 2023; la serie semanal equivalente de CADEM está pendiente.</div>
 </div>
-
 <div class="section">
   <div class="section-head"><h2>Victimización</h2><div class="section-note">Activa · hogares víctimas de robo o asalto<br>razón entre hogares no victimizados y victimizados</div></div>
   <div class="chart" id="c3"></div>
   <div class="caption">Razón entre quienes declaran no experimentar un robo o asalto en su entorno familiar durante los últimos tres meses y los que sí. Un valor de 3 significa que por cada persona que declara victimización hay tres que no lo declaran. Cuanto más alto, menos victimización. Sube de forma sostenida desde 2023, en dirección contraria al peso de la delincuencia entre las preocupaciones del país.</div>
 </div>
-
 <div class="notes">
   <h3>Notas metodológicas</h3>
   <dl>
-    <dt>Aprobación neta</dt><dd>Aprobación menos desaprobación, en puntos porcentuales. La media móvil pondera por tamaño muestral la última medición de cada encuesta dentro de una ventana de 21 días.</dd>
+    <dt>Aprobación neta</dt><dd>Aprobación menos desaprobación, en puntos porcentuales. La media móvil pondera por tamaño muestral la última medición de cada encuesta dentro de una ventana de <span id="w2"></span> días. La ventana se fijó en 45 días para cubrir la cadencia mensual de Activa: con una ventana más corta, la encuesta entra y sale del promedio y la línea se mueve por cambios de composición del panel y no por cambios de opinión.</dd>
     <dt>Semana</dt><dd>Se rotula con la fecha de terreno de la segunda medición semanal de CADEM, que es la que CADEM asocia a cada noticia.</dd>
     <dt>Signo (PM)</dt><dd>Efecto de la noticia sobre el gobierno: + favorable, − desfavorable, · neutro. Los hechos protagonizados por actores ajenos al gobierno se codifican como neutros.</dd>
     <dt>Eco · Seg · Pol</dt><dd>Suma de porcentajes ponderados por signo dentro de cada categoría. SEM indica la categoría de mayor magnitud absoluta y, entre paréntesis, el saldo total de la semana.</dd>
@@ -138,18 +129,17 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
     <dt>4 de junio</dt><dd>CADEM no consultó la noticia de la semana; el terreno de esa semana estuvo dedicado a la primera Cuenta Pública.</dd>
   </dl>
 </div>
-
 <div class="foot">
   <div>Diego Pardow · <a href="https://dpardow-png.github.io">@pardow-png</a></div>
   <div>Fuentes: CADEM · Criteria · Activa</div>
 </div>
 </div>
-
 <!-- ══════ DATOS · lo único que cambia cada domingo ══════ -->
 <script>
 window.DATA = {
-  "updated": "2026-08-16",
-  "sint_override": "La aprobación presidencial se estabiliza en un rango bajo (34%-41% según encuestadora), tras una quincena de perfil noticioso bajo —dominada por fenómenos naturales ajenos al gobierno— y con la seguridad prácticamente empatada con las demandas económicas como prioridad ciudadana en Criteria.",
+  "updated": "2026-08-23",
+  "ventana_dias": 45,
+  "sint_override": "Ninguna encuestadora se movió esta semana: las tres mediciones nuevas —CADEM del 18 y del 21 de agosto, Criteria del 23— coinciden exactamente en una neta de −17, tras una segunda semana consecutiva dominada por el sistema frontal, un hecho ajeno a la acción de gobierno. La media móvil se mantiene en −23 porque todavía incorpora el Pulso Ciudadano del 31 de julio (−33), bastante más severo que las series semanales; Activa pasa a medición mensual, de modo que esa brecha sólo se resolverá cuando salga la próxima ola.",
   "pollsters": {
     "CADEM": {
       "color": "#0F5499"
@@ -629,9 +619,44 @@ window.DATA = {
       "date": "2026-08-16",
       "net": -20,
       "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-08-18",
+      "net": -17,
+      "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-08-21",
+      "net": -17,
+      "n": 1001
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-08-23",
+      "net": -17,
+      "n": null
     }
   ],
   "news": [
+    {
+      "week": "2026-08-21",
+      "items": [
+        {
+          "text": "Emergencia por sistema frontal",
+          "pct": 34,
+          "cat": "Pol",
+          "sign": 0
+        },
+        {
+          "text": "Avance agenda de seguridad (debate)",
+          "pct": 16,
+          "cat": "Seg",
+          "sign": 1
+        }
+      ]
+    },
     {
       "week": "2026-08-14",
       "items": [
@@ -1229,9 +1254,9 @@ window.DATA = {
     "label": "Alza de combustibles"
   },
   "caracterizacion": {
-    "Eco": "En Criteria, la seguridad se mantiene como primera prioridad ciudadana (28%), pero al sumar empleos y sueldos (15%) y reactivar la economía (12%) las demandas económicas llegan a 27%, prácticamente empatadas — una lectura consistente con la serie de Activa sobre problema país, donde Eco y Seg también se han movido dentro de rangos estrechos en las últimas quincenas. En la noticia de la semana del 7 de agosto, CADEM registra el avance de la agenda económica vía Cadena Nacional (59% de menciones) como el hecho dominante, dentro del mismo tag que se viene registrando hace varias semanas, con saldo positivo.",
-    "Seg": "El debate por la agenda de seguridad del gobierno (11% de menciones, 7 de agosto) lo codificamos con saldo positivo, en la misma lógica de avance de agenda de seguridad. En Criteria, en cambio, la evaluación de la gestión es negativa: un 54% la considera peor de lo esperado (19% mejor), y en migración un 47% la ve peor (25% mejor). Sobre las responsabilidades, un 35% atribuye la situación a problemas heredados del gobierno anterior, un 32% a una combinación de factores y un 27% al gobierno actual, con brecha ideológica marcada (62% de la derecha apunta a la herencia; 50% de la izquierda, al gobierno). Un 61% prefiere que el gobierno priorice la aprobación de nuevas leyes contra la delincuencia frente a un 30% que privilegia implementar las vigentes. Las medidas de seguridad concitan amplio acuerdo (75%-94%), pero las expectativas de cumplimiento son bastante menores (53%-69%), con las mayores brechas en el despliegue policial en los 50 barrios críticos y el régimen penitenciario para narcotraficantes.",
-    "Pol": "La semana del 14 de agosto quedó marcada más por ausencia de noticia que por despliegue de agenda: los dos hechos más mencionados fueron la emergencia por sistema frontal (25%, en descenso semana a semana desde el 61% del 24 de julio) y el terremoto en Colombia (33%), ambos ajenos a la acción de gobierno y codificados como neutros. El impulso de la agenda de seguridad que caracterizó la semana anterior no se sostuvo. La aprobación presidencial se mueve en rangos similares entre encuestadoras: CADEM pasa de 38%/56% (4 de agosto) a 40%/56% (7 de agosto), 39%/57% (11 de agosto) y cierra en 41%/53% (14 de agosto); Criteria marca 34%/55% (2 de agosto), sube a 35%/52% (9 de agosto) y retrocede a 35%/55% (16 de agosto, +3pts de desaprobación), completando tres semanas estable en torno al 34%-35%, por debajo del 39%-40% que alcanzó en junio. Pulso Ciudadano de Activa no salió esta quincena."
+    "Eco": "Sin registro económico en la noticia de la semana por segunda semana consecutiva: ni el avance de la agenda económica —que dominó el 7 de agosto con 59% de menciones— ni el costo de la vida aparecen entre los dos hechos más mencionados del 21 de agosto. Pulso Ciudadano de Activa no salió en agosto, de modo que las series de temas agregados y de situación económica personal siguen cerrando en la segunda quincena de julio.",
+    "Seg": "El debate por la agenda de seguridad del gobierno vuelve a la noticia de la semana con 16% de menciones (21 de agosto), después de ausentarse el 14 de agosto. Lo mantenemos bajo el tag de avance de agenda de seguridad y con saldo positivo, en la misma lógica con que se codificó el 7 de agosto (11%). Es el único hecho de la semana con signo distinto de cero, de modo que el saldo agregado descansa por completo en esta categoría. El informe de CADEM se titula señalando que la opinión pública apoya los acuerdos y ajustes al proyecto de seguridad, pero la versión disponible no incluye las láminas de respaldo de esa afirmación, así que no incorporo cifras sobre el contenido del apoyo.",
+    "Pol": "Segunda semana seguida sin agenda propia de gobierno en el primer lugar. La emergencia por el sistema frontal en la zona norte y centro vuelve a encabezar con 34% de menciones, repuntando desde el 25% del 14 de agosto y desplazando al terremoto en Colombia; se codifica como neutro por tratarse de un hecho ajeno a la acción de gobierno. La aprobación, en paralelo, se mantiene notablemente plana: CADEM marca 39%/56% (18 de agosto) y 40%/57% (21 de agosto), y Criteria 35%/52% (23 de agosto), sin variación en el nivel de aprobación respecto de las tres semanas previas y con tres puntos menos de desaprobación que el 16 de agosto. Las tres mediciones nuevas coinciden exactamente en una neta de −17, algo inusual en una serie que suele mostrar una brecha de seis a ocho puntos entre encuestadoras."
   },
   "domestica": [
     {
@@ -1855,7 +1880,7 @@ if(a.cat===b.cat)return{cat:a.cat,total:a.pct*a.sign+b.pct*b.sign};
 const d=a.pct>=b.pct?a:b;
 return{cat:d.cat,total:d.pct*d.sign};}
 (function(){
-const D=window.DATA,DN=1000,W=21;
+const D=window.DATA,DN=1000,W=D.ventana_dias||45;
 const M=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
 const P=s=>new Date(s+"T12:00:00"), FD=d=>d.getDate()+" "+M[d.getMonth()];
 const FN=v=>(v>0?"+":"−")+Math.abs(Math.round(v));
@@ -1870,7 +1895,7 @@ const dv=cur.v-prv.v,de=document.getElementById("delta");
 de.textContent="Δ "+(dv>0?"+":"−")+Math.abs(dv).toFixed(1)+" pp vs. medición anterior";
 de.style.color=dv<0?"var(--claret)":dv>0?"var(--teal)":"var(--text-subtle)";
 const U=P(D.updated);document.getElementById("upd").textContent="Actualizado "+FD(U)+" "+U.getFullYear();
-
+for(const id of["w1","w2"]){const el=document.getElementById(id);if(el)el.textContent=W;}
 const wk=D.news[0];
 const cat={Eco:0,Seg:0,Pol:0};for(const i of wk.items)cat[i.cat]+=i.pct*i.sign;
 const semW=semFor(wk.items);
@@ -1882,7 +1907,6 @@ for(const n of Object.keys(D.pollsters)){const s=polls.filter(p=>p.pollster===n)
 if(dl.length>=2)f+=dl.every(x=>x<0)?", con deterioro consistente entre las encuestas":dl.every(x=>x>0)?", con mejora consistente entre las encuestas":", con señales mixtas entre las encuestas";
 f+=", en una semana dominada por agenda "+dts2+" de saldo "+(tot<0?"negativo":tot>0?"positivo":"neutro")+".";
 document.getElementById("sint").textContent=D.sint_override||f;
-
 const CN={Eco:["Economía","var(--accent)"],Seg:["Seguridad","var(--claret)"],Pol:["Política","var(--gold)"]};
 let ch="";
 for(const k of ["Eco","Seg","Pol"]){
@@ -1892,7 +1916,6 @@ ch+='<div class="blk"><div class="kicker" style="color:'+col+'">'+lbl+'</div>';
 ch+='<span class="pill '+(v<0?"p-neg":v>0?"p-pos":"p-neu")+'">Saldo '+(v>0?"+":v<0?"−":"")+Math.abs(v)+'</span>';
 ch+='<p>'+(D.caracterizacion[k]||"")+'</p></div>';}
 document.getElementById("carac").innerHTML=ch;
-
 (function(){
 const Wd=1020,H=350,m={t:16,r:16,b:36,l:44},iw=Wd-m.l-m.r,ih=H-m.t-m.b;
 const t0=+dts[0]-864e5*4,t1=+dts[dts.length-1]+864e5*4;
@@ -1918,7 +1941,6 @@ document.getElementById("c1").innerHTML=s;
 let h='<div class="li"><span class="lin"></span>Media móvil ponderada</div>';
 for(const[n,c]of Object.entries(D.pollsters))h+='<div class="li"><span class="dot" style="background:'+c.color+'"></span>'+n+'</div>';
 document.getElementById("lg1").innerHTML=h;})();
-
 (function(){
 const A=D.agenda||[];
 if(A.length<2){document.getElementById("c2").innerHTML="";return;}
@@ -1977,7 +1999,6 @@ s+='<circle cx="'+X(n-1)+'" cy="'+Y(L.ratio)+'" r="4.5" fill="#0F5499"/>';
 s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(L.ratio)+4)+'" font-size="12" font-weight="600" fill="#0F5499">'+L.ratio.toFixed(2)+'×</text></svg>';
 document.getElementById("c4").innerHTML=s;
 })();
-
 (function(){
 const V=D.victimizacion||[];if(V.length<2)return;
 const Wd=1020,H=280,m={t:16,r:52,b:36,l:44},iw=Wd-m.l-m.r,ih=H-m.t-m.b,n=V.length;
@@ -2001,7 +2022,6 @@ s+='<circle cx="'+X(n-1)+'" cy="'+Y(L.ratio)+'" r="4.5" fill="#990F3D"/>';
 s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(L.ratio)+4)+'" font-size="12" font-weight="600" fill="#990F3D">'+L.ratio.toFixed(2)+'×</text></svg>';
 document.getElementById("c3").innerHTML=s;
 })();
-
 const TC={Eco:"t-eco",Pol:"t-pol",Seg:"t-seg"};
 const SG=s=>s>0?'<span class="sg s-pos">+</span>':s<0?'<span class="sg s-neg">−</span>':'<span class="sg s-neu">·</span>';
 const byW=[...D.news].sort((a,b)=>P(b.week)-P(a.week));
