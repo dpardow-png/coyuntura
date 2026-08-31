@@ -71,7 +71,7 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
 </div>
 <div style="padding:18px 0 16px;border-bottom:1.5px solid var(--text);margin-bottom:26px">
   <p style="font-family:'Spectral',serif;font-style:italic;font-size:16.5px;line-height:1.55;margin:0 0 10px">Esta quincena escribo en El País la columna <em>«Soñar con el futuro, vivir en el presente»</em>. Se trata de la capacidad del progresismo para construir un puente narrativo entre presente y futuro: encarnar la esperanza en mejoras materiales concretas. Es lo que hizo el Congreso Nacional Africano en 1994 al traducir el fin del apartheid en viviendas, electricidad y agua potable. Esa misma lógica explica las victorias recientes de la nueva izquierda norteamericana —Mamdani en Nueva York, El-Sayed en Michigan— y también su capacidad para capitalizar el derrumbe de Trump entre los jóvenes, instalando el aumento del costo de la vida como la preocupación dominante. En Chile, el mejor ensayo reciente fue la oposición de los alcaldes progresistas a las compensaciones de la reforma a las contribuciones: una crítica creíble, fácil de traducir en ejemplos cotidianos —el pre-kínder de Renca, las piscinas temperadas de Las Condes— y que permite volver a distinguir a la izquierda.</p>
-  <a href="PENDIENTE-URL" style="font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(15,84,153,.3)">Leer la columna en El País &rarr;</a>
+  <a href="https://elpais.com/chile/2026-08-29/sonar-con-el-futuro-vivir-en-el-presente.html" style="font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(15,84,153,.3)">Leer la columna en El País &rarr;</a>
 </div>
 <div class="kicker">Chile</div>
 <h1>Aprobación presidencial y agenda de la semana</h1>
@@ -127,6 +127,7 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
     <dt>Tags</dt><dd>Las historias recurrentes usan un tag fijo con la variante entre paréntesis: costo de la vida, avance agenda económica, guerra de Irán, cobro deudas CAE, irregularidades en CODELCO, mega temporal. El resto va como texto libre.</dd>
     <dt>Encuestas</dt><dd>CADEM Plaza Pública (bisemanal, panel online, ~1.000 casos), Criteria Agenda (semanal, panel online, ~800 casos) y Activa Pulso Ciudadano (quincenal, panel online, ~1.000 casos).</dd>
     <dt>4 de junio</dt><dd>CADEM no consultó la noticia de la semana; el terreno de esa semana estuvo dedicado a la primera Cuenta Pública.</dd>
+    <dt>28 de agosto</dt><dd>El informe de CADEM de esa semana no incluyó la lámina de noticia de la semana.</dd>
   </dl>
 </div>
 <div class="foot">
@@ -137,9 +138,9 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
 <!-- ══════ DATOS · lo único que cambia cada domingo ══════ -->
 <script>
 window.DATA = {
-  "updated": "2026-08-23",
+  "updated": "2026-08-30",
   "ventana_dias": 45,
-  "sint_override": "Ninguna encuestadora se movió esta semana: las tres mediciones nuevas —CADEM del 18 y del 21 de agosto, Criteria del 23— coinciden exactamente en una neta de −17, tras una segunda semana consecutiva dominada por el sistema frontal, un hecho ajeno a la acción de gobierno. La media móvil se mantiene en −23 porque todavía incorpora el Pulso Ciudadano del 31 de julio (−33), bastante más severo que las series semanales; Activa pasa a medición mensual, de modo que esa brecha sólo se resolverá cuando salga la próxima ola.",
+  "sint_override": "La media móvil baja a −21 (−1,6 pp respecto de la medición anterior). Ello es consecuencia de que las tres encuestadoras se mueven, pero en direcciones opuestas. CADEM y Criteria (semanal) empeoran a un aproximado de −22, mientras que el nuevo Pulso Ciudadano de Activa (mensual) mejora ostensiblemente a −21. En el caso de Activa, es una mejora de 12 pp respecto del −33 reportado en julio. Por primera vez en meses, las tres mediciones quedan con poca diferencia entre sí. Activa dejó de ser sistemáticamente la más pesimista.",
   "pollsters": {
     "CADEM": {
       "color": "#0F5499"
@@ -637,9 +638,32 @@ window.DATA = {
       "date": "2026-08-23",
       "net": -17,
       "n": null
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-08-28",
+      "net": -21,
+      "n": 1007
+    },
+    {
+      "pollster": "Activa",
+      "date": "2026-08-28",
+      "net": -20.6,
+      "n": 1022
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-08-30",
+      "net": -22,
+      "n": 811
     }
   ],
   "news": [
+    {
+      "week": "2026-08-28",
+      "reason": "No incluida en el informe de esta semana",
+      "items": []
+    },
     {
       "week": "2026-08-21",
       "items": [
@@ -829,6 +853,7 @@ window.DATA = {
     },
     {
       "week": "2026-06-04",
+      "reason": "No consultada — semana de la Cuenta Pública",
       "items": []
     },
     {
@@ -1247,6 +1272,12 @@ window.DATA = {
       "eco": 44.7,
       "seg": 34.2,
       "pol": 21.1
+    },
+    {
+      "wave": "Ago 26",
+      "eco": 41.0,
+      "seg": 41.0,
+      "pol": 18.0
     }
   ],
   "agenda_event": {
@@ -1254,9 +1285,9 @@ window.DATA = {
     "label": "Alza de combustibles"
   },
   "caracterizacion": {
-    "Eco": "Sin registro económico en la noticia de la semana por segunda semana consecutiva: ni el avance de la agenda económica —que dominó el 7 de agosto con 59% de menciones— ni el costo de la vida aparecen entre los dos hechos más mencionados del 21 de agosto. Pulso Ciudadano de Activa no salió en agosto, de modo que las series de temas agregados y de situación económica personal siguen cerrando en la segunda quincena de julio.",
-    "Seg": "El debate por la agenda de seguridad del gobierno vuelve a la noticia de la semana con 16% de menciones (21 de agosto), después de ausentarse el 14 de agosto. Lo mantenemos bajo el tag de avance de agenda de seguridad y con saldo positivo, en la misma lógica con que se codificó el 7 de agosto (11%). Es el único hecho de la semana con signo distinto de cero, de modo que el saldo agregado descansa por completo en esta categoría. El informe de CADEM se titula señalando que la opinión pública apoya los acuerdos y ajustes al proyecto de seguridad, pero la versión disponible no incluye las láminas de respaldo de esa afirmación, así que no incorporo cifras sobre el contenido del apoyo.",
-    "Pol": "Segunda semana seguida sin agenda propia de gobierno en el primer lugar. La emergencia por el sistema frontal en la zona norte y centro vuelve a encabezar con 34% de menciones, repuntando desde el 25% del 14 de agosto y desplazando al terremoto en Colombia; se codifica como neutro por tratarse de un hecho ajeno a la acción de gobierno. La aprobación, en paralelo, se mantiene notablemente plana: CADEM marca 39%/56% (18 de agosto) y 40%/57% (21 de agosto), y Criteria 35%/52% (23 de agosto), sin variación en el nivel de aprobación respecto de las tres semanas previas y con tres puntos menos de desaprobación que el 16 de agosto. Las tres mediciones nuevas coinciden exactamente en una neta de −17, algo inusual en una serie que suele mostrar una brecha de seis a ocho puntos entre encuestadoras."
+    "Eco": "La percepción de economía personal mejora ostensiblemente en Activa —la razón entre evaluación mala y buena baja de 3× a 2×—, aunque en CADEM la lectura es la contraria: su serie de evaluación económica personal y familiar empeora esta semana. En los temas agregados, economía cede terreno frente a seguridad y pasa de 45% a 41% de las menciones. Aunque la inflación retrocede en el listado de problemas del país (27%→21%), el desempleo sigue subiendo (32%→34%).",
+    "Seg": "En los temas agregados de Activa se aprecia un aumento marcado de la preocupación por seguridad, de 34% a 41% de las menciones —empatando con economía—, que pareciera responder al despliegue de la agenda de seguridad del gobierno más que a un cambio en la experiencia directa. La percepción de victimización en el entorno familiar empeora solo levemente, de 29% a 32%.",
+    "Pol": "CADEM no incluyó esta vez su pregunta sobre la noticia de la semana. Criteria sí aporta lectura internacional: cae la valoración de Trump (28%→15%) y Milei (26%→11%) en Chile mientras Bukele se mantiene (61%) y Sheinbaum sube (23%→31%). Crece 18 puntos la percepción de que EE.UU. podría presionar a Chile por litio, agua y otros recursos naturales."
   },
   "domestica": [
     {
@@ -1608,6 +1639,13 @@ window.DATA = {
       "mala": 40.6,
       "neto": -26.8,
       "ratio": 2.94
+    },
+    {
+      "wave": "Ago 26",
+      "buena": 19.1,
+      "mala": 38.0,
+      "neto": -18.9,
+      "ratio": 1.99
     }
   ],
   "victimizacion": [
@@ -1860,6 +1898,11 @@ window.DATA = {
       "wave": "Jul 26-2",
       "si": 28.8,
       "ratio": 2.47
+    },
+    {
+      "wave": "Ago 26",
+      "si": 31.8,
+      "ratio": 2.14
     }
   ],
   "cadem_ancla": {
@@ -1910,10 +1953,12 @@ document.getElementById("sint").textContent=D.sint_override||f;
 const CN={Eco:["Economía","var(--accent)"],Seg:["Seguridad","var(--claret)"],Pol:["Política","var(--gold)"]};
 let ch="";
 for(const k of ["Eco","Seg","Pol"]){
-if(!wk.items.some(i=>i.cat===k))continue;
+const hasItem=wk.items.some(i=>i.cat===k);
+const hasText=(D.caracterizacion[k]||"").trim().length>0;
+if(wk.items.length?!hasItem:!hasText)continue;
 const v=cat[k],[lbl,col]=CN[k];
 ch+='<div class="blk"><div class="kicker" style="color:'+col+'">'+lbl+'</div>';
-ch+='<span class="pill '+(v<0?"p-neg":v>0?"p-pos":"p-neu")+'">Saldo '+(v>0?"+":v<0?"−":"")+Math.abs(v)+'</span>';
+if(wk.items.length)ch+='<span class="pill '+(v<0?"p-neg":v>0?"p-pos":"p-neu")+'">Saldo '+(v>0?"+":v<0?"−":"")+Math.abs(v)+'</span>';
 ch+='<p>'+(D.caracterizacion[k]||"")+'</p></div>';}
 document.getElementById("carac").innerHTML=ch;
 (function(){
@@ -2027,7 +2072,7 @@ const SG=s=>s>0?'<span class="sg s-pos">+</span>':s<0?'<span class="sg s-neg">�
 const byW=[...D.news].sort((a,b)=>P(b.week)-P(a.week));
 let rows="";
 for(let i=0;i<byW.length;i++){const w=byW[i];
-if(!w.items.length){rows+='<tr class="skip"><td class="wk">'+FD(P(w.week))+'</td><td class="nt" colspan="8">No consultada — semana de la Cuenta Pública</td><td>—</td></tr>';continue;}
+if(!w.items.length){rows+='<tr class="skip"><td class="wk">'+FD(P(w.week))+'</td><td class="nt" colspan="8">'+(w.reason||'No consultada')+'</td><td>—</td></tr>';continue;}
 const{cat:dm,total:t}=semFor(w.items);
 rows+='<tr><td class="wk">'+FD(P(w.week))+'</td>';
 for(let k=0;k<2;k++){const it=w.items[k];
