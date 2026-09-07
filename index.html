@@ -108,14 +108,14 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
   </tr></thead><tbody id="tb"></tbody></table></div>
 </div>
 <div class="section">
-  <div class="section-head"><h2>Economía personal</h2><div class="section-note">Activa · situación económica personal<br>razón entre evaluación mala y buena</div></div>
+  <div class="section-head"><h2>Economía personal</h2><div class="section-note">Activa · situación económica personal<br>saldo neto: % buena − % mala</div></div>
   <div class="chart" id="c4"></div>
-  <div class="caption">Razón entre quienes califican su situación económica personal como mala + muy mala y quienes la califican como buena + muy buena. Un 2 significa que por cada persona que la evalúa bien hay dos que la evalúan mal. Cuanto más alto, peor percepción de la economía. La línea de referencia en 1 marca el punto de equilibrio. Serie quincenal de Activa desde enero de 2023; la serie semanal equivalente de CADEM está pendiente.</div>
+  <div class="caption">Saldo neto entre quienes califican su situación económica personal como buena + muy buena y quienes la califican como mala + muy mala, en puntos porcentuales. Un valor de −20 significa que la evaluación mala supera a la buena por 20 puntos. La línea de referencia en 0 marca el punto de equilibrio. Serie quincenal de Activa desde enero de 2023; la serie semanal equivalente de CADEM está pendiente de incorporar.</div>
 </div>
 <div class="section">
-  <div class="section-head"><h2>Victimización</h2><div class="section-note">Activa · hogares víctimas de robo o asalto<br>razón entre hogares no victimizados y victimizados</div></div>
+  <div class="section-head"><h2>Victimización</h2><div class="section-note">Activa · hogares víctimas de robo o asalto<br>saldo neto: % no victimizado − % victimizado</div></div>
   <div class="chart" id="c3"></div>
-  <div class="caption">Razón entre quienes declaran no experimentar un robo o asalto en su entorno familiar durante los últimos tres meses y los que sí. Un valor de 3 significa que por cada persona que declara victimización hay tres que no lo declaran. Cuanto más alto, menos victimización. Sube de forma sostenida desde 2023, en dirección contraria al peso de la delincuencia entre las preocupaciones del país.</div>
+  <div class="caption">Saldo neto entre quienes declaran no experimentar un robo o asalto en su entorno familiar durante los últimos tres meses y quienes sí lo declaran, en puntos porcentuales. Cuanto más alto, menos victimización. Sube de forma sostenida desde 2023, en dirección contraria al peso de la delincuencia entre las preocupaciones del país.</div>
 </div>
 <div class="notes">
   <h3>Notas metodológicas</h3>
@@ -138,9 +138,9 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
 <!-- ══════ DATOS · lo único que cambia cada domingo ══════ -->
 <script>
 window.DATA = {
-  "updated": "2026-08-30",
+  "updated": "2026-09-06",
   "ventana_dias": 45,
-  "sint_override": "La media móvil baja a −21 (−1,6 pp respecto de la medición anterior). Ello es consecuencia de que las tres encuestadoras se mueven, pero en direcciones opuestas. CADEM y Criteria (semanal) empeoran a un aproximado de −22, mientras que el nuevo Pulso Ciudadano de Activa (mensual) mejora ostensiblemente a −21. En el caso de Activa, es una mejora de 12 pp respecto del −33 reportado en julio. Por primera vez en meses, las tres mediciones quedan con poca diferencia entre sí. Activa dejó de ser sistemáticamente la más pesimista.",
+  "sint_override": "La aprobación neta sigue empeorando esta semana, en un ciclo donde el gobierno pierde capacidad para imponer su propia agenda de seguridad. Con la reforma entrampada en el congreso, cede espacio ante las amenazas al alcalde de San Bernardo y la tensión diplomática con Argentina, ambas de saldo negativo. Mientras, el mal desempeño económico vuelve a primera plana. La serie de expectativas de empleo de CADEM, que parte en 2014, registra esta semana su peor lectura histórica, con más de 90% de pesimismo.",
   "pollsters": {
     "CADEM": {
       "color": "#0F5499"
@@ -656,9 +656,44 @@ window.DATA = {
       "date": "2026-08-30",
       "net": -22,
       "n": 811
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-09-02",
+      "net": -27,
+      "n": 1002
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-09-04",
+      "net": -24,
+      "n": 1016
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-09-06",
+      "net": -28,
+      "n": 811
     }
   ],
   "news": [
+    {
+      "week": "2026-09-04",
+      "items": [
+        {
+          "text": "Amenazas al alcalde Christopher White",
+          "pct": 22,
+          "cat": "Seg",
+          "sign": -1
+        },
+        {
+          "text": "Tensiones diplomáticas con Argentina",
+          "pct": 20,
+          "cat": "Pol",
+          "sign": -1
+        }
+      ]
+    },
     {
       "week": "2026-08-28",
       "reason": "No incluida en el informe de esta semana",
@@ -1285,9 +1320,9 @@ window.DATA = {
     "label": "Alza de combustibles"
   },
   "caracterizacion": {
-    "Eco": "La percepción de economía personal mejora ostensiblemente en Activa —la razón entre evaluación mala y buena baja de 3× a 2×—, aunque en CADEM la lectura es la contraria: su serie de evaluación económica personal y familiar empeora esta semana. En los temas agregados, economía cede terreno frente a seguridad y pasa de 45% a 41% de las menciones. Aunque la inflación retrocede en el listado de problemas del país (27%→21%), el desempleo sigue subiendo (32%→34%).",
-    "Seg": "En los temas agregados de Activa se aprecia un aumento marcado de la preocupación por seguridad, de 34% a 41% de las menciones —empatando con economía—, que pareciera responder al despliegue de la agenda de seguridad del gobierno más que a un cambio en la experiencia directa. La percepción de victimización en el entorno familiar empeora solo levemente, de 29% a 32%.",
-    "Pol": "CADEM no incluyó esta vez su pregunta sobre la noticia de la semana. Criteria sí aporta lectura internacional: cae la valoración de Trump (28%→15%) y Milei (26%→11%) en Chile mientras Bukele se mantiene (61%) y Sheinbaum sube (23%→31%). Crece 18 puntos la percepción de que EE.UU. podría presionar a Chile por litio, agua y otros recursos naturales."
+    "Eco": "Aunque no forma parte de la tabla de noticia de la semana, la caída del IMACEC de julio (-1,5%) ronda de cerca a los dos temas que sí se reportan, y confirma que la economía sigue empujando la conversación pública. En la misma línea, la serie de expectativas de empleo de CADEM —que comenzó a medirse en 2014— marca esta semana su peor registro histórico, con más de 90% de los encuestados calificando la situación del empleo como mala o muy mala. Criteria muestra datos coincidentes en economía y empleo.",
+    "Seg": "La noticia más mencionada de la semana es la amenaza de muerte contra el alcalde de San Bernardo, Christopher White (22%), clasificada como negativa para el gobierno: un hecho de violencia que compite por atención con la propia agenda de seguridad del Ejecutivo, en vez de reforzarla.",
+    "Pol": "La segunda noticia más mencionada son las tensiones diplomáticas con Argentina por la soberanía del Estrecho de Magallanes (20%), también de saldo negativo. Entre ambos temas, el gobierno pierde por segunda semana consecutiva la capacidad de instalar su propio relato en torno a la reforma de seguridad."
   },
   "domestica": [
     {
@@ -1906,10 +1941,10 @@ window.DATA = {
     }
   ],
   "cadem_ancla": {
-    "semana": "2026-07-10",
+    "semana": "2026-09-04",
     "buena": 42,
-    "mala": 56,
-    "ratio": 1.33
+    "mala": 55,
+    "neto": -13
   }
 };
 </script>
@@ -2024,47 +2059,46 @@ document.getElementById("lg2").innerHTML=h2;
 const V=D.domestica||[];if(V.length<2)return;
 const Wd=1020,H=280,m={t:16,r:52,b:36,l:44},iw=Wd-m.l-m.r,ih=H-m.t-m.b,n=V.length;
 const X=i=>m.l+i/(n-1)*iw;
-const vs=V.map(v=>v.ratio);
-let y0=Math.floor((Math.min(...vs,1)-0.3)*2)/2,y1=Math.ceil((Math.max(...vs,1)+0.3)*2)/2;
-if(y0<0)y0=0;
+const vs=V.map(v=>v.neto);
+let y0=Math.floor((Math.min(...vs,0)-3)/10)*10,y1=Math.ceil((Math.max(...vs,0)+3)/10)*10;
 const Y=v=>m.t+(y1-v)/(y1-y0)*ih;
 let s='<svg viewBox="0 0 '+Wd+' '+H+'" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">';
-for(let g=y0;g<=y1+.001;g+=0.5){const z=Math.abs(g-1)<.001;
+for(let g=y0;g<=y1+.001;g+=10){const z=Math.abs(g)<.001;
 s+='<line x1="'+m.l+'" x2="'+(Wd-m.r)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="'+(z?"#2A1B0F":"#E8D5BD")+'" stroke-width="'+(z?1.4:1)+'"/>';
-s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+g.toFixed(1)+'×</text>';}
+s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+(g>0?"+":"")+g+'</text>';}
 const ei=V.findIndex(v=>v.wave==="Mar 26-2");
 if(ei>=0){const x=X(ei);
 s+='<line x1="'+x+'" x2="'+x+'" y1="'+m.t+'" y2="'+(m.t+ih)+'" stroke="#8E7B68" stroke-width="1" stroke-dasharray="3 3"/>';
 s+='<text x="'+(x-6)+'" y="'+(m.t+12)+'" text-anchor="end" font-size="10.5" fill="#8E7B68">Alza de combustibles</text>';}
 for(let i=0;i<n;i++){const w=V[i].wave;
 if(/^Ene/.test(w)||i===n-1)s+='<text x="'+X(i)+'" y="'+(H-12)+'" text-anchor="middle" font-size="10" fill="#5C4A3A">'+w+'</text>';}
-s+='<path d="M'+V.map((v,i)=>X(i)+" "+Y(v.ratio)).join(" L")+'" fill="none" stroke="#0F5499" stroke-width="2.2" stroke-linejoin="round"/>';
+s+='<path d="M'+V.map((v,i)=>X(i)+" "+Y(v.neto)).join(" L")+'" fill="none" stroke="#0F5499" stroke-width="2.2" stroke-linejoin="round"/>';
 const L=V[n-1];
-s+='<circle cx="'+X(n-1)+'" cy="'+Y(L.ratio)+'" r="4.5" fill="#0F5499"/>';
-s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(L.ratio)+4)+'" font-size="12" font-weight="600" fill="#0F5499">'+L.ratio.toFixed(2)+'×</text></svg>';
+s+='<circle cx="'+X(n-1)+'" cy="'+Y(L.neto)+'" r="4.5" fill="#0F5499"/>';
+s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(L.neto)+4)+'" font-size="12" font-weight="600" fill="#0F5499">'+(L.neto>0?"+":"")+Math.round(L.neto)+'</text></svg>';
 document.getElementById("c4").innerHTML=s;
 })();
 (function(){
 const V=D.victimizacion||[];if(V.length<2)return;
 const Wd=1020,H=280,m={t:16,r:52,b:36,l:44},iw=Wd-m.l-m.r,ih=H-m.t-m.b,n=V.length;
 const X=i=>m.l+i/(n-1)*iw;
-const vs=V.map(v=>v.ratio);
-let y0=Math.floor((Math.min(...vs)-0.3)*2)/2,y1=Math.ceil((Math.max(...vs)+0.3)*2)/2;
+const vs=V.map(v=>v.si*(v.ratio-1));
+let y0=Math.floor((Math.min(...vs,0)-3)/10)*10,y1=Math.ceil((Math.max(...vs,0)+3)/10)*10;
 const Y=v=>m.t+(y1-v)/(y1-y0)*ih;
 let s='<svg viewBox="0 0 '+Wd+' '+H+'" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">';
-for(let g=y0;g<=y1+.001;g+=0.5){
-s+='<line x1="'+m.l+'" x2="'+(Wd-m.r)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="#E8D5BD" stroke-width="1"/>';
-s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+g.toFixed(1)+'×</text>';}
+for(let g=y0;g<=y1+.001;g+=10){const z=Math.abs(g)<.001;
+s+='<line x1="'+m.l+'" x2="'+(Wd-m.r)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="'+(z?"#2A1B0F":"#E8D5BD")+'" stroke-width="'+(z?1.4:1)+'"/>';
+s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+(g>0?"+":"")+g+'</text>';}
 const ei=V.findIndex(v=>v.wave==="Mar 26-2");
 if(ei>=0){const x=X(ei);
 s+='<line x1="'+x+'" x2="'+x+'" y1="'+m.t+'" y2="'+(m.t+ih)+'" stroke="#8E7B68" stroke-width="1" stroke-dasharray="3 3"/>';
 s+='<text x="'+(x-6)+'" y="'+(m.t+12)+'" text-anchor="end" font-size="10.5" fill="#8E7B68">Alza de combustibles</text>';}
 for(let i=0;i<n;i++){const w=V[i].wave;
 if(/^Ene/.test(w)||i===n-1)s+='<text x="'+X(i)+'" y="'+(H-12)+'" text-anchor="middle" font-size="10" fill="#5C4A3A">'+w+'</text>';}
-s+='<path d="M'+V.map((v,i)=>X(i)+" "+Y(v.ratio)).join(" L")+'" fill="none" stroke="#990F3D" stroke-width="2.2" stroke-linejoin="round"/>';
-const L=V[n-1];
-s+='<circle cx="'+X(n-1)+'" cy="'+Y(L.ratio)+'" r="4.5" fill="#990F3D"/>';
-s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(L.ratio)+4)+'" font-size="12" font-weight="600" fill="#990F3D">'+L.ratio.toFixed(2)+'×</text></svg>';
+s+='<path d="M'+V.map((v,i)=>X(i)+" "+Y(v.si*(v.ratio-1))).join(" L")+'" fill="none" stroke="#990F3D" stroke-width="2.2" stroke-linejoin="round"/>';
+const L=V[n-1],Ln=L.si*(L.ratio-1);
+s+='<circle cx="'+X(n-1)+'" cy="'+Y(Ln)+'" r="4.5" fill="#990F3D"/>';
+s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(Ln)+4)+'" font-size="12" font-weight="600" fill="#990F3D">'+(Ln>0?"+":"")+Math.round(Ln)+'</text></svg>';
 document.getElementById("c3").innerHTML=s;
 })();
 const TC={Eco:"t-eco",Pol:"t-pol",Seg:"t-seg"};
