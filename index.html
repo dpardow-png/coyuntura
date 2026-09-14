@@ -90,7 +90,7 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
   <div class="caption">La línea es una media móvil ponderada por tamaño muestral: en cada fecha se promedia la última medición de cada encuesta dentro de una ventana de <span id="w1"></span> días. Los puntos son mediciones individuales.</div>
 </div>
 <div class="section">
-  <div class="section-head"><h2>Caracterización de la semana</h2><div class="section-note">Solo las categorías presentes en la noticia de la semana</div></div>
+  <div class="section-head"><h2>Caracterización de la semana</h2></div>
   <div id="carac"></div>
 </div>
 <div class="section">
@@ -108,9 +108,9 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
   </tr></thead><tbody id="tb"></tbody></table></div>
 </div>
 <div class="section">
-  <div class="section-head"><h2>Economía personal</h2><div class="section-note">Activa · situación económica personal<br>saldo neto: % buena − % mala</div></div>
+  <div class="section-head"><h2>Economía personal</h2><div class="section-note">CADEM · situación económica personal<br>saldo neto: % buena − % mala</div></div>
   <div class="chart" id="c4"></div>
-  <div class="caption">Saldo neto entre quienes califican su situación económica personal como buena + muy buena y quienes la califican como mala + muy mala, en puntos porcentuales. Un valor de −20 significa que la evaluación mala supera a la buena por 20 puntos. La línea de referencia en 0 marca el punto de equilibrio. Serie quincenal de Activa desde enero de 2023; la serie semanal equivalente de CADEM está pendiente de incorporar.</div>
+  <div class="caption">Saldo neto entre quienes califican su situación económica personal como buena + muy buena y quienes la califican como mala + muy mala, en puntos porcentuales. Un valor de −20 significa que la evaluación mala supera a la buena por 20 puntos. La línea de referencia en 0 marca el punto de equilibrio. Serie quincenal de Activa hasta agosto de 2026; desde septiembre de 2026 se construye con la medición semanal equivalente de CADEM.</div>
 </div>
 <div class="section">
   <div class="section-head"><h2>Victimización</h2><div class="section-note">Activa · hogares víctimas de robo o asalto<br>saldo neto: % no victimizado − % victimizado</div></div>
@@ -138,9 +138,13 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
 <!-- ══════ DATOS · lo único que cambia cada domingo ══════ -->
 <script>
 window.DATA = {
-  "updated": "2026-09-06",
+  "updated": "2026-09-13",
   "ventana_dias": 45,
-  "sint_override": "La aprobación neta sigue empeorando esta semana, en un ciclo donde el gobierno pierde capacidad para imponer su propia agenda de seguridad. Con la reforma entrampada en el congreso, cede espacio ante las amenazas al alcalde de San Bernardo y la tensión diplomática con Argentina, ambas de saldo negativo. Mientras, el mal desempeño económico vuelve a primera plana. La serie de expectativas de empleo de CADEM, que parte en 2014, registra esta semana su peor lectura histórica, con más de 90% de pesimismo.",
+  "prev_report": {
+    "date": "2026-09-06",
+    "net": -23.918989118989117
+  },
+  "sint_override": "La evaluación presidencial se mantiene cerca de -25, dentro de los registros más bajos desde el inicio del gobierno. Hay señales contradictorias entre CADEM (-4) y Criteria (+4), que tienden a cancelarse entre sí. Nuevamente la semana careció de una agenda definida, con las tensiones diplomáticas con Argentina (21%) y una nueva alza de los combustibles (19%) superando por pocos puntos porcentuales en CADEM a otras noticias secundarias. Como referencia, el tema de la semana suele agrupar el 30-40% de las menciones.",
   "pollsters": {
     "CADEM": {
       "color": "#0F5499"
@@ -154,8 +158,8 @@ window.DATA = {
   },
   "events": [
     {
-      "date": "2026-03-20",
-      "label": "Alza de combustibles"
+      "date": "2026-03-11",
+      "label": "Inicio del gobierno"
     }
   ],
   "polls": [
@@ -674,9 +678,38 @@ window.DATA = {
       "date": "2026-09-06",
       "net": -28,
       "n": 811
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-09-11",
+      "net": -28,
+      "n": 1000
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-09-13",
+      "net": -24,
+      "n": 802
     }
   ],
   "news": [
+    {
+      "week": "2026-09-11",
+      "items": [
+        {
+          "text": "Tensiones diplomáticas con Argentina",
+          "pct": 21,
+          "cat": "Pol",
+          "sign": -1
+        },
+        {
+          "text": "Nueva alza de los combustibles",
+          "pct": 19,
+          "cat": "Eco",
+          "sign": -1
+        }
+      ]
+    },
     {
       "week": "2026-09-04",
       "items": [
@@ -1316,14 +1349,10 @@ window.DATA = {
     }
   ],
   "agenda_event": {
-    "wave": "Mar 26-2",
-    "label": "Alza de combustibles"
+    "wave": "Mar 26-1",
+    "label": "Inicio del gobierno"
   },
-  "caracterizacion": {
-    "Eco": "Aunque no forma parte de la tabla de noticia de la semana, la caída del IMACEC de julio (-1,5%) ronda de cerca a los dos temas que sí se reportan, y confirma que la economía sigue empujando la conversación pública. En la misma línea, la serie de expectativas de empleo de CADEM —que comenzó a medirse en 2014— marca esta semana su peor registro histórico, con más de 90% de los encuestados calificando la situación del empleo como mala o muy mala. Criteria muestra datos coincidentes en economía y empleo.",
-    "Seg": "La noticia más mencionada de la semana es la amenaza de muerte contra el alcalde de San Bernardo, Christopher White (22%), clasificada como negativa para el gobierno: un hecho de violencia que compite por atención con la propia agenda de seguridad del Ejecutivo, en vez de reforzarla.",
-    "Pol": "La segunda noticia más mencionada son las tensiones diplomáticas con Argentina por la soberanía del Estrecho de Magallanes (20%), también de saldo negativo. Entre ambos temas, el gobierno pierde por segunda semana consecutiva la capacidad de instalar su propio relato en torno a la reforma de seguridad."
-  },
+  "caracterizacion": "Las señales contradictorias sobre aprobación, así como la falta de una noticia que acapare la atención pública, hablan de una semana desordenada, sin ejes claro. CADEM entrega un dato relevante respecto de las prioridades que la ciudadanía espera del gobierno. Mientras en marzo la economía y el empleo eran mencionados con un tercio menos de frecuencia que la seguridad pública, en septiembre los primeros son mencionados con más del doble de frecuencia que la segunda.",
   "domestica": [
     {
       "wave": "Ene 23",
@@ -1681,6 +1710,13 @@ window.DATA = {
       "mala": 38.0,
       "neto": -18.9,
       "ratio": 1.99
+    },
+    {
+      "wave": "Sep 26-1",
+      "buena": 43,
+      "mala": 54,
+      "neto": -11,
+      "ratio": 1.26
     }
   ],
   "victimizacion": [
@@ -1957,6 +1993,15 @@ const[a,b]=items;
 if(a.cat===b.cat)return{cat:a.cat,total:a.pct*a.sign+b.pct*b.sign};
 const d=a.pct>=b.pct?a:b;
 return{cat:d.cat,total:d.pct*d.sign};}
+function trendArrow(vals,i0,i1,X,Y,color){
+const k=vals.length;if(k<2)return"";
+const xs=vals.map((v,i)=>i),mx=xs.reduce((a,b)=>a+b,0)/k,my=vals.reduce((a,b)=>a+b,0)/k;
+let num=0,den=0;for(let i=0;i<k;i++){num+=(xs[i]-mx)*(vals[i]-my);den+=(xs[i]-mx)*(xs[i]-mx);}
+const slope=den?num/den:0;
+const yFit0=my-slope*mx,yFit1=my+slope*(k-1-mx);
+const x0=X(i0),y0=Y(yFit0),x1=X(i1),y1=Y(yFit1);
+let s='<line x1="'+x0+'" y1="'+y0+'" x2="'+x1+'" y2="'+y1+'" stroke="'+color+'" stroke-width="6" stroke-opacity="0.3" stroke-linecap="round"/>';
+return s;}
 (function(){
 const D=window.DATA,DN=1000,W=D.ventana_dias||45;
 const M=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
@@ -1969,8 +2014,8 @@ const r=Object.values(L);if(!r.length)return null;let sw=0,s=0;for(const x of r)
 const MA=dts.map(d=>({d,v:ma(d)})).filter(x=>x.v!==null);
 const cur=MA[MA.length-1],prv=MA[MA.length-2];
 document.getElementById("net").textContent=FN(cur.v);
-const dv=cur.v-prv.v,de=document.getElementById("delta");
-de.textContent="Δ "+(dv>0?"+":"−")+Math.abs(dv).toFixed(1)+" pp vs. medición anterior";
+const dv=D.prev_report?(cur.v-D.prev_report.net):(cur.v-prv.v),de=document.getElementById("delta");
+de.textContent="Δ "+(dv>0?"+":"−")+Math.abs(dv).toFixed(1)+" pp vs. semana anterior";
 de.style.color=dv<0?"var(--claret)":dv>0?"var(--teal)":"var(--text-subtle)";
 const U=P(D.updated);document.getElementById("upd").textContent="Actualizado "+FD(U)+" "+U.getFullYear();
 for(const id of["w1","w2"]){const el=document.getElementById(id);if(el)el.textContent=W;}
@@ -1985,17 +2030,8 @@ for(const n of Object.keys(D.pollsters)){const s=polls.filter(p=>p.pollster===n)
 if(dl.length>=2)f+=dl.every(x=>x<0)?", con deterioro consistente entre las encuestas":dl.every(x=>x>0)?", con mejora consistente entre las encuestas":", con señales mixtas entre las encuestas";
 f+=", en una semana dominada por agenda "+dts2+" de saldo "+(tot<0?"negativo":tot>0?"positivo":"neutro")+".";
 document.getElementById("sint").textContent=D.sint_override||f;
-const CN={Eco:["Economía","var(--accent)"],Seg:["Seguridad","var(--claret)"],Pol:["Política","var(--gold)"]};
-let ch="";
-for(const k of ["Eco","Seg","Pol"]){
-const hasItem=wk.items.some(i=>i.cat===k);
-const hasText=(D.caracterizacion[k]||"").trim().length>0;
-if(wk.items.length?!hasItem:!hasText)continue;
-const v=cat[k],[lbl,col]=CN[k];
-ch+='<div class="blk"><div class="kicker" style="color:'+col+'">'+lbl+'</div>';
-if(wk.items.length)ch+='<span class="pill '+(v<0?"p-neg":v>0?"p-pos":"p-neu")+'">Saldo '+(v>0?"+":v<0?"−":"")+Math.abs(v)+'</span>';
-ch+='<p>'+(D.caracterizacion[k]||"")+'</p></div>';}
-document.getElementById("carac").innerHTML=ch;
+const caracText=(typeof D.caracterizacion==="string"?D.caracterizacion:"").trim();
+document.getElementById("carac").innerHTML=caracText?'<div class="blk"><p>'+caracText+'</p></div>':"";
 (function(){
 const Wd=1020,H=350,m={t:16,r:16,b:36,l:44},iw=Wd-m.l-m.r,ih=H-m.t-m.b;
 const t0=+dts[0]-864e5*4,t1=+dts[dts.length-1]+864e5*4;
@@ -2066,13 +2102,12 @@ let s='<svg viewBox="0 0 '+Wd+' '+H+'" xmlns="http://www.w3.org/2000/svg" font-f
 for(let g=y0;g<=y1+.001;g+=10){const z=Math.abs(g)<.001;
 s+='<line x1="'+m.l+'" x2="'+(Wd-m.r)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="'+(z?"#2A1B0F":"#E8D5BD")+'" stroke-width="'+(z?1.4:1)+'"/>';
 s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+(g>0?"+":"")+g+'</text>';}
-const ei=V.findIndex(v=>v.wave==="Mar 26-2");
-if(ei>=0){const x=X(ei);
-s+='<line x1="'+x+'" x2="'+x+'" y1="'+m.t+'" y2="'+(m.t+ih)+'" stroke="#8E7B68" stroke-width="1" stroke-dasharray="3 3"/>';
-s+='<text x="'+(x-6)+'" y="'+(m.t+12)+'" text-anchor="end" font-size="10.5" fill="#8E7B68">Alza de combustibles</text>';}
+const W5=Math.min(5,n),startI=n-W5,xTrend=X(startI);
+s+='<line x1="'+xTrend+'" x2="'+xTrend+'" y1="'+m.t+'" y2="'+(m.t+ih)+'" stroke="#8E7B68" stroke-width="1" stroke-dasharray="3 3"/>';
 for(let i=0;i<n;i++){const w=V[i].wave;
 if(/^Ene/.test(w)||i===n-1)s+='<text x="'+X(i)+'" y="'+(H-12)+'" text-anchor="middle" font-size="10" fill="#5C4A3A">'+w+'</text>';}
 s+='<path d="M'+V.map((v,i)=>X(i)+" "+Y(v.neto)).join(" L")+'" fill="none" stroke="#0F5499" stroke-width="2.2" stroke-linejoin="round"/>';
+s+=trendArrow(V.slice(startI).map(v=>v.neto),startI,n-1,X,Y,"#0F5499");
 const L=V[n-1];
 s+='<circle cx="'+X(n-1)+'" cy="'+Y(L.neto)+'" r="4.5" fill="#0F5499"/>';
 s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(L.neto)+4)+'" font-size="12" font-weight="600" fill="#0F5499">'+(L.neto>0?"+":"")+Math.round(L.neto)+'</text></svg>';
@@ -2089,13 +2124,12 @@ let s='<svg viewBox="0 0 '+Wd+' '+H+'" xmlns="http://www.w3.org/2000/svg" font-f
 for(let g=y0;g<=y1+.001;g+=10){const z=Math.abs(g)<.001;
 s+='<line x1="'+m.l+'" x2="'+(Wd-m.r)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="'+(z?"#2A1B0F":"#E8D5BD")+'" stroke-width="'+(z?1.4:1)+'"/>';
 s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+(g>0?"+":"")+g+'</text>';}
-const ei=V.findIndex(v=>v.wave==="Mar 26-2");
-if(ei>=0){const x=X(ei);
-s+='<line x1="'+x+'" x2="'+x+'" y1="'+m.t+'" y2="'+(m.t+ih)+'" stroke="#8E7B68" stroke-width="1" stroke-dasharray="3 3"/>';
-s+='<text x="'+(x-6)+'" y="'+(m.t+12)+'" text-anchor="end" font-size="10.5" fill="#8E7B68">Alza de combustibles</text>';}
+const W5=Math.min(5,n),startI=n-W5,xTrend=X(startI);
+s+='<line x1="'+xTrend+'" x2="'+xTrend+'" y1="'+m.t+'" y2="'+(m.t+ih)+'" stroke="#8E7B68" stroke-width="1" stroke-dasharray="3 3"/>';
 for(let i=0;i<n;i++){const w=V[i].wave;
 if(/^Ene/.test(w)||i===n-1)s+='<text x="'+X(i)+'" y="'+(H-12)+'" text-anchor="middle" font-size="10" fill="#5C4A3A">'+w+'</text>';}
 s+='<path d="M'+V.map((v,i)=>X(i)+" "+Y(v.si*(v.ratio-1))).join(" L")+'" fill="none" stroke="#990F3D" stroke-width="2.2" stroke-linejoin="round"/>';
+s+=trendArrow(vs.slice(startI),startI,n-1,X,Y,"#990F3D");
 const L=V[n-1],Ln=L.si*(L.ratio-1);
 s+='<circle cx="'+X(n-1)+'" cy="'+Y(Ln)+'" r="4.5" fill="#990F3D"/>';
 s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(Ln)+4)+'" font-size="12" font-weight="600" fill="#990F3D">'+(Ln>0?"+":"")+Math.round(Ln)+'</text></svg>';
