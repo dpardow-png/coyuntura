@@ -108,14 +108,14 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
   </tr></thead><tbody id="tb"></tbody></table></div>
 </div>
 <div class="section">
-  <div class="section-head"><h2>Economía personal</h2><div class="section-note">CADEM · situación económica personal<br>saldo neto: % buena − % mala</div></div>
+  <div class="section-head"><h2>Economía personal</h2><div class="section-note">CADEM · Activa · DataInfluye · situación económica personal<br>índice % buena + muy buena, promedio 2025 = 100</div></div>
   <div class="chart" id="c4"></div>
-  <div class="caption">Saldo neto entre quienes califican su situación económica personal como buena + muy buena y quienes la califican como mala + muy mala, en puntos porcentuales. Un valor de −20 significa que la evaluación mala supera a la buena por 20 puntos. La línea de referencia en 0 marca el punto de equilibrio. Serie quincenal de Activa hasta agosto de 2026; desde septiembre de 2026 se construye con la medición semanal equivalente de CADEM.</div>
+  <div class="caption">Índice del porcentaje que califica su situación económica personal como buena o muy buena. Cada encuesta se normaliza contra su propio promedio de 2025 (= 100), de modo que 80 significa un 20% menos de evaluaciones positivas que en 2025. La línea combina las tres fuentes con igual peso: CADEM entra como promedio de sus últimas cuatro mediciones semanales; Activa y DataInfluye, con su última medición mensual dentro de 45 días. Los puntos muestran cada medición individual.</div>
 </div>
 <div class="section">
-  <div class="section-head"><h2>Victimización</h2><div class="section-note">Activa · hogares víctimas de robo o asalto<br>saldo neto: % no victimizado − % victimizado</div></div>
+  <div class="section-head"><h2>Victimización</h2><div class="section-note">Activa · hogares víctimas de robo o asalto<br>índice % victimizado, promedio 2025 = 100</div></div>
   <div class="chart" id="c3"></div>
-  <div class="caption">Saldo neto entre quienes declaran no experimentar un robo o asalto en su entorno familiar durante los últimos tres meses y quienes sí lo declaran, en puntos porcentuales. Cuanto más alto, menos victimización. Sube de forma sostenida desde 2023, en dirección contraria al peso de la delincuencia entre las preocupaciones del país.</div>
+  <div class="caption">Índice del porcentaje de hogares que declara haber sufrido un robo o asalto en su entorno familiar durante los últimos tres meses, normalizado contra el promedio de 2025 (= 100). Valores sobre 100 indican más victimización que en 2025; bajo 100, menos.</div>
 </div>
 <div class="notes">
   <h3>Notas metodológicas</h3>
@@ -125,26 +125,26 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
     <dt>Signo (PM)</dt><dd>Efecto de la noticia sobre el gobierno: + favorable, − desfavorable, · neutro. Los hechos protagonizados por actores ajenos al gobierno se codifican como neutros.</dd>
     <dt>Eco · Seg · Pol</dt><dd>Suma de porcentajes ponderados por signo dentro de cada categoría. SEM indica la categoría de mayor magnitud absoluta y, entre paréntesis, el saldo total de la semana.</dd>
     <dt>Tags</dt><dd>Las historias recurrentes usan un tag fijo con la variante entre paréntesis: costo de la vida, avance agenda económica, guerra de Irán, cobro deudas CAE, irregularidades en CODELCO, mega temporal. El resto va como texto libre.</dd>
-    <dt>Encuestas</dt><dd>CADEM Plaza Pública (bisemanal, panel online, ~1.000 casos), Criteria Agenda (semanal, panel online, ~800 casos) y Activa Pulso Ciudadano (quincenal, panel online, ~1.000 casos).</dd>
+    <dt>Encuestas</dt><dd>CADEM Plaza Pública (bisemanal, panel online, ~1.000 casos), Criteria Agenda (semanal, panel online, ~800 casos), Activa Pulso Ciudadano (mensual desde septiembre de 2026, antes quincenal; panel online, ~1.000 casos) y DataInfluye de TúInfluyes (mensual desde julio de 2026, panel online no probabilístico, ~1.200 casos; se usa la evaluación presidencial).</dd>
     <dt>4 de junio</dt><dd>CADEM no consultó la noticia de la semana; el terreno de esa semana estuvo dedicado a la primera Cuenta Pública.</dd>
     <dt>28 de agosto</dt><dd>El informe de CADEM de esa semana no incluyó la lámina de noticia de la semana.</dd>
   </dl>
 </div>
 <div class="foot">
   <div>Diego Pardow · <a href="https://dpardow-png.github.io">@pardow-png</a></div>
-  <div>Fuentes: CADEM · Criteria · Activa</div>
+  <div>Fuentes: CADEM · Criteria · Activa · DataInfluye</div>
 </div>
 </div>
 <!-- ══════ DATOS · lo único que cambia cada domingo ══════ -->
 <script>
 window.DATA = {
-  "updated": "2026-09-20",
+  "updated": "2026-09-24",
   "ventana_dias": 45,
   "prev_report": {
-    "date": "2026-09-13",
-    "net": -24.18597733711048
+    "date": "2026-09-20",
+    "net": -24.631823805988617
   },
-  "sint_override": "La evaluación presidencial se mantiene estable en torno a -24, sin variación relevante respecto a la semana anterior. CADEM mejora levemente (-24) y Criteria empeora levemente (-30), señales que vuelven a cancelarse entre sí. Es la quinta semana consecutiva sin que el gobierno logre instalar su propia agenda desde la cadena nacional de inicios de agosto: esta vez la disputan la celebración de Fiestas Patrias (24%) y el caso del exfiscal Fodich (21%), ninguna con más de un cuarto de las menciones.",
+  "sint_override": "La evaluación presidencial se deteriora a  -28, como consecuencia de agregar DataInfluye a la serie. CADEM mejora levemente (-24) y Criteria empeora levemente (-30), señales que vuelven a cancelarse entre sí. Es la quinta semana consecutiva sin que el gobierno logre instalar su propia agenda desde la cadena nacional de inicios de agosto: esta vez la disputan la celebración de Fiestas Patrias (24%) y el caso del exfiscal Fodich (21%), ninguna con más de un cuarto de las menciones.",
   "pollsters": {
     "CADEM": {
       "color": "#0F5499"
@@ -154,6 +154,9 @@ window.DATA = {
     },
     "Activa": {
       "color": "#5C7A8C"
+    },
+    "DataInfluye": {
+      "color": "#6B4C9A"
     }
   },
   "events": [
@@ -702,6 +705,24 @@ window.DATA = {
       "date": "2026-09-20",
       "net": -30,
       "n": 802
+    },
+    {
+      "pollster": "DataInfluye",
+      "date": "2026-07-25",
+      "net": -27,
+      "n": 1216
+    },
+    {
+      "pollster": "DataInfluye",
+      "date": "2026-08-23",
+      "net": -25,
+      "n": 1216
+    },
+    {
+      "pollster": "DataInfluye",
+      "date": "2026-09-21",
+      "net": -37,
+      "n": 1216
     }
   ],
   "news": [
@@ -1381,7 +1402,7 @@ window.DATA = {
     "wave": "Mar 26-1",
     "label": "Inicio del gobierno"
   },
-  "caracterizacion": "Es la quinta semana consecutiva en que el gobierno no logra instalar una agenda propia, un patrón que se repite desde la cadena nacional de comienzos de agosto. La conversación pública sigue capturada por noticias ajenas al oficialismo —esta semana la celebración de Fiestas Patrias y el caso del exfiscal Fodich—, cada una con un ciclo de vida de una o dos semanas antes de ser desplazada por la siguiente. La intensidad de este control externo de la agenda está lejos de los mejores momentos del gobierno, cuando la Ley de Reconstrucción se sostuvo varias semanas con menciones cercanas al 40%, y también lejos de los peores, cuando el alza de los combustibles se mantuvo como flanco dominante con cerca del 60% de las menciones. Hoy ningún tema —propio o ajeno— supera el 25% de las menciones. Al margen de esa dinámica de agenda hay un dato que sí muestra tendencia propia: la evaluación económica personal mejora por tercera medición consecutiva (Ago-4, Sep-1, Sep-2). Son catorce puntos en tres mediciones, con un optimismo que no se veía desde enero de este año. Las expectativas de empleo y de consumo, en cambio, siguen ruidosas, y sin una dirección definida.",
+  "caracterizacion": "Es la quinta semana consecutiva en que el gobierno no logra instalar una agenda propia, un patrón que se repite desde la cadena nacional de comienzos de agosto. La conversación pública sigue capturada por noticias ajenas al oficialismo —esta semana la celebración de Fiestas Patrias y el caso del exfiscal Fodich—, cada una con un ciclo de vida de una o dos semanas antes de ser desplazada por la siguiente. La intensidad de este control externo de la agenda está lejos de los mejores momentos del gobierno, cuando la Ley de Reconstrucción se sostuvo varias semanas con menciones cercanas al 40%, y también lejos de los peores, cuando el alza de los combustibles se mantuvo como flanco dominante con cerca del 60% de las menciones. Hoy ningún tema —propio o ajeno— supera el 25% de las menciones. Al margen de la dinámica de agenda, la evaluación económica personal mejora en CADEM por tercera medición consecutiva (Ago-4, Sep-1, Sep-2). Son catorce puntos en tres mediciones, que se suma a un optimismo observado previamente en las entregas de Pulso. En contraste, la pregunta equivalente de DataInfluye se mantiene un pesimismo estable. La serie funciona con una base 100 fijada en el promedio del año anterior, por lo que corrige el peso relativo de cada micro-tendencia. En conjunto, el optimismo de las series de CADEM y Pulso generan una tendencia positiva en la serie ponderada, pero manteniéndose dentro de una variación semanal típica",
   "domestica": [
     {
       "wave": "Ene 23",
@@ -2012,6 +2033,7 @@ window.DATA = {
       "ratio": 2.14
     }
   ],
+  "eco": {"base": "2025", "desde": "2025-01-01", "fuentes": {"CADEM": [["2025-01-02", 45.2], ["2025-01-09", 50.5], ["2025-01-16", 53.8], ["2025-01-23", 51.7], ["2025-01-30", 51.7], ["2025-02-06", 51.6], ["2025-02-13", 51.6], ["2025-02-20", 51.6], ["2025-02-27", 51.4], ["2025-03-06", 51.4], ["2025-03-13", 49.0], ["2025-03-20", 52.3], ["2025-03-27", 51.9], ["2025-04-03", 53.4], ["2025-04-10", 51.2], ["2025-04-17", 50.8], ["2025-04-24", 53.9], ["2025-05-01", 51.0], ["2025-05-08", 55.7], ["2025-05-15", 52.5], ["2025-05-22", 57.5], ["2025-05-29", 52.0], ["2025-06-05", 63.0], ["2025-06-12", 56.8], ["2025-06-19", 54.3], ["2025-06-26", 61.9], ["2025-07-03", 61.9], ["2025-07-10", 57.1], ["2025-07-17", 59.9], ["2025-07-24", 53.5], ["2025-07-31", 55.6], ["2025-08-07", 53.3], ["2025-08-14", 55.7], ["2025-08-21", 50.4], ["2025-08-28", 54.0], ["2025-09-04", 59.8], ["2025-09-11", 53.5], ["2025-09-18", 50.4], ["2025-09-25", 59.9], ["2025-10-02", 63.9], ["2025-10-09", 68.1], ["2025-10-16", 67.3], ["2025-10-23", 65.0], ["2025-10-30", 59.8], ["2025-11-06", 63.9], ["2025-11-13", 66.0], ["2025-11-20", 69.1], ["2025-11-27", 62.9], ["2025-12-04", 66.8], ["2025-12-11", 72.2], ["2025-12-18", 65.0], ["2025-12-25", 57.7], ["2026-01-01", 58.8], ["2026-01-08", 59.8], ["2026-01-15", 58.7], ["2026-01-22", 54.5], ["2026-01-29", 52.7], ["2026-02-05", 54.5], ["2026-02-12", 53.0], ["2026-02-19", 51.5], ["2026-02-26", 50.0], ["2026-03-05", 58.7], ["2026-03-12", 51.3], ["2026-03-19", 51.6], ["2026-03-26", 48.7], ["2026-04-02", 42.0], ["2026-04-09", 44.4], ["2026-04-16", 45.2], ["2026-04-23", 47.6], ["2026-04-30", 42.0], ["2026-05-07", 43.3], ["2026-05-14", 49.2], ["2026-05-21", 46.2], ["2026-05-28", 44.1], ["2026-06-04", 40.7], ["2026-06-11", 47.5], ["2026-06-18", 47.5], ["2026-06-25", 43.8], ["2026-07-02", 46.2], ["2026-07-09", 42.0], ["2026-07-16", 46.5], ["2026-07-23", 45.1], ["2026-07-30", 41.0], ["2026-08-06", 40.4], ["2026-08-13", 44.1], ["2026-08-20", 41.3], ["2026-08-27", 37.9], ["2026-09-03", 42.0], ["2026-09-10", 42.6], ["2026-09-17", 46.0]], "Activa": [["2025-01-15", 15.1], ["2025-02-15", 16.8], ["2025-03-15", 14.1], ["2025-04-15", 20.0], ["2025-05-15", 14.8], ["2025-06-15", 16.8], ["2025-07-15", 15.6], ["2025-08-10", 14.9], ["2025-08-25", 19.0], ["2025-09-15", 17.2], ["2025-10-10", 17.6], ["2025-11-15", 21.1], ["2025-12-15", 22.7], ["2026-01-15", 23.9], ["2026-02-15", 21.2], ["2026-03-13", 21.1], ["2026-03-27", 15.7], ["2026-04-10", 14.8], ["2026-04-24", 13.7], ["2026-05-08", 15.7], ["2026-05-22", 17.7], ["2026-06-12", 16.5], ["2026-06-26", 15.0], ["2026-07-17", 15.3], ["2026-07-31", 13.8], ["2026-08-28", 19.1]], "DataInfluye": [["2025-09-20", 21], ["2025-10-20", 21], ["2025-11-20", 21], ["2025-12-20", 24], ["2026-01-20", 20], ["2026-02-20", 22], ["2026-03-20", 19], ["2026-04-20", 13], ["2026-05-20", 14], ["2026-06-20", 9], ["2026-07-25", 10], ["2026-08-23", 10], ["2026-09-21", 13]]}},
   "cadem_ancla": {
     "semana": "2026-09-04",
     "buena": 42,
@@ -2128,47 +2150,60 @@ for(const[k,lbl,c]of S)h2+='<div class="li"><span class="dot" style="background:
 document.getElementById("lg2").innerHTML=h2;
 })();
 (function(){
-const V=D.domestica||[];if(V.length<2)return;
-const Wd=1020,H=280,m={t:16,r:52,b:36,l:44},iw=Wd-m.l-m.r,ih=H-m.t-m.b,n=V.length;
-const X=i=>m.l+i/(n-1)*iw;
-const vs=V.map(v=>v.neto);
-let y0=Math.floor((Math.min(...vs,0)-3)/10)*10,y1=Math.ceil((Math.max(...vs,0)+3)/10)*10;
+const E=D.eco;if(!E)return;
+const CS={CADEM:"#0F5499",Activa:"#5C7A8C",DataInfluye:"#6B4C9A"},idx={};
+for(const[k,arr]of Object.entries(E.fuentes)){const b=arr.filter(r=>r[0].startsWith(E.base));const bm=b.reduce((t,r)=>t+r[1],0)/b.length;
+idx[k]=arr.map(r=>({d:P(r[0]),v:r[1]/bm*100})).sort((x,y)=>x.d-y.d);}
+const at=t=>{const vs=[];for(const k in idx){const lim=k==="CADEM"?28:45;const s=idx[k].filter(r=>r.d<=t&&(t-r.d)/864e5<=lim);if(!s.length)continue;
+if(k==="CADEM"){const l=s.slice(-4);vs.push(l.reduce((x,r)=>x+r.v,0)/l.length);}else vs.push(s[s.length-1].v);}
+return vs.length?vs.reduce((x,y)=>x+y)/vs.length:null;};
+const G=idx.CADEM.filter(r=>r.d>=P(E.desde)).map(r=>({d:r.d,v:at(r.d)})).filter(r=>r.v!==null);
+const n=G.length,Wd=1020,H=280,m={t:16,r:52,b:36,l:44},iw=Wd-m.l-m.r,ih=H-m.t-m.b;
+const t0=G[0].d,t1=G[n-1].d,X=i=>m.l+(G[i].d-t0)/(t1-t0)*iw,XD=d=>m.l+(d-t0)/(t1-t0)*iw;
+const b25=G.filter(r=>r.d.getFullYear()===2025),ch=b25.slice(1).map((r,i)=>Math.abs(r.v-b25[i].v)),band=ch.reduce((x,y)=>x+y,0)/ch.length;
+const all=[...G.map(r=>r.v)];for(const k in idx)for(const r of idx[k])if(r.d>=t0)all.push(r.v);
+let y0=Math.floor((Math.min(...all,100)-3)/10)*10,y1=Math.ceil((Math.max(...all,100)+3)/10)*10;
 const Y=v=>m.t+(y1-v)/(y1-y0)*ih;
 let s='<svg viewBox="0 0 '+Wd+' '+H+'" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">';
-for(let g=y0;g<=y1+.001;g+=10){const z=Math.abs(g)<.001;
+for(let g=y0;g<=y1+.001;g+=10){const z=Math.abs(g-100)<.001;
 s+='<line x1="'+m.l+'" x2="'+(Wd-m.r)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="'+(z?"#2A1B0F":"#E8D5BD")+'" stroke-width="'+(z?1.4:1)+'"/>';
-s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+(g>0?"+":"")+g+'</text>';}
-const W5=Math.min(5,n),startI=n-W5,xTrend=X(startI);
-s+='<line x1="'+xTrend+'" x2="'+xTrend+'" y1="'+m.t+'" y2="'+(m.t+ih)+'" stroke="#8E7B68" stroke-width="1" stroke-dasharray="3 3"/>';
-for(let i=0;i<n;i++){const w=V[i].wave;
-if(/^Ene/.test(w)||i===n-1)s+='<text x="'+X(i)+'" y="'+(H-12)+'" text-anchor="middle" font-size="10" fill="#5C4A3A">'+w+'</text>';}
-s+='<path d="M'+V.map((v,i)=>X(i)+" "+Y(v.neto)).join(" L")+'" fill="none" stroke="#0F5499" stroke-width="2.2" stroke-linejoin="round"/>';
-s+=trendArrow(V.slice(startI).map(v=>v.neto),startI,n-1,X,Y,"#0F5499");
-const L=V[n-1];
-s+='<circle cx="'+X(n-1)+'" cy="'+Y(L.neto)+'" r="4.5" fill="#0F5499"/>';
-s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(L.neto)+4)+'" font-size="12" font-weight="600" fill="#0F5499">'+(L.neto>0?"+":"")+Math.round(L.neto)+'</text></svg>';
-document.getElementById("c4").innerHTML=s;
+s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+g+'</text>';}
+for(const[yy,mm]of[[2025,0],[2025,6],[2026,0],[2026,6]]){let d=new Date(yy,mm,1,12);if(d<t0&&(t0-d)/864e5<8)d=t0;if(d<t0||d>t1)continue;
+s+='<text x="'+XD(d)+'" y="'+(H-12)+'" text-anchor="middle" font-size="10" fill="#5C4A3A">'+M[mm]+' '+String(yy).slice(2)+'</text>';}
+for(const k in idx)for(const r of idx[k]){if(r.d<t0)continue;s+='<circle cx="'+XD(r.d)+'" cy="'+Y(r.v)+'" r="'+(k==="CADEM"?2:3.2)+'" fill="'+CS[k]+'" opacity=".4"/>';}
+const W5=Math.min(5,n),startI=n-W5;
+s+='<line x1="'+X(startI)+'" x2="'+X(startI)+'" y1="'+m.t+'" y2="'+(m.t+ih)+'" stroke="#8E7B68" stroke-width="1" stroke-dasharray="3 3"/>';
+s+='<path d="M'+G.map((r,i)=>X(i)+" "+Y(r.v)).join(" L")+'" fill="none" stroke="#0F5499" stroke-width="2.4" stroke-linejoin="round"/>';
+s+=trendArrow(G.slice(startI).map(r=>r.v),startI,n-1,X,Y,"#0F5499");
+const L=G[n-1];
+s+='<circle cx="'+X(n-1)+'" cy="'+Y(L.v)+'" r="4.5" fill="#0F5499"/>';
+s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(L.v)+4)+'" font-size="12" font-weight="600" fill="#0F5499">'+Math.round(L.v)+'</text></svg>';
+let lg='<div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:6px">';for(const k in CS)lg+='<div class="li"><span class="dot" style="background:'+CS[k]+';opacity:.5"></span>'+k+'</div>';
+lg+='<div class="li">Variación semanal típica 2025: ±'+band.toFixed(1)+' pts · última semana: '+((L.v-G[n-2].v)>=0?"+":"−")+Math.abs(L.v-G[n-2].v).toFixed(1)+'</div></div>';
+document.getElementById("c4").innerHTML=s+lg;
 })();
 (function(){
 const V=D.victimizacion||[];if(V.length<2)return;
+const b=V.filter(v=>/ 25/.test(v.wave)),bm=b.reduce((t,v)=>t+v.si,0)/b.length;
+const vs=V.map(v=>v.si/bm*100),ch=b.slice(1).map((v,i)=>Math.abs(v.si-b[i].si)/bm*100),band=ch.reduce((x,y)=>x+y,0)/ch.length;
 const Wd=1020,H=280,m={t:16,r:52,b:36,l:44},iw=Wd-m.l-m.r,ih=H-m.t-m.b,n=V.length;
 const X=i=>m.l+i/(n-1)*iw;
-const vs=V.map(v=>v.si*(v.ratio-1));
-let y0=Math.floor((Math.min(...vs,0)-3)/10)*10,y1=Math.ceil((Math.max(...vs,0)+3)/10)*10;
+let y0=Math.floor((Math.min(...vs,100)-3)/10)*10,y1=Math.ceil((Math.max(...vs,100)+3)/10)*10;
 const Y=v=>m.t+(y1-v)/(y1-y0)*ih;
 let s='<svg viewBox="0 0 '+Wd+' '+H+'" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">';
-for(let g=y0;g<=y1+.001;g+=10){const z=Math.abs(g)<.001;
+for(let g=y0;g<=y1+.001;g+=10){const z=Math.abs(g-100)<.001;
 s+='<line x1="'+m.l+'" x2="'+(Wd-m.r)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="'+(z?"#2A1B0F":"#E8D5BD")+'" stroke-width="'+(z?1.4:1)+'"/>';
-s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+(g>0?"+":"")+g+'</text>';}
+s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+g+'</text>';}
 const W5=Math.min(5,n),startI=n-W5,xTrend=X(startI);
 s+='<line x1="'+xTrend+'" x2="'+xTrend+'" y1="'+m.t+'" y2="'+(m.t+ih)+'" stroke="#8E7B68" stroke-width="1" stroke-dasharray="3 3"/>';
 for(let i=0;i<n;i++){const w=V[i].wave;
 if(/^Ene/.test(w)||i===n-1)s+='<text x="'+X(i)+'" y="'+(H-12)+'" text-anchor="middle" font-size="10" fill="#5C4A3A">'+w+'</text>';}
-s+='<path d="M'+V.map((v,i)=>X(i)+" "+Y(v.si*(v.ratio-1))).join(" L")+'" fill="none" stroke="#990F3D" stroke-width="2.2" stroke-linejoin="round"/>';
+s+='<path d="M'+vs.map((v,i)=>X(i)+" "+Y(v)).join(" L")+'" fill="none" stroke="#990F3D" stroke-width="2.2" stroke-linejoin="round"/>';
 s+=trendArrow(vs.slice(startI),startI,n-1,X,Y,"#990F3D");
-const L=V[n-1],Ln=L.si*(L.ratio-1);
+const Ln=vs[n-1];
 s+='<circle cx="'+X(n-1)+'" cy="'+Y(Ln)+'" r="4.5" fill="#990F3D"/>';
-s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(Ln)+4)+'" font-size="12" font-weight="600" fill="#990F3D">'+(Ln>0?"+":"")+Math.round(Ln)+'</text></svg>';
+s+='<text x="'+(X(n-1)+9)+'" y="'+(Y(Ln)+4)+'" font-size="12" font-weight="600" fill="#990F3D">'+Math.round(Ln)+'</text></svg>';
+s+='<div style="margin-top:6px"><div class="li">Variación típica entre olas 2025: ±'+band.toFixed(1)+' pts · última ola: '+((Ln-vs[n-2])>=0?"+":"−")+Math.abs(Ln-vs[n-2]).toFixed(1)+'</div></div>';
 document.getElementById("c3").innerHTML=s;
 })();
 const TC={Eco:"t-eco",Pol:"t-pol",Seg:"t-seg"};
