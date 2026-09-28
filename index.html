@@ -126,6 +126,8 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
     <dt>Eco · Seg · Pol</dt><dd>Suma de porcentajes ponderados por signo dentro de cada categoría. SEM indica la categoría de mayor magnitud absoluta y, entre paréntesis, el saldo total de la semana.</dd>
     <dt>Tags</dt><dd>Las historias recurrentes usan un tag fijo con la variante entre paréntesis: costo de la vida, avance agenda económica, guerra de Irán, cobro deudas CAE, irregularidades en CODELCO, mega temporal. El resto va como texto libre.</dd>
     <dt>Encuestas</dt><dd>CADEM Plaza Pública (bisemanal, panel online, ~1.000 casos), Criteria Agenda (semanal, panel online, ~800 casos), Activa Pulso Ciudadano (mensual desde septiembre de 2026, antes quincenal; panel online, ~1.000 casos) y DataInfluye de TúInfluyes (mensual desde julio de 2026, panel online no probabilístico, ~1.200 casos; se usa la evaluación presidencial).</dd>
+    <dt>Agenda · categorías</dt><dd>Las series de temas agregados suman, dentro de cada categoría, el porcentaje de menciones de cada problema del listado de Activa. Economía: desempleo, inflación, economía, sueldos, pobreza y desigualdad. Seguridad: delincuencia, narcotráfico, seguridad pública, terrorismo e inmigración. Política: corrupción, gestión del gobierno, estabilidad política y justicia. Quedan fuera salud, educación, vivienda, pensiones, derechos humanos, medio ambiente, relaciones internacionales, transporte, pueblos originarios y sequía. Cada categoría se expresa como participación del total de las tres.</dd>
+    <dt>25 de septiembre</dt><dd>«Adhesión a Escudo de las Américas» se codifica desfavorable (−) porque en dos de las tres encuestas el desacuerdo supera al acuerdo entre quienes conocen la decisión (CADEM y Criteria); Activa, que plantea la iniciativa como combate al narcotráfico, mide más acuerdo que desacuerdo sobre el total. «Discurso de JAK en la ONU» se codifica favorable (+), por ser actividad propia del Presidente. Ambas son Pol, de modo que el saldo suma sus porcentajes con signo.</dd>
     <dt>4 de junio</dt><dd>CADEM no consultó la noticia de la semana; el terreno de esa semana estuvo dedicado a la primera Cuenta Pública.</dd>
     <dt>28 de agosto</dt><dd>El informe de CADEM de esa semana no incluyó la lámina de noticia de la semana.</dd>
   </dl>
@@ -138,13 +140,13 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
 <!-- ══════ DATOS · lo único que cambia cada domingo ══════ -->
 <script>
 window.DATA = {
-  "updated": "2026-09-24",
+  "updated": "2026-09-28",
   "ventana_dias": 45,
   "prev_report": {
-    "date": "2026-09-20",
-    "net": -24.631823805988617
+    "date": "2026-09-24",
+    "net": -28.24281118535016
   },
-  "sint_override": "La evaluación presidencial se deteriora a -28, como consecuencia de agregar DataInfluye a la serie, que tiende a estar -5 puntos porcentuales debajo de las demás y este mes observó un marcado deterioro en aprobación presidencial. CADEM mejora levemente (-24) y Criteria empeora levemente (-30), señales que vuelven a cancelarse entre sí. Es la quinta semana consecutiva sin que el gobierno logre instalar su propia agenda desde la cadena nacional de inicios de agosto: esta vez la disputan la celebración de Fiestas Patrias (24%) y el caso del exfiscal Fodich (21%), ninguna con más de un cuarto de las menciones.",
+  "sint_override": "La evaluación presidencial cierra septiembre en −29 y una caída de casi un punto respecto de la semana anterior. La baja se explica por Pulso Ciudadano, que reporta una caída significativa de 9 puntos en el neto desde su medición de agosto (−21). CADEM (−21) y Criteria (−27) mejoran tres puntos cada una, pero en el promedio solamente amortiguan la tendencia. Por primera vez, desde la cadena nacional de comienzos de agosto, el gobierno marca la agenda con la adhesión al Escudo de las Américas (38%) y el discurso de Kast en la ONU (23%). Pero el saldo es igualmente negativo por las reacciones mixtas a la primera (−15).",
   "pollsters": {
     "CADEM": {
       "color": "#0F5499"
@@ -723,9 +725,74 @@ window.DATA = {
       "date": "2026-09-21",
       "net": -37,
       "n": 1216
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-07-28",
+      "net": -22,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-08-26",
+      "net": -22,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-09-09",
+      "net": -26,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-09-15",
+      "net": -26,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-09-23",
+      "net": -23,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-09-25",
+      "net": -21,
+      "n": 1001
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-09-27",
+      "net": -27,
+      "n": 802
+    },
+    {
+      "pollster": "Activa",
+      "date": "2026-09-24",
+      "net": -29.4,
+      "n": 1086
     }
   ],
   "news": [
+    {
+      "week": "2026-09-25",
+      "items": [
+        {
+          "text": "Adhesión a Escudo de las Américas",
+          "pct": 38,
+          "cat": "Pol",
+          "sign": -1
+        },
+        {
+          "text": "Discurso de JAK en la ONU",
+          "pct": 23,
+          "cat": "Pol",
+          "sign": 1
+        }
+      ]
+    },
     {
       "week": "2026-09-17",
       "items": [
@@ -1396,13 +1463,19 @@ window.DATA = {
       "eco": 41.0,
       "seg": 41.0,
       "pol": 18.0
+    },
+    {
+      "wave": "Sep 26",
+      "eco": 45.9,
+      "seg": 36.6,
+      "pol": 17.5
     }
   ],
   "agenda_event": {
     "wave": "Mar 26-1",
     "label": "Inicio del gobierno"
   },
-  "caracterizacion": "Es la quinta semana consecutiva en que el gobierno no logra instalar una agenda propia, un patrón que se repite desde la cadena nacional de comienzos de agosto. La conversación pública sigue capturada por noticias ajenas al oficialismo —esta semana la celebración de Fiestas Patrias y el caso del exfiscal Fodich—, cada una con un ciclo de vida de una o dos semanas antes de ser desplazada por la siguiente. La intensidad de este control externo de la agenda está lejos de los mejores momentos del gobierno, cuando la Ley de Reconstrucción se sostuvo varias semanas con menciones cercanas al 40%, y también lejos de los peores, cuando el alza de los combustibles se mantuvo como flanco dominante con cerca del 60% de las menciones. Hoy ningún tema —propio o ajeno— supera el 25% de las menciones. Al margen de la dinámica de agenda, la evaluación económica personal mejora en CADEM por tercera medición consecutiva (Ago-4, Sep-1, Sep-2). Son catorce puntos en tres mediciones, que se suma a un optimismo observado previamente en las entregas de Pulso. En contraste, la pregunta equivalente de DataInfluye se mantiene un pesimismo estable. La serie funciona con una base 100 fijada en el promedio del año anterior, por lo que corrige el peso relativo de cada micro-tendencia. En conjunto, el optimismo de las series de CADEM y Pulso generan una tendencia positiva en la serie ponderada, pero manteniéndose dentro de una variación semanal típica",
+  "caracterizacion": "Por primera vez desde la cadena nacional, a comienzos de agosto, la agenda de la semana es marcada por acciones del gobierno: las dos noticias más mencionadas en CADEM son la adhesión de Chile al Escudo de las Américas (38%) y el discurso del Presidente en la ONU (23%). Aun así, el saldo es negativo. Las tres encuestas consultaron por la Adhesión al Escudo, con CADEM reflejando una desaprobación neta 42 a 48, Criteria una diferencia de cinco puntos 37 a 42, y Pulso un saldo positivo de 42 a 25. En las tres se muestra una división según la posición política: la derecha respalda la adhesión, la izquierda la rechaza ampliamente, y el mundo independiente muestra una respuesta mixta.</p><p>La economía gana peso en la conversación, pero con señales de pesimismo. En Pulso, la economía sube a 46% del agregado de temas y la seguridad baja a 37%, con alzas significativas de inflación y sueldos, con una caída también significativa y de 7 pp. para la seguridad pública. Criteria muestra el mismo desplazamiento: generar empleos y mejores sueldos sube a 20% como primera prioridad (15% en agosto) y mejorar la seguridad baja a 21% (28% en agosto). En paralelo, solo 14% califica bien su situación económica personal en Pulso (-5 pp.), mientras la evaluación mala o muy mala sube a 42% (+4 pp.). En CADEM la evaluación positiva de la economía personal baja 4 pp. en una semana. El índice ponderado de economía personal cae a 73, poniendo freno a las señales de optimismo de las tres semanas anteriores. La menor urgencia de la seguridad es coherente con una victimización que baja a 28% de los hogares, igual al mínimo del mes de abril pasado.",
   "domestica": [
     {
       "wave": "Ene 23",
@@ -1774,6 +1847,13 @@ window.DATA = {
       "mala": 51,
       "neto": -5,
       "ratio": 1.11
+    },
+    {
+      "wave": "Sep 26",
+      "buena": 14.2,
+      "mala": 41.7,
+      "neto": -27.5,
+      "ratio": 2.94
     }
   ],
   "victimizacion": [
@@ -2031,14 +2111,590 @@ window.DATA = {
       "wave": "Ago 26",
       "si": 31.8,
       "ratio": 2.14
+    },
+    {
+      "wave": "Sep 26",
+      "si": 27.8,
+      "ratio": 2.6
     }
   ],
-  "eco": {"base": "2025", "desde": "2025-01-01", "fuentes": {"CADEM": [["2025-01-02", 45.2], ["2025-01-09", 50.5], ["2025-01-16", 53.8], ["2025-01-23", 51.7], ["2025-01-30", 51.7], ["2025-02-06", 51.6], ["2025-02-13", 51.6], ["2025-02-20", 51.6], ["2025-02-27", 51.4], ["2025-03-06", 51.4], ["2025-03-13", 49.0], ["2025-03-20", 52.3], ["2025-03-27", 51.9], ["2025-04-03", 53.4], ["2025-04-10", 51.2], ["2025-04-17", 50.8], ["2025-04-24", 53.9], ["2025-05-01", 51.0], ["2025-05-08", 55.7], ["2025-05-15", 52.5], ["2025-05-22", 57.5], ["2025-05-29", 52.0], ["2025-06-05", 63.0], ["2025-06-12", 56.8], ["2025-06-19", 54.3], ["2025-06-26", 61.9], ["2025-07-03", 61.9], ["2025-07-10", 57.1], ["2025-07-17", 59.9], ["2025-07-24", 53.5], ["2025-07-31", 55.6], ["2025-08-07", 53.3], ["2025-08-14", 55.7], ["2025-08-21", 50.4], ["2025-08-28", 54.0], ["2025-09-04", 59.8], ["2025-09-11", 53.5], ["2025-09-18", 50.4], ["2025-09-25", 59.9], ["2025-10-02", 63.9], ["2025-10-09", 68.1], ["2025-10-16", 67.3], ["2025-10-23", 65.0], ["2025-10-30", 59.8], ["2025-11-06", 63.9], ["2025-11-13", 66.0], ["2025-11-20", 69.1], ["2025-11-27", 62.9], ["2025-12-04", 66.8], ["2025-12-11", 72.2], ["2025-12-18", 65.0], ["2025-12-25", 57.7], ["2026-01-01", 58.8], ["2026-01-08", 59.8], ["2026-01-15", 58.7], ["2026-01-22", 54.5], ["2026-01-29", 52.7], ["2026-02-05", 54.5], ["2026-02-12", 53.0], ["2026-02-19", 51.5], ["2026-02-26", 50.0], ["2026-03-05", 58.7], ["2026-03-12", 51.3], ["2026-03-19", 51.6], ["2026-03-26", 48.7], ["2026-04-02", 42.0], ["2026-04-09", 44.4], ["2026-04-16", 45.2], ["2026-04-23", 47.6], ["2026-04-30", 42.0], ["2026-05-07", 43.3], ["2026-05-14", 49.2], ["2026-05-21", 46.2], ["2026-05-28", 44.1], ["2026-06-04", 40.7], ["2026-06-11", 47.5], ["2026-06-18", 47.5], ["2026-06-25", 43.8], ["2026-07-02", 46.2], ["2026-07-09", 42.0], ["2026-07-16", 46.5], ["2026-07-23", 45.1], ["2026-07-30", 41.0], ["2026-08-06", 40.4], ["2026-08-13", 44.1], ["2026-08-20", 41.3], ["2026-08-27", 37.9], ["2026-09-03", 42.0], ["2026-09-10", 42.6], ["2026-09-17", 46.0]], "Activa": [["2025-01-15", 15.1], ["2025-02-15", 16.8], ["2025-03-15", 14.1], ["2025-04-15", 20.0], ["2025-05-15", 14.8], ["2025-06-15", 16.8], ["2025-07-15", 15.6], ["2025-08-10", 14.9], ["2025-08-25", 19.0], ["2025-09-15", 17.2], ["2025-10-10", 17.6], ["2025-11-15", 21.1], ["2025-12-15", 22.7], ["2026-01-15", 23.9], ["2026-02-15", 21.2], ["2026-03-13", 21.1], ["2026-03-27", 15.7], ["2026-04-10", 14.8], ["2026-04-24", 13.7], ["2026-05-08", 15.7], ["2026-05-22", 17.7], ["2026-06-12", 16.5], ["2026-06-26", 15.0], ["2026-07-17", 15.3], ["2026-07-31", 13.8], ["2026-08-28", 19.1]], "DataInfluye": [["2025-09-20", 21], ["2025-10-20", 21], ["2025-11-20", 21], ["2025-12-20", 24], ["2026-01-20", 20], ["2026-02-20", 22], ["2026-03-20", 19], ["2026-04-20", 13], ["2026-05-20", 14], ["2026-06-20", 9], ["2026-07-25", 10], ["2026-08-23", 10], ["2026-09-21", 13]]}},
+  "eco": {
+    "base": "2025",
+    "desde": "2025-01-01",
+    "fuentes": {
+      "CADEM": [
+        [
+          "2025-01-02",
+          45.2
+        ],
+        [
+          "2025-01-09",
+          50.5
+        ],
+        [
+          "2025-01-16",
+          53.8
+        ],
+        [
+          "2025-01-23",
+          51.7
+        ],
+        [
+          "2025-01-30",
+          51.7
+        ],
+        [
+          "2025-02-06",
+          51.6
+        ],
+        [
+          "2025-02-13",
+          51.6
+        ],
+        [
+          "2025-02-20",
+          51.6
+        ],
+        [
+          "2025-02-27",
+          51.4
+        ],
+        [
+          "2025-03-06",
+          51.4
+        ],
+        [
+          "2025-03-13",
+          49.0
+        ],
+        [
+          "2025-03-20",
+          52.3
+        ],
+        [
+          "2025-03-27",
+          51.9
+        ],
+        [
+          "2025-04-03",
+          53.4
+        ],
+        [
+          "2025-04-10",
+          51.2
+        ],
+        [
+          "2025-04-17",
+          50.8
+        ],
+        [
+          "2025-04-24",
+          53.9
+        ],
+        [
+          "2025-05-01",
+          51.0
+        ],
+        [
+          "2025-05-08",
+          55.7
+        ],
+        [
+          "2025-05-15",
+          52.5
+        ],
+        [
+          "2025-05-22",
+          57.5
+        ],
+        [
+          "2025-05-29",
+          52.0
+        ],
+        [
+          "2025-06-05",
+          63.0
+        ],
+        [
+          "2025-06-12",
+          56.8
+        ],
+        [
+          "2025-06-19",
+          54.3
+        ],
+        [
+          "2025-06-26",
+          61.9
+        ],
+        [
+          "2025-07-03",
+          61.9
+        ],
+        [
+          "2025-07-10",
+          57.1
+        ],
+        [
+          "2025-07-17",
+          59.9
+        ],
+        [
+          "2025-07-24",
+          53.5
+        ],
+        [
+          "2025-07-31",
+          55.6
+        ],
+        [
+          "2025-08-07",
+          53.3
+        ],
+        [
+          "2025-08-14",
+          55.7
+        ],
+        [
+          "2025-08-21",
+          50.4
+        ],
+        [
+          "2025-08-28",
+          54.0
+        ],
+        [
+          "2025-09-04",
+          59.8
+        ],
+        [
+          "2025-09-11",
+          53.5
+        ],
+        [
+          "2025-09-18",
+          50.4
+        ],
+        [
+          "2025-09-25",
+          59.9
+        ],
+        [
+          "2025-10-02",
+          63.9
+        ],
+        [
+          "2025-10-09",
+          68.1
+        ],
+        [
+          "2025-10-16",
+          67.3
+        ],
+        [
+          "2025-10-23",
+          65.0
+        ],
+        [
+          "2025-10-30",
+          59.8
+        ],
+        [
+          "2025-11-06",
+          63.9
+        ],
+        [
+          "2025-11-13",
+          66.0
+        ],
+        [
+          "2025-11-20",
+          69.1
+        ],
+        [
+          "2025-11-27",
+          62.9
+        ],
+        [
+          "2025-12-04",
+          66.8
+        ],
+        [
+          "2025-12-11",
+          72.2
+        ],
+        [
+          "2025-12-18",
+          65.0
+        ],
+        [
+          "2025-12-25",
+          57.7
+        ],
+        [
+          "2026-01-01",
+          58.8
+        ],
+        [
+          "2026-01-08",
+          59.8
+        ],
+        [
+          "2026-01-15",
+          58.7
+        ],
+        [
+          "2026-01-22",
+          54.5
+        ],
+        [
+          "2026-01-29",
+          52.7
+        ],
+        [
+          "2026-02-05",
+          54.5
+        ],
+        [
+          "2026-02-12",
+          53.0
+        ],
+        [
+          "2026-02-19",
+          51.5
+        ],
+        [
+          "2026-02-26",
+          50.0
+        ],
+        [
+          "2026-03-05",
+          58.7
+        ],
+        [
+          "2026-03-12",
+          51.3
+        ],
+        [
+          "2026-03-19",
+          51.6
+        ],
+        [
+          "2026-03-26",
+          48.7
+        ],
+        [
+          "2026-04-02",
+          42.0
+        ],
+        [
+          "2026-04-09",
+          44.4
+        ],
+        [
+          "2026-04-16",
+          45.2
+        ],
+        [
+          "2026-04-23",
+          47.6
+        ],
+        [
+          "2026-04-30",
+          42.0
+        ],
+        [
+          "2026-05-07",
+          43.3
+        ],
+        [
+          "2026-05-14",
+          49.2
+        ],
+        [
+          "2026-05-21",
+          46.2
+        ],
+        [
+          "2026-05-28",
+          44.1
+        ],
+        [
+          "2026-06-04",
+          40.7
+        ],
+        [
+          "2026-06-11",
+          47.5
+        ],
+        [
+          "2026-06-18",
+          47.5
+        ],
+        [
+          "2026-06-25",
+          43.8
+        ],
+        [
+          "2026-07-02",
+          46.2
+        ],
+        [
+          "2026-07-09",
+          42.0
+        ],
+        [
+          "2026-07-16",
+          46.5
+        ],
+        [
+          "2026-07-23",
+          45.1
+        ],
+        [
+          "2026-07-30",
+          41.0
+        ],
+        [
+          "2026-08-06",
+          40.4
+        ],
+        [
+          "2026-08-13",
+          44.1
+        ],
+        [
+          "2026-08-20",
+          41.3
+        ],
+        [
+          "2026-08-27",
+          37.9
+        ],
+        [
+          "2026-09-03",
+          42.0
+        ],
+        [
+          "2026-09-10",
+          42.6
+        ],
+        [
+          "2026-09-17",
+          46.0
+        ],
+        [
+          "2026-09-24",
+          42.4
+        ]
+      ],
+      "Activa": [
+        [
+          "2025-01-15",
+          15.1
+        ],
+        [
+          "2025-02-15",
+          16.8
+        ],
+        [
+          "2025-03-15",
+          14.1
+        ],
+        [
+          "2025-04-15",
+          20.0
+        ],
+        [
+          "2025-05-15",
+          14.8
+        ],
+        [
+          "2025-06-15",
+          16.8
+        ],
+        [
+          "2025-07-15",
+          15.6
+        ],
+        [
+          "2025-08-10",
+          14.9
+        ],
+        [
+          "2025-08-25",
+          19.0
+        ],
+        [
+          "2025-09-15",
+          17.2
+        ],
+        [
+          "2025-10-10",
+          17.6
+        ],
+        [
+          "2025-11-15",
+          21.1
+        ],
+        [
+          "2025-12-15",
+          22.7
+        ],
+        [
+          "2026-01-15",
+          23.9
+        ],
+        [
+          "2026-02-15",
+          21.2
+        ],
+        [
+          "2026-03-13",
+          21.1
+        ],
+        [
+          "2026-03-27",
+          15.7
+        ],
+        [
+          "2026-04-10",
+          14.8
+        ],
+        [
+          "2026-04-24",
+          13.7
+        ],
+        [
+          "2026-05-08",
+          15.7
+        ],
+        [
+          "2026-05-22",
+          17.7
+        ],
+        [
+          "2026-06-12",
+          16.5
+        ],
+        [
+          "2026-06-26",
+          15.0
+        ],
+        [
+          "2026-07-17",
+          15.3
+        ],
+        [
+          "2026-07-31",
+          13.8
+        ],
+        [
+          "2026-08-28",
+          19.1
+        ],
+        [
+          "2026-09-24",
+          14.2
+        ]
+      ],
+      "DataInfluye": [
+        [
+          "2025-09-20",
+          21
+        ],
+        [
+          "2025-10-20",
+          21
+        ],
+        [
+          "2025-11-20",
+          21
+        ],
+        [
+          "2025-12-20",
+          24
+        ],
+        [
+          "2026-01-20",
+          20
+        ],
+        [
+          "2026-02-20",
+          22
+        ],
+        [
+          "2026-03-20",
+          19
+        ],
+        [
+          "2026-04-20",
+          13
+        ],
+        [
+          "2026-05-20",
+          14
+        ],
+        [
+          "2026-06-20",
+          9
+        ],
+        [
+          "2026-07-25",
+          10
+        ],
+        [
+          "2026-08-23",
+          10
+        ],
+        [
+          "2026-09-21",
+          13
+        ]
+      ]
+    }
+  },
   "cadem_ancla": {
-    "semana": "2026-09-04",
+    "semana": "2026-09-25",
     "buena": 42,
-    "mala": 55,
-    "neto": -13
+    "mala": 54,
+    "neto": -12
+  },
+  "agenda_tags": {
+    "eco": [
+      "Desempleo",
+      "Inflación - alza de precios",
+      "Economía",
+      "Sueldos",
+      "Pobreza",
+      "Desigualdad"
+    ],
+    "seg": [
+      "Delincuencia",
+      "Narcotráfico",
+      "Seguridad Pública",
+      "Terrorismo",
+      "Inmigración"
+    ],
+    "pol": [
+      "Corrupción",
+      "Gestión del Gobierno",
+      "Estabilidad Política",
+      "Justicia/Sistema Judicial"
+    ],
+    "excluidos": [
+      "Salud",
+      "Educación",
+      "Vivienda",
+      "Pensiones - Jubilaciones",
+      "Derechos Humanos",
+      "Cuidado Medio ambiente",
+      "Relaciones Internacionales",
+      "Transporte público",
+      "Relación con pueblos originarios",
+      "Sequía"
+    ],
+    "regla": "Porcentaje de menciones de cada tag (respuesta guiada, tres menciones por persona) sumado dentro de su categoría; cada categoría se expresa como participación del total de las tres, de modo que suman 100."
   }
 };
 </script>
@@ -2131,7 +2787,7 @@ for(let g=y0;g<=y1;g+=10){
 s+='<line x1="'+m.l+'" x2="'+(Wd-m.r)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="#E8D5BD" stroke-width="1"/>';
 s+='<text x="'+(m.l-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="11" fill="#8E7B68">'+g+'%</text>';}
 for(let i=0;i<n;i++){const w=A[i].wave;
-if(/^(Ene|Jul)/.test(w)||i===n-1)
+if((/^(Ene|Jul)/.test(w)&&!/-2$/.test(w))||i===n-1)
 s+='<text x="'+X(i)+'" y="'+(H-14)+'" text-anchor="middle" font-size="10" fill="#5C4A3A">'+w+'</text>';}
 const ev=D.agenda_event;
 if(ev){const ei=A.findIndex(a=>a.wave===ev.wave);
