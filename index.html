@@ -140,13 +140,13 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
 <!-- ══════ DATOS · lo único que cambia cada domingo ══════ -->
 <script>
 window.DATA = {
-  "updated": "2026-10-04",
+  "updated": "2026-10-11",
   "ventana_dias": 45,
   "prev_report": {
-    "date": "2026-09-28",
-    "net": -29.134080389768574
+    "date": "2026-10-04",
+    "net": -32.15896686159844
   },
-  "sint_override": "La evaluación presidencial toca su nivel más bajo de la serie: el promedio cae a −32, tres puntos menos que la semana anterior, y supera el mínimo previo de fines de septiembre (−30). Es además consistente, todas las últimas entregas de las encuestas públicas reportan un deterioro: CADEM cae diez puntos en el neto hasta −31, su peor registro desde el inicio del gobierno, y Criteria baja tres hasta −30, igualando su mínimo. El gobierno pierde el control de la agenda pese a la cadena nacional por la Ley de Presupuesto: la muerte del carabinero en Lo Espejo (26%) y la nueva alza de los combustibles (19%) dominan las menciones, por sobre el presupuesto (16%). De acuerdo con CADEM, la cadena tuvo amplia audiencia (67%) pero mala evaluación (−18), la peor desde los anuncios de agenda social del expresidente Piñera durante el estallido social.",
+  "sint_override": "La evaluación presidencial marca un nuevo mínimo por segunda semana consecutiva: el promedio cae a −34, casi dos puntos menos que la semana anterior. El deterioro vuelve a ser consistente entre encuestas: Criteria cae siete puntos en el neto hasta −37, su peor registro del gobierno, mientras CADEM se mantiene en su mínimo desde marzo con −33. El aluvión en Las Condes domina la agenda (41%), muy por sobre la discusión de la Ley de Presupuestos (20%).",
   "pollsters": {
     "CADEM": {
       "color": "#0F5499"
@@ -791,9 +791,44 @@ window.DATA = {
       "date": "2026-10-04",
       "net": -30,
       "n": 802
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-10-07",
+      "net": -33,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-10-09",
+      "net": -32,
+      "n": 1001
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-10-11",
+      "net": -37,
+      "n": 802
     }
   ],
   "news": [
+    {
+      "week": "2026-10-09",
+      "items": [
+        {
+          "text": "Aluvión en Las Condes",
+          "pct": 41,
+          "cat": "Pol",
+          "sign": 0
+        },
+        {
+          "text": "Discusión Ley de Presupuestos",
+          "pct": 20,
+          "cat": "Eco",
+          "sign": 0
+        }
+      ]
+    },
     {
       "week": "2026-10-02",
       "items": [
@@ -1510,7 +1545,7 @@ window.DATA = {
     "wave": "Mar 26-1",
     "label": "Inicio del gobierno"
   },
-  "caracterizacion": "La cadena nacional por la Ley de Presupuesto no logra ordenar la agenda. Según CADEM, el 67% la vio o se informó de ella, una audiencia comparable a la de las cadenas de abril (70%) y agosto (73%), pero su evaluación es la más negativa del gobierno: 31% la califica como buena o muy buena, mientras un 49% como mala o muy mala. El saldo de −18 contrasta con los saldos positivos de abril (+4) y agosto (+8). Es el peor desde la cadena de agenda social de Piñera en diciembre de 2019 (−53). Las noticias más mencionadas de la semana fueron la muerte del cabo Cristopher Aguilera en Lo Espejo (26%) y la nueva alza de los combustibles (19%), con el presupuesto recién en tercer lugar (16%). En Criteria, el Escudo de las Américas también se desgasta: el rechazo sube a 47% y el apoyo baja a 31% (neto de −16, frente a −5 la semana anterior).</p><p>Las señales de pesimismo económico que mostró Pulso Ciudadano a fines de septiembre se confirman en las otras encuestas. En Pulso, la economía había subido a 46% del agregado de temas y solo 14% calificaba bien su situación económica personal (−5 pp.). Ahora Criteria registra que 62% cree que la situación económica del país está peor que hace seis meses (49% en agosto). Las expectativas también empeoran: 49% cree que el país estará peor en seis meses (42% en agosto), y la esperanza frente al 2026 cae a 29%, desde 53% en febrero. En CADEM, la evaluación de la situación del empleo en el país llega a 91% como mala o muy mala, y en la economía personal las evaluaciones positivas se mantienen en 42% mientras las negativas suben a 56% (+2 pp.). Con esto, el índice ponderado de economía personal se mantiene en 73, revirtiendo el optimismo que acompañó el inicio de la primavera.",
+  "caracterizacion": "La erosión del apoyo se concentra en los votantes que no son del núcleo del gobierno. Según Criteria, la aprobación cae principalmente entre quienes votaron por Matthei (de 53% al comienzo del gobierno, a 30% actualmente), Kaiser (86% a 61%) y Parisi (33% a 19%). Respecto de las noticias de la semana, la respuesta del gobierno a la emergencia por el aluvión es mal evaluada, mientras que la percepción de eficiencia del gasto público es fuertemente partidaria. Hay mayoría para reducir funcionarios públicos (52%), pero apoyo marginal para recortar programas sociales (19%), o bonos y subsidios (8%).</p><p>En economía personal, CADEM registra una leve mejora: las evaluaciones positivas suben a 45% (desde 42%) y las negativas bajan a 53% (desde 56%), con lo que el índice ponderado se mantiene en 73. En seguridad, esta semana se publicó el Índice Paz Ciudadana 2026 que muestra una victimización de hogares en niveles similares a los de nuestra serie, y sin mayores cambios respecto de 2025. La proporción con alto temor, eso sí, baja 3,4 puntos porcentuales hasta 21%, su tercera caída consecutiva. La confianza en Carabineros (56%) y en la PDI (62%) sube significativamente.",
   "domestica": [
     {
       "wave": "Ene 23",
@@ -2525,6 +2560,10 @@ window.DATA = {
         [
           "2026-10-01",
           42.1
+        ],
+        [
+          "2026-10-08",
+          44.7
         ]
       ],
       "Activa": [
@@ -2694,10 +2733,10 @@ window.DATA = {
     }
   },
   "cadem_ancla": {
-    "semana": "2026-10-02",
-    "buena": 42,
-    "mala": 56,
-    "neto": -14
+    "semana": "2026-10-09",
+    "buena": 45,
+    "mala": 53,
+    "neto": -8
   },
   "agenda_tags": {
     "eco": [
