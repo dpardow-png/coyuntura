@@ -140,13 +140,13 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
 <!-- ══════ DATOS · lo único que cambia cada domingo ══════ -->
 <script>
 window.DATA = {
-  "updated": "2026-10-21",
+  "updated": "2026-10-25",
   "ventana_dias": 45,
   "prev_report": {
-    "date": "2026-10-11",
-    "net": -33.77013398294763
+    "date": "2026-10-21",
+    "net": -32.34761789600967
   },
-  "sint_override": "La evaluación presidencial promedia −32 y se mantiene cerca del mínimo. Pero las encuestas se mueven en direcciones opuestas: Criteria y DataInfluye mejoran levemente desde sus registros mínimos para este gobierno, y CADEM empeora. El nuevo sistema frontal en la Región Metropolitana domina la agenda (44%), seguido por las pérdidas del fondo E de las AFP (30%). Ni el aniversario del 18-O, ni tampoco el acuerdo para la rebaja del TAG consiguieron marcar la agenda.",
+  "sint_override": "La evaluación presidencial promedia −34 y vuelve a acercarse al mínimo del gobierno. Esta vez CADEM y Criteria coinciden en −37: la aprobación en CADEM cae por primera vez bajo el 30% y Criteria iguala su peor registro. La rebaja de condenas a 56 condenados por delitos sexuales contra menores encabeza la agenda (36%), seguida por la crisis de las AFP (33%).",
   "pollsters": {
     "CADEM": {
       "color": "#0F5499"
@@ -827,9 +827,44 @@ window.DATA = {
       "date": "2026-10-18",
       "net": -32,
       "n": 802
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-10-20",
+      "net": -29,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-10-23",
+      "net": -37,
+      "n": 1010
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-10-25",
+      "net": -37,
+      "n": 802
     }
   ],
   "news": [
+    {
+      "week": "2026-10-23",
+      "items": [
+        {
+          "text": "Rebaja de condenas MINJUD",
+          "pct": 36,
+          "cat": "Pol",
+          "sign": -1
+        },
+        {
+          "text": "Pérdidas en los fondos de pensiones",
+          "pct": 33,
+          "cat": "Eco",
+          "sign": 0
+        }
+      ]
+    },
     {
       "week": "2026-10-16",
       "items": [
@@ -1580,7 +1615,7 @@ window.DATA = {
     "wave": "Mar 26-1",
     "label": "Inicio del gobierno"
   },
-  "caracterizacion": "La aprobación presidencial continúa en terreno negativo con −32 y las expectativas económicas vuelven a empeorar. La agenda siguió marcada por eventos que están fuera del control del gobierno. Ni la discusión sobre el aniversario del 18-O, ni tampoco el acuerdo para la rebaja del TAG consiguieron marcar la agenda de CADEM.</p><p>Con todo, la rebaja del TAG es ampliamente conocida (70-85%) y tiene apoyo mayoritario (55% en CADEM, 69% en Criteria). El respaldo se divide cuando se explicita la contraprestación, y la mayoría está en desacuerdo con extender la concesión por 20 meses. A su vez, un 59% en Criteria considera que el estallido social fue negativo para el país (desde 63% en 2025), pero casi 2/3 considera que existen actualmente motivos para salir a protestar en las calles. Si bien este resultado varía por afiliación política, con más de un 90% de los encuestados de izquierda, y menos de un 40% de los de derecha, la tendencia de la población general es similar a la de los encuestados de centro o independientes.</p><p>En economía personal, CADEM registra un deterioro marcado: las evaluaciones positivas caen 8 pp en una semana hasta 37%, y las negativas suben esos mismos 8 pp hasta llegar a 61%. Es el peor registro desde el inicio de este gobierno. Como CADEM entra con el promedio de sus últimas cuatro semanas, el índice ponderado baja de forma más moderada, de 73 a 71.",
+  "caracterizacion": "La aprobación presidencial retrocede a −34. Esta vez, el deterioro es consistente entre las dos encuestas que miden esta semana. Además, por primera vez en un mes la noticia que domina la agenda es atribuible al propio gobierno: un 89% conoce la rebaja de condenas a 56 condenados por delitos sexuales contra menores, pero un 92% está en desacuerdo con la medida. Las pérdidas de los fondos de pensiones se mantienen como segundo tema por segunda semana consecutiva (33%). La disminución de 1,5 pp es relativamente grande dentro de la tendencia de los últimos 3 meses, pero muy lejos de la caída en 23 pp después del alza en los precios de las bencinas a fines de marzo.</p><p>En Criteria el rechazo a indultar a militares condenados por violaciones a los derechos humanos sube levemente (de 59% a 61%). Para los carabineros condenados durante el estallido social, el rechazo es menor (53%). En ambos casos la división es fundamentalmente política: en la derecha el apoyo es mayoritario, en la izquierda predomina el rechazo, mientras que entre los encuestados de centro y sin identificar predomina el rechazo, con niveles cercanos al total. En economía personal, CADEM revierte la caída de la semana pasada: las evaluaciones positivas suben de 37% a 43% y las negativas bajan de 61% a 53%. Aun así, las expectativas siguen deprimidas: un 89% califica como mala la situación del empleo y un 55% en Criteria espera que la economía del país esté peor en 2027.",
   "domestica": [
     {
       "wave": "Ene 23",
@@ -2603,6 +2638,10 @@ window.DATA = {
         [
           "2026-10-15",
           36.3
+        ],
+        [
+          "2026-10-22",
+          42.8
         ]
       ],
       "Activa": [
@@ -2776,10 +2815,10 @@ window.DATA = {
     }
   },
   "cadem_ancla": {
-    "semana": "2026-10-16",
-    "buena": 37,
-    "mala": 61,
-    "neto": -24
+    "semana": "2026-10-23",
+    "buena": 43,
+    "mala": 53,
+    "neto": -10
   },
   "agenda_tags": {
     "eco": [
@@ -2850,7 +2889,7 @@ const MA=dts.map(d=>({d,v:ma(d)})).filter(x=>x.v!==null);
 const cur=MA[MA.length-1],prv=MA[MA.length-2];
 document.getElementById("net").textContent=FN(cur.v);
 const dv=D.prev_report?(cur.v-D.prev_report.net):(cur.v-prv.v),de=document.getElementById("delta");
-de.textContent="Δ "+(dv>0?"+":"−")+Math.abs(dv).toFixed(1)+" pp vs. semana anterior";
+const MAat=t=>{let v=null;for(const x of MA){if(x.d<=t)v=x.v;else break;}return v;};const wd=[];{let t=new Date(MA[0].d);t.setDate(t.getDate()+((7-t.getDay())%7||7));let pv=MAat(t);for(t.setDate(t.getDate()+7);t<=cur.d;t.setDate(t.getDate()+7)){const v=MAat(t);if(v!==null&&pv!==null)wd.push(Math.abs(v-pv));pv=v;}}const ws=wd.slice(-12).sort((a,b)=>a-b),tip=ws.length?(ws.length%2?ws[(ws.length-1)/2]:(ws[ws.length/2-1]+ws[ws.length/2])/2):null;const F1=v=>v.toFixed(1).replace(".",",");de.innerHTML="Δ "+(dv>0?"+":"−")+F1(Math.abs(dv))+" pp desde la semana anterior"+(tip!==null?'<br><span style="color:var(--text-subtle);font-weight:400">variación semanal típica ±'+F1(tip)+" pp (últimas 12 semanas)</span>":"");
 de.style.color=dv<0?"var(--claret)":dv>0?"var(--teal)":"var(--text-subtle)";
 const U=P(D.updated);document.getElementById("upd").textContent="Actualizado "+FD(U)+" "+U.getFullYear();
 for(const id of["w1","w2"]){const el=document.getElementById(id);if(el)el.textContent=W;}
