@@ -140,13 +140,13 @@ tr.skip td{color:var(--text-subtle);font-style:italic}
 <!-- ══════ DATOS · lo único que cambia cada domingo ══════ -->
 <script>
 window.DATA = {
-  "updated": "2026-10-25",
+  "updated": "2026-11-01",
   "ventana_dias": 45,
   "prev_report": {
-    "date": "2026-10-21",
-    "net": -32.34761789600967
+    "date": "2026-10-25",
+    "net": -33.80676655389077
   },
-  "sint_override": "La evaluación presidencial promedia −34 y vuelve a acercarse al mínimo del gobierno. Esta vez CADEM y Criteria coinciden en −37: la aprobación en CADEM cae por primera vez bajo el 30% y Criteria iguala su peor registro. La rebaja de condenas a 56 condenados por delitos sexuales contra menores encabeza la agenda (36%), seguida por la crisis de las AFP (33%). La disminución de 1,5 pp es relativamente grande dentro de la tendencia de los últimos 3 meses, pero muy lejos de la caída en 23 pp después del alza en los precios de las bencinas a fines de marzo.",
+  "sint_override": "La evaluación presidencial promedia −40 y marca un nuevo mínimo del gobierno. Las tres encuestas que midieron esta semana coinciden: CADEM cae a 26% de aprobación, Criteria a 25% y Activa a 22%, todas en su peor registro. El caso Rabat domina la agenda (55%), seguido por un desempleo que supera el millón de personas (18%). La caída de 6,1 pp es unas diez veces la variación semanal típica, aunque sigue lejos de los 23 pp que siguieron al alza de las bencinas a fines de marzo.",
   "pollsters": {
     "CADEM": {
       "color": "#0F5499"
@@ -845,9 +845,50 @@ window.DATA = {
       "date": "2026-10-25",
       "net": -37,
       "n": 802
+    },
+    {
+      "pollster": "Activa",
+      "date": "2026-10-29",
+      "net": -45.4,
+      "n": 1007
+    },
+    {
+      "pollster": "Criteria",
+      "date": "2026-11-01",
+      "net": -40,
+      "n": 802
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-10-27",
+      "net": -37,
+      "n": 1000
+    },
+    {
+      "pollster": "CADEM",
+      "date": "2026-10-30",
+      "net": -43,
+      "n": 1007
     }
   ],
   "news": [
+    {
+      "week": "2026-10-30",
+      "items": [
+        {
+          "text": "Rebaja de condenas MINJUD",
+          "pct": 55,
+          "cat": "Pol",
+          "sign": -1
+        },
+        {
+          "text": "Desempleo supera el millón de personas",
+          "pct": 18,
+          "cat": "Eco",
+          "sign": -1
+        }
+      ]
+    },
     {
       "week": "2026-10-23",
       "items": [
@@ -1609,13 +1650,19 @@ window.DATA = {
       "eco": 45.9,
       "seg": 36.6,
       "pol": 17.5
+    },
+    {
+      "wave": "Oct 26",
+      "eco": 46.7,
+      "seg": 33.9,
+      "pol": 19.4
     }
   ],
   "agenda_event": {
     "wave": "Mar 26-1",
     "label": "Inicio del gobierno"
   },
-  "caracterizacion": "La aprobación presidencial retrocede a −34. Esta vez, el deterioro es consistente entre las dos encuestas que miden esta semana. Además, por primera vez en un mes la noticia que domina la agenda es atribuible al propio gobierno: un 89% conoce la rebaja de condenas a 56 condenados por delitos sexuales contra menores, pero un 92% está en desacuerdo con la medida. Las pérdidas de los fondos de pensiones se mantienen como segundo tema por segunda semana consecutiva (33%). La disminución de 1,5 pp es relativamente grande dentro de la tendencia de los últimos 3 meses, pero muy lejos de la caída en 23 pp después del alza en los precios de las bencinas a fines de marzo.</p><p>En Criteria el rechazo a indultar a militares condenados por violaciones a los derechos humanos sube levemente (de 59% a 61%). Para los carabineros condenados durante el estallido social, el rechazo es menor (53%). En ambos casos la división es fundamentalmente política: en la derecha el apoyo es mayoritario, en la izquierda predomina el rechazo, mientras que entre los encuestados de centro y sin identificar predomina el rechazo, con niveles cercanos al total. En economía personal, CADEM revierte la caída de la semana pasada: las evaluaciones positivas suben de 37% a 43% y las negativas bajan de 61% a 53%. Aun así, las expectativas siguen deprimidas: un 89% califica como mala la situación del empleo y un 55% en Criteria espera que la economía del país esté peor en 2027.",
+  "caracterizacion": "El gobierno enfrenta dos crisis de naturaleza distinta. La primera es estructural y económica: el desempleo supera a la delincuencia como principal problema por primera vez desde 2021, y el peso de los temas económicos en la agenda alcanza su máximo en la serie (47%). Quiroz, que ya era el ministro peor evaluado en mayo, empeora su evaluación en todas las mediciones. La segunda crisis es coyuntural y política: el caso de las rebajas de condena golpea la aprobación y al núcleo de partidarios, pero no se traduce en mayor preocupación por la seguridad. La ciudadanía lo lee como un problema de conducción del gobierno, no como un problema de seguridad o delincuencia.</p><p>El rechazo a mantener a Rabat es transversal: 72% en Criteria y 74% en Activa. En Criteria llega a 54% incluso entre quienes se identifican con la derecha. Las emociones frente al gobierno son mayoritariamente negativas: la decepción encabeza (54%), seguida de la rabia (32%). CADEM confirma que el deterioro económico no es solo de clima político: la evaluación de la situación personal cae de 43% a 36% en la semana en que el desempleo supera el millón de personas, y en Activa la mala evaluación de la economía del país sube a 62%, cerca de su máximo histórico.",
   "domestica": [
     {
       "wave": "Ene 23",
@@ -1994,6 +2041,13 @@ window.DATA = {
       "mala": 41.7,
       "neto": -27.5,
       "ratio": 2.94
+    },
+    {
+      "wave": "Oct 26",
+      "buena": 12.9,
+      "mala": 45.4,
+      "neto": -32.5,
+      "ratio": 3.52
     }
   ],
   "victimizacion": [
@@ -2256,6 +2310,11 @@ window.DATA = {
       "wave": "Sep 26",
       "si": 27.8,
       "ratio": 2.6
+    },
+    {
+      "wave": "Oct 26",
+      "si": 30.0,
+      "ratio": 2.33
     }
   ],
   "eco": {
@@ -2642,6 +2701,10 @@ window.DATA = {
         [
           "2026-10-22",
           42.8
+        ],
+        [
+          "2026-10-29",
+          35.9
         ]
       ],
       "Activa": [
@@ -2752,6 +2815,10 @@ window.DATA = {
         [
           "2026-09-24",
           14.2
+        ],
+        [
+          "2026-10-29",
+          12.9
         ]
       ],
       "DataInfluye": [
@@ -2815,10 +2882,10 @@ window.DATA = {
     }
   },
   "cadem_ancla": {
-    "semana": "2026-10-23",
-    "buena": 43,
-    "mala": 53,
-    "neto": -10
+    "semana": "2026-10-30",
+    "buena": 36,
+    "mala": 60,
+    "neto": -24
   },
   "agenda_tags": {
     "eco": [
